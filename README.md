@@ -8,7 +8,7 @@
 
   charactor, obstacle, item를 생성하는 객체
 
-### [main_charactor](moving_charactor.md)
+### [player](player.md)
 
 ### [object](object.md)
 
