@@ -1,0 +1,12 @@
+## class Object
+###   
+
+### private
+> 
+>
+>
+
+### public
+>
+>
+>
