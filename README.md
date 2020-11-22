@@ -8,25 +8,27 @@
 
   charactor, obstacle, item를 생성하는 객체
 
-### [moving_charactor](moving_charactor.md)
->  + #### [main_charactor](moving_charactor.md)
->  + #### [kraken](kraken.md)
->  + #### [suffer](suffer.md)
+### [object](object.md)
 
-  움직이는 object를 담는 객체
+>#### [moving_charactor](moving_charactor.md)
+> >  + ##### [main_charactor](moving_charactor.md)
+> >  + ##### [kraken](kraken.md)
+> >  + ##### [suffer](suffer.md)
 
-### [non_moving_charactor](non_moving_charactor.md)
->  + #### [debuff](debuff.md)
->  + #### [damage](damage.md)
+>  움직이는 object를 담는 객체
 
-  움직이지 않는 object를 담는 객체
+>#### [non_moving_charactor](non_moving_charactor.md)
+> >  + ##### [debuff](debuff.md)
+> >  + ##### [damage](damage.md)
+
+>  움직이지 않는 object를 담는 객체
   
-### [item](item.md)
->  + #### [energy](energy.md)
->  + #### [heart](heart.md)
->  + #### [shield](shield.md)
+> #### [item](item.md)
+> >  + ##### [energy](energy.md)
+> >  + ##### [heart](heart.md)
+> >  + ##### [shield](shield.md)
   
-   아이템 object를 담는 객체
+>   아이템 object를 담는 객체
   
 ### [route_manager](route_manager.md)
 
