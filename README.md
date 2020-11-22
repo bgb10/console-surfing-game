@@ -46,7 +46,4 @@
 ### [input_manager](iput_manager.md)
 
   입력받는 내용( 조작내용 )을 관리하는 객체
-  
-### [move_manager](move_manager.md)
-
-  입력받은 내용을 바탕으로 main_charctor을 제외한 나머지 모든 object의 위치를 바꾸는 객체
+ 
