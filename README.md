@@ -8,10 +8,11 @@
 
   charactor, obstacle, item를 생성하는 객체
 
+### [main_charactor](moving_charactor.md)
+
 ### [object](object.md)
 
 >#### [moving_charactor](moving_charactor.md)
-> >  + ##### [main_charactor](moving_charactor.md)
 > >  + ##### [kraken](kraken.md)
 > >  + ##### [suffer](suffer.md)
 
