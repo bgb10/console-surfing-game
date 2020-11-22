@@ -1,4 +1,5 @@
-object ( [Moving_Charactor](moving_charactor.md), [Non_Moving_Charactor](non_moving_charactor.md), [Item](item.md) )를 관리하는 객체
+## class Object_Manager
+### object ( [Moving_Charactor](moving_charactor.md), [Non_Moving_Charactor](non_moving_charactor.md), [Item](item.md) )를 관리하는 객체
 
 ### private
 > #### object의 배열
