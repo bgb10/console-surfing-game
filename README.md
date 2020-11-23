@@ -1,41 +1,17 @@
 # surfing_game
 
-### [ ObjectManager ](ObjectManager.md)
+Microsoft Edge's surfing minigame recreated in C++ console
 
-  [MovingObject](MovingObject.md), [NonMovingObject](NonMovingObject.md), [Item](Item.md)의 정보를 저장 및 관리하는 객체
-  
-### [ObjectGenerater](ObjectGenerater.md)
+Project 4 of Object Oriented Programming course held in Chung-Ang University on Fall 2020
 
-  [MovingObject](MovingObject.md), [NonMovingObject](NonMovingObject.md), [Item](Item.md)를 생성하는 객체
+## Documentation
 
-### [Player](Player.md)
+[docs/README.md](docs/README.md)
 
-### [Object](Object.md)
+## Course webpage
 
->#### [MovingObject](MovingObject.md)
-> >  + ##### [Kraken](Kraken.md)
-> >  + ##### [Suffer](Suffer.md)
+[~bongbong/oop20](http://cau.ac.kr/~bongbong/oop20/)
 
->  움직이는 object를 담는 객체
+### Project specification
 
->#### [NonMovingCharactor](NonMovingCharactor.md)
-> >  + ##### [Debuff](Debuff.md)
-> >  + ##### [Damage](Damage.md)
-
->  움직이지 않는 object를 담는 객체
-  
-> #### [Item](Item.md)
-> >  + ##### [Energy](Energy.md)
-> >  + ##### [Heart](Heart.md)
-> >  + ##### [Shield](Shield.md)
-  
->   아이템 object를 담는 객체
-
-### [ScreenManager](ScreenManager.md)
-
-  화면에 출력하는 내용을 관리하는 객체
-
-### [InputManager](InputManager.md)
-
-  입력받는 내용( 조작내용 )을 관리하는 객체
- 
+[Project #4 PDF on bongbong/oop20](http://cau.ac.kr/~bongbong/oop20/oop20_proj4.pdf)
