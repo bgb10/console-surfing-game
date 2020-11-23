@@ -48,11 +48,15 @@ ObjectManager()
 TODO
 </details>
 
+---
+
 ### [class ObjectGenerator](ObjectGenerater.md)
 
 Instantiates `GameObject` objects according to game rules.
 
 게임의 규칙에 따라 `GameObject` 객체들을 생성하는 클래스.
+
+---
 
 ### [class InputManager](InputManager.md)
 
@@ -60,11 +64,15 @@ Manages user input and calls according callback functions.
 
 사용자의 입력을 받아서 올바른 콜백 함수를 호출하는 클래스.
 
+---
+
 ### [class ScreenManager](ScreenManager.md)
 
 Manages instantiated `ObjectManager` and `InputManager` to render the game scene.
 
 `ObjectManager`와 `InputManager`를 사용해서 게임을 화면에 표시하는 클래스.
+
+---
 
 ### [class GameObject](GameObject.md)
 
@@ -100,6 +108,8 @@ Definition of **boost** item. Increase boost count by 1 when player hits one.
 
 </details>
 
+---
+
 #### [class Obstacle : public GameObject](Obstacle.md)
 
 Definition of **obstacle** in the game. Will randomly instantiate between child classes.
@@ -123,6 +133,8 @@ Definition of **buoy** obstacle. Reduce one life when player hits one.
 
 </details>
 
+---
+
 #### [class Drawback : public GameObject](Drawback.md)
 
 Definition of **drawback** objects in the game. Will randomly instantiate between child classes.
@@ -145,6 +157,8 @@ Definition of **current** drawback object. Reduces player speed when player goes
 해류 장애물을 정의하는 클래스. 충돌시 속도 감소.
 
 </details>
+
+---
 
 #### [class MoveableObject : public GameObject](MoveableObject.md)
 
