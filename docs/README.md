@@ -1,5 +1,89 @@
 # Documentation
 
+### [class GameManager](GameManager.md)
+
+Handles the gameplay by providing an interface to `main()`.
+
+`main()` 에서 게임을 실행하는 클래스.
+
+<details>
+<summary>Details</summary>
+
+#### Description
+
+This class governs all `...Manager` objects and handles the interaction between those objects. Instantiated and used by `main()`.
+
+#### Member variables
+
+```cpp
+private Player m_player;
+```
+
+The player object that user controls. Gets collision checked with `m_vector_moveable` and `m_vector_immoveable`.
+
+```cpp
+private vector<MoveableObject> m_vector_moveable;
+```
+
+A vector of moveable objects. Contains `Kraken` and `Surfer` objects. Gets collision checked with `m_vector_moveable` and `m_player`.
+
+```cpp
+private vector<GameObject> m_vector_immoveable;
+```
+
+A vector of immoveable objects. Contains `Obstacle` and `Drawback` objects.
+
+#### Constructor
+
+```cpp
+ObjectManager()
+```
+
+Instantiates the `ObjectManager` object. Initializes `m_player` with default player position.
+
+#### Member functions
+
+```cpp
+public void clear()
+```
+
+Removes all available game objects. Calls `clear()` on vectors and reinitializes `m_player` variable.
+
+Used to restart the game.
+
+##### Getters
+
+```cpp
+public Player get_player()
+```
+
+Returns the player object.
+
+**Returns**
+- An instantiated `Player` instance.
+
+```cpp
+public vector<MoveableObject> get_moveable()
+```
+
+Returns all available moveable game objects.
+
+**Returns**
+- A vector of all instantiated `MoveableObject` instances.
+
+```cpp
+public vector<GameObject> get_immoveable()
+```
+
+Returns all available immoveable game objects.
+
+**Returns**
+- A vector of all instantiated `GameObject` instances that are not `MoveableObject`.
+
+</details>
+
+---
+
 ### [class ObjectManager](ObjectManager.md)
 
 Manages instantiated `GameObject` objects in the program.
@@ -89,6 +173,83 @@ Returns all available immoveable game objects.
 Instantiates `GameObject` objects according to game rules.
 
 게임의 규칙에 따라 `GameObject` 객체들을 생성하는 클래스.
+
+<details>
+<summary>Details</summary>
+
+#### Description
+
+This class generates `GameObjects` according to game rules (e.g., probability of health item being generated) and adds it into `ObjectManager`. Will be used by `GameManager` class.
+
+#### Member variables
+
+```cpp
+private Player m_player;
+```
+
+The player object that user controls. Gets collision checked with `m_vector_moveable` and `m_vector_immoveable`.
+
+```cpp
+private vector<MoveableObject> m_vector_moveable;
+```
+
+A vector of moveable objects. Contains `Kraken` and `Surfer` objects. Gets collision checked with `m_vector_moveable` and `m_player`.
+
+```cpp
+private vector<GameObject> m_vector_immoveable;
+```
+
+A vector of immoveable objects. Contains `Obstacle` and `Drawback` objects.
+
+#### Constructor
+
+```cpp
+ObjectManager()
+```
+
+Instantiates the `ObjectManager` object. Initializes `m_player` with default player position.
+
+#### Member functions
+
+```cpp
+public void clear()
+```
+
+Removes all available game objects. Calls `clear()` on vectors and reinitializes `m_player` variable.
+
+Used to restart the game.
+
+##### Getters
+
+```cpp
+public Player get_player()
+```
+
+Returns the player object.
+
+**Returns**
+- An instantiated `Player` instance.
+
+```cpp
+public vector<MoveableObject> get_moveable()
+```
+
+Returns all available moveable game objects.
+
+**Returns**
+- A vector of all instantiated `MoveableObject` instances.
+
+```cpp
+public vector<GameObject> get_immoveable()
+```
+
+Returns all available immoveable game objects.
+
+**Returns**
+- A vector of all instantiated `GameObject` instances that are not `MoveableObject`.
+
+</details>
+
 
 ---
 
