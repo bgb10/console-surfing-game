@@ -1,46 +1,41 @@
 # surfing_game
 
-### [ object_manager ](object_manager.md)
+### [ ObjectManager ](ObjectManager.md)
 
-  charactor, obstacle, item의 정보를 저장 및 관리하는 객체
+  [MovingObject](movingObject.md), [NonMovingObject](NonMovingObject.md), [Item](Item.md)의 정보를 저장 및 관리하는 객체
   
-### [object_generater](object_generater.md)
+### [ObjectGenerater](ObjectGenerater.md)
 
-  charactor, obstacle, item를 생성하는 객체
+  [MovingObject](movingObject.md), [NonMovingObject](NonMovingObject.md), [Item](Item.md)를 생성하는 객체
 
-### [player](player.md)
+### [Player](Player.md)
 
-### [object](object.md)
+### [Object](Object.md)
 
->#### [moving_charactor](moving_charactor.md)
-> >  + ##### [kraken](kraken.md)
-> >  + ##### [suffer](suffer.md)
+>#### [MovingObject](MovingObject.md)
+> >  + ##### [Kraken](Kraken.md)
+> >  + ##### [Suffer](Suffer.md)
 
 >  움직이는 object를 담는 객체
 
->#### [non_moving_charactor](non_moving_charactor.md)
-> >  + ##### [debuff](debuff.md)
-> >  + ##### [damage](damage.md)
+>#### [NonMovingCharactor](NonMovingCharactor.md)
+> >  + ##### [Debuff](Debuff.md)
+> >  + ##### [Damage](Damage.md)
 
 >  움직이지 않는 object를 담는 객체
   
-> #### [item](item.md)
-> >  + ##### [energy](energy.md)
-> >  + ##### [heart](heart.md)
-> >  + ##### [shield](shield.md)
+> #### [Item](Item.md)
+> >  + ##### [Energy](Energy.md)
+> >  + ##### [Heart](Heart.md)
+> >  + ##### [Shield](Shield.md)
   
 >   아이템 object를 담는 객체
-  
-### [route_manager](route_manager.md)
 
-  moving_charactor의 동선을 관리하는 객체
-
-
-### [screen_manager](screen_manager.md)
+### [ScreenManager](ScreenManager.md)
 
   화면에 출력하는 내용을 관리하는 객체
 
-### [input_manager](iput_manager.md)
+### [InputManager](InputManager.md)
 
   입력받는 내용( 조작내용 )을 관리하는 객체
  
