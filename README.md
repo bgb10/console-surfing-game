@@ -35,9 +35,6 @@
 
   moving_charactor의 동선을 관리하는 객체
 
-### [status](status.md)
-
-  main_charactor의 life, energy, speed, 방향, 기록을 관리하는 객체
 
 ### [screen_manager](screen_manager.md)
 
