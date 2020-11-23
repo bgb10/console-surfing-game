@@ -2,9 +2,9 @@
 
 ### private
 
-#### int speed;
-
 ### public 
+
+> #### void setKrakenSpeed() : Kraken의 초기 speed를 설정해 주는 함수
 
 > #### void setV1() : v1 값을 설정해 주는 함수
 
