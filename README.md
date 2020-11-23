@@ -2,11 +2,11 @@
 
 ### [ ObjectManager ](ObjectManager.md)
 
-  [MovingObject](movingObject.md), [NonMovingObject](NonMovingObject.md), [Item](Item.md)의 정보를 저장 및 관리하는 객체
+  [MovingObject](MovingObject.md), [NonMovingObject](NonMovingObject.md), [Item](Item.md)의 정보를 저장 및 관리하는 객체
   
 ### [ObjectGenerater](ObjectGenerater.md)
 
-  [MovingObject](movingObject.md), [NonMovingObject](NonMovingObject.md), [Item](Item.md)를 생성하는 객체
+  [MovingObject](MovingObject.md), [NonMovingObject](NonMovingObject.md), [Item](Item.md)를 생성하는 객체
 
 ### [Player](Player.md)
 
