@@ -1,12 +1,11 @@
-## class Moving_charactor
+## class MovinObject
 #### 움직이는 object에 대한 class
 
 ### private
-> #### int x_speed, y_speed
-
+> #### struct v1 { int x_vector, int y_vector }
 ### public
-> #### void Move(int x, int y)
+> #### void move(v1)
 > > ##### 이동하는 함수
 
-> #### bool If_Hit()
+> #### bool ifHit()
 > > ##### 다른 Object와 부딪히면 1, 안부딪히면 0 반환하는 함수
