@@ -75,26 +75,28 @@ Definition of a basic **object** in the game. Has attributes describing the posi
 <details>
 <summary>Child classes</summary>
 
-#### [class Obstacle : public GameObject](Obstacle.md)
+#### [class Item : public GameObject](Item.md)
 
 Definition of **obstacle** in the game. Will randomly instantiate between child classes.
 
-게임의 장애물을 정의하는 클래스. 생성시 하위 클래스 중 1개를 생성함. (필요시 추가 가능)
+게임의 아이템을 정의하는 클래스. 생성시 하위 클래스 중 무작위로 1개를 생성함.
 
 <details>
 <summary>Child classes</summary>
 
-##### [class Deck : public Obstacle](Deck.md)
+##### [class Health : public Item](Health.md)
 
-Definition of **deck** obstacle. Reduce one life when player hits one.
+Definition of **health** item. Increase life by 1 when player hits one.
 
-데크 장애물을 정의하는 클래스. 충돌시 목숨 1개 감소.
+목숨 아이템을 정의하는 클래스. 충돌시 목숨 1개 증가.
 
-##### [class Buoy : public Obstacle](Deck.md)
+##### [class Boost : public Item](Boost.md)
 
-Definition of **buoy** obstacle. Reduce one life when player hits one.
+Definition of **boost** item. Increase boost count by 1 when player hits one.
 
-부표 장애물을 정의하는 클래스. 충돌시 목숨 1개 감소.
+부스터 아이템을 정의하는 클래스. 충돌시 부스터 아이템 1개 증가.
+
+부스터는 사용시 속도를 +10 만큼 증가시킴. (추후 변경 가능)
 
 </details>
 
@@ -102,7 +104,7 @@ Definition of **buoy** obstacle. Reduce one life when player hits one.
 
 Definition of **obstacle** in the game. Will randomly instantiate between child classes.
 
-게임의 장애물을 정의하는 클래스. 생성시 하위 클래스 중 1개를 생성함. (필요시 추가 가능)
+게임의 장애물을 정의하는 클래스. 생성시 하위 클래스 중 무작위로 1개를 생성함. (필요시 추가 가능)
 
 <details>
 <summary>Child classes</summary>
@@ -113,7 +115,7 @@ Definition of **deck** obstacle. Reduce one life when player hits one.
 
 데크 장애물을 정의하는 클래스. 충돌시 목숨 1개 감소.
 
-##### [class Buoy : public Obstacle](Deck.md)
+##### [class Buoy : public Obstacle](Buoy.md)
 
 Definition of **buoy** obstacle. Reduce one life when player hits one.
 
@@ -125,18 +127,18 @@ Definition of **buoy** obstacle. Reduce one life when player hits one.
 
 Definition of **drawback** objects in the game. Will randomly instantiate between child classes.
 
-플레이어의 속도를 느리게 만드는 장애물을 정의하는 클래스. 생성시 하위 클래스 중 1개를 생성함. (필요시 추가 가능)
+플레이어의 속도를 느리게 만드는 장애물을 정의하는 클래스. 생성시 하위 클래스 중 무작위로 1개를 생성함. (필요시 추가 가능)
 
 <details>
 <summary>Child classes</summary>
 
-##### [class Seaweed : public Drawback](Deck.md)
+##### [class Seaweed : public Drawback](Seaweed.md)
 
 Definition of **seaweed** drawback object. Reduces player speed when player goes over one.
 
 해초 장애물을 정의하는 클래스. 충돌시 속도 감소.
 
-##### [class Current : public Drawback](Deck.md)
+##### [class Current : public Drawback](Current.md)
 
 Definition of **current** drawback object. Reduces player speed when player goes over one.
 
