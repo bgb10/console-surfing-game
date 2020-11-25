@@ -114,9 +114,9 @@ void render()
     // the displacement of the player is calculated with computed timeDelta value
     // 0.002 value is just a constant, which can be used to change the speed of the whole game
     m_player.set_center(
-        m_player.get_pos_x + timeDelta * 0.002 * m_player.dir_x * m_player.speed,
-        m_player.get_pos_y + timeDelta * 0.002 * m_player.dir_y * m_player.speed,
-        m_player.get_pos_z + timeDelta * 0.002 * m_player.dir_z * m_player.speed
+        m_player.get_pos_x() + timeDelta * 0.002 * m_player.get_dir_x() * m_player.get_speed(),
+        m_player.get_pos_y() + timeDelta * 0.002 * m_player.get_dir_y() * m_player.get_speed(),
+        m_player.get_pos_z() + timeDelta * 0.002 * m_player.get_dir_z() * m_player.get_speed()
     );
 
     // do collision detection and displacement calculations here
@@ -209,6 +209,20 @@ Returns all available immovable game objects.
 
 **Returns**
 - A vector of all instantiated `GameObject` instances that are not `MovableObject`.
+
+##### Setters
+
+```cpp
+public void add_movable(MovableObject object)
+```
+
+Adds `object` into the `m_vector_movable` vector.
+
+```cpp
+public void add_immovable(GameObject object)
+```
+
+Adds `object` into the `m_vector_immovable` vector.
 
 </details>
 
