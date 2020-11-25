@@ -1,5 +1,9 @@
 # Documentation
 
+## Diagram
+
+![Diagram](diagram/surfing_game_diagram.jpg)
+
 ### [class GameManager](GameManager.md)
 
 Handles the gameplay by providing an interface to `main()`.
