@@ -16,22 +16,28 @@ This class governs all `...Manager` objects and handles the interaction between 
 #### Member variables
 
 ```cpp
-private Player m_player;
+private ObjectManager m_ObjectManager;
 ```
 
-The player object that user controls. Gets collision checked with `m_vector_moveable` and `m_vector_immoveable`.
+The `ObjectManager` object to use.
 
 ```cpp
-private vector<MoveableObject> m_vector_moveable;
+private ObjectGenerator m_ObjectGenerator;
 ```
 
-A vector of moveable objects. Contains `Kraken` and `Surfer` objects. Gets collision checked with `m_vector_moveable` and `m_player`.
+The `ObjectGenerator` object to use. This object will interact with `ObjectManager`.
 
 ```cpp
-private vector<GameObject> m_vector_immoveable;
+private InputManager m_InputManager;
 ```
 
-A vector of immoveable objects. Contains `Obstacle` and `Drawback` objects.
+The `InputManager` object to use.
+
+```cpp
+private SceneManager m_SceneManager;
+```
+
+The `SceneManager` object to use.
 
 #### Constructor
 
@@ -120,11 +126,6 @@ void render()
 }
 ```
 
-Returns all available immoveable game objects.
-
-**Returns**
-- A vector of all instantiated `GameObject` instances that are not `MoveableObject`.
-
 </details>
 
 ---
@@ -148,19 +149,19 @@ This class stores and manages multiple `GameObject` objects and `Player` object 
 private Player m_player;
 ```
 
-The player object that user controls. Gets collision checked with `m_vector_moveable` and `m_vector_immoveable`.
+The player object that user controls. Gets collision checked with `m_vector_movable` and `m_vector_immovable`.
 
 ```cpp
-private vector<MoveableObject> m_vector_moveable;
+private vector<MovableObject> m_vector_movable;
 ```
 
-A vector of moveable objects. Contains `Kraken` and `Surfer` objects. Gets collision checked with `m_vector_moveable` and `m_player`.
+A vector of movable objects. Contains `Kraken` and `Surfer` objects. Gets collision checked with `m_vector_movable` and `m_player`.
 
 ```cpp
-private vector<GameObject> m_vector_immoveable;
+private vector<GameObject> m_vector_immovable;
 ```
 
-A vector of immoveable objects. Contains `Obstacle` and `Drawback` objects.
+A vector of immovable objects. Contains `Obstacle` and `Drawback` objects.
 
 #### Constructor
 
@@ -192,22 +193,22 @@ Returns the player object.
 - An instantiated `Player` instance.
 
 ```cpp
-public vector<MoveableObject> get_moveable()
+public vector<MovableObject> get_movable()
 ```
 
-Returns all available moveable game objects.
+Returns all available movable game objects.
 
 **Returns**
-- A vector of all instantiated `MoveableObject` instances.
+- A vector of all instantiated `MovableObject` instances.
 
 ```cpp
-public vector<GameObject> get_immoveable()
+public vector<GameObject> get_immovable()
 ```
 
-Returns all available immoveable game objects.
+Returns all available immovable game objects.
 
 **Returns**
-- A vector of all instantiated `GameObject` instances that are not `MoveableObject`.
+- A vector of all instantiated `GameObject` instances that are not `MovableObject`.
 
 </details>
 
@@ -232,19 +233,19 @@ This class generates `GameObjects` according to game rules (e.g., probability of
 private Player m_player;
 ```
 
-The player object that user controls. Gets collision checked with `m_vector_moveable` and `m_vector_immoveable`.
+The player object that user controls. Gets collision checked with `m_vector_movable` and `m_vector_immovable`.
 
 ```cpp
-private vector<MoveableObject> m_vector_moveable;
+private vector<MovableObject> m_vector_movable;
 ```
 
-A vector of moveable objects. Contains `Kraken` and `Surfer` objects. Gets collision checked with `m_vector_moveable` and `m_player`.
+A vector of movable objects. Contains `Kraken` and `Surfer` objects. Gets collision checked with `m_vector_movable` and `m_player`.
 
 ```cpp
-private vector<GameObject> m_vector_immoveable;
+private vector<GameObject> m_vector_immovable;
 ```
 
-A vector of immoveable objects. Contains `Obstacle` and `Drawback` objects.
+A vector of immovable objects. Contains `Obstacle` and `Drawback` objects.
 
 #### Constructor
 
@@ -276,22 +277,22 @@ Returns the player object.
 - An instantiated `Player` instance.
 
 ```cpp
-public vector<MoveableObject> get_moveable()
+public vector<MovableObject> get_movable()
 ```
 
-Returns all available moveable game objects.
+Returns all available movable game objects.
 
 **Returns**
-- A vector of all instantiated `MoveableObject` instances.
+- A vector of all instantiated `MovableObject` instances.
 
 ```cpp
-public vector<GameObject> get_immoveable()
+public vector<GameObject> get_immovable()
 ```
 
-Returns all available immoveable game objects.
+Returns all available immovable game objects.
 
 **Returns**
-- A vector of all instantiated `GameObject` instances that are not `MoveableObject`.
+- A vector of all instantiated `GameObject` instances that are not `MovableObject`.
 
 </details>
 
@@ -306,7 +307,7 @@ Manages user input and calls according callback functions.
 
 ---
 
-### [class ScreenManager](ScreenManager.md)
+### [class SceneManager](SceneManager.md)
 
 Manages instantiated `ObjectManager` and `InputManager` to render the game scene.
 
@@ -400,28 +401,28 @@ Definition of **current** drawback object. Reduces player speed when player goes
 
 ---
 
-#### [class MoveableObject : public GameObject](MoveableObject.md)
+#### [class MovableObject : public GameObject](MovableObject.md)
 
-Definition of a basic **moveable object** in the game. Has attributes describing the velocity.
+Definition of a basic **movable object** in the game. Has attributes describing the velocity.
 
 게임의 동적인 물체를 정의하는 클래스. 속도를 나타내는 변수들을 포함함.
 
 <details>
 <summary>Child classes</summary>
 
-##### [class Player : public MoveableObject](Player.md)
+##### [class Player : public MovableObject](Player.md)
 
 Definition of the game **player** character.
 
 게임의 플레이어 캐릭터를 정의하는 클래스.
 
-##### [class Kraken : public MoveableObject](Kraken.md)
+##### [class Kraken : public MovableObject](Kraken.md)
 
 Definition of the **kraken** boss character. Game over when player hits the kraken.
 
 게임의 크라켄 캐릭터를 정의하는 클래스. 플레이어가 크라켄과 충돌하면 게임 오버.
 
-##### [class Surfer : public MoveableObject](Player.md)
+##### [class Surfer : public MovableObject](Player.md)
 
 Definition of another **surfer** character in game. Reduce one life when player hits another surfer.
 
