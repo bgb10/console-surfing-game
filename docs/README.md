@@ -36,43 +36,88 @@ A vector of immoveable objects. Contains `Obstacle` and `Drawback` objects.
 #### Constructor
 
 ```cpp
-ObjectManager()
+GameManager()
 ```
 
-Instantiates the `ObjectManager` object. Initializes `m_player` with default player position.
+Instantiates the `GameManager` object. Initializes all member variables and shows the ***title scene***.
+
+***Title scene*** contains the following components.
+
+- Game title
+- How to play (brief explanation of controls)
+- High scores
+- *Press spacebar to start surfing* text
+
+Since this constructor shows the ***title screen***, the `main()` function only has to instantiate this class. 
 
 #### Member functions
 
 ```cpp
-public void clear()
+private void ready()
 ```
 
-Removes all available game objects. Calls `clear()` on vectors and reinitializes `m_player` variable.
+Shows the ***ready scene***. Initializes `Player` object into default position. Called as a callback function from `InputManager` or on game over situation.
 
-Used to restart the game.
+***Ready scene*** contains the following components.
 
-##### Getters
+- Health bar
+- High score
+- Boost bar
+- Player (at the center of the scene) 
 
 ```cpp
-public Player get_player()
+private void start()
 ```
 
-Returns the player object.
+Starts playing the game on the ***gameplay scene***. Initialize the default starting `GameObject` objects into position. Called as a callback function from `InputManager`.
 
-**Returns**
-- An instantiated `Player` instance.
+***Gameplay scene*** contains the following components.
+
+- Health bar
+- High score
+- Boost bar
+- Player (at the center of the scene)
+- `GameObject` (`Obstacle`s, `Item`s, `Drawback`s, `Surfer`s, `Kraken`)
 
 ```cpp
-public vector<MoveableObject> get_moveable()
+private void render()
 ```
 
-Returns all available moveable game objects.
+Renders a frame of gameplay.
 
-**Returns**
-- A vector of all instantiated `MoveableObject` instances.
+**Render mechanism**
+
+There is no fixed time between frames. The value `deltaTime` depends on the processing speed of the computer, and the game re-calculates every entities' position values according to `deltaTime`. The following is the example using `deltaTime` logic for rendering.
 
 ```cpp
-public vector<GameObject> get_immoveable()
+/**
+ A function called to render a frame.
+ */
+int currentTime, previousTime = -1; // used to calculate deltaTime
+void render()
+{
+    int timeDelta; // time difference between frames in milliseconds
+    currentTime = getTime(); // not a stl function, but there should be a function that can get precise current time in milliseconds
+
+    if (previousTime == -1)
+        timeDelta = 0;
+    else
+        timeDelta = currentTime - previousTime;
+
+    // for example, moving the player from its position with its speed
+    // the displacement of the player is calculated with computed timeDelta value
+    // 0.002 value is just a constant, which can be used to change the speed of the whole game
+    m_player.set_center(
+        m_player.get_pos_x + timeDelta * 0.002 * m_player.dir_x * m_player.speed,
+        m_player.get_pos_y + timeDelta * 0.002 * m_player.dir_y * m_player.speed,
+        m_player.get_pos_z + timeDelta * 0.002 * m_player.dir_z * m_player.speed
+    );
+
+    // do collision detection and displacement calculations here
+
+    m_SceneManager.render(); // display the computed values onto console
+    previousTime = currentTime;
+}
 ```
 
 Returns all available immoveable game objects.
