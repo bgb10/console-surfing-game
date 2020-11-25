@@ -6,7 +6,11 @@ Project 4 of Object Oriented Programming course held in Chung-Ang University on 
 
 ## Documentation
 
-[docs/README.md](docs/README.md)
+[docs/README.md](docs/README.md): Complete documentation of the program design and implementation ideas.
+
+## Project wiki
+
+[wiki/Home](https://github.com/bgb10/console-surfing-game/wiki): How to compile, code style, how to track progress, etc.
 
 ## Course webpage
 
