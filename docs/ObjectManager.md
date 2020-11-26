@@ -8,6 +8,10 @@ Manages instantiated `GameObject` objects in the program.
 
 This class stores and manages multiple `GameObject` objects and the `Player` object used for the gameplay. Provides the functionality to reset all game data and getters for objects. All objects from class derived from `GameObject` should be appear in this class after instantiation.
 
+**See also:**
+
+[ObjectGenerator](ObjectGenerator.md)
+
 ## Member variables
 
 ### m_player
