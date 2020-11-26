@@ -5,7 +5,11 @@
 <details>
 <summary>UML diagram</summary>
 
+</br>
+
 ![Diagram](diagram/surfing_game_diagram.jpg)
+
+Click [here](https://app.diagrams.net/#Hbgb10%2Fconsole-surfing-game%2Fmaster%2Fdocs%2Fdiagram%2Fsurfing_game_diagram.drawio) to edit this diagram on _draw.io_.
 
 </details>
 
