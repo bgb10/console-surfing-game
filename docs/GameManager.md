@@ -1,4 +1,4 @@
-# [class GameManager](GameManager.md)
+# class GameManager
 
 Handles the gameplay by providing an interface to `main()`.
 
@@ -30,11 +30,15 @@ int main()
 
 ## Member variables
 
+### m_ObjectManager
+
 ```cpp
 private ObjectManager m_ObjectManager;
 ```
 
 The `ObjectManager` object to use. Will be referenced in `ObjectGenerator` and `SceneManager`.
+
+### m_ObjectGenerator
 
 ```cpp
 private ObjectGenerator m_ObjectGenerator;
@@ -42,11 +46,15 @@ private ObjectGenerator m_ObjectGenerator;
 
 The `ObjectGenerator` object to use.
 
+### m_InputManager
+
 ```cpp
 private InputManager m_InputManager;
 ```
 
 The `InputManager` object to use.
+
+### m_SceneManager
 
 ```cpp
 private SceneManager m_SceneManager;
@@ -54,11 +62,15 @@ private SceneManager m_SceneManager;
 
 The `SceneManager` object to use.
 
+### high_score
+
 ```cpp
 private int high_score;
 ```
 
 The highest score in the previous gameplay, from `highscore.dat`. Loaded from `LoadHighScore()`.
+
+### is_paused
 
 ```cpp
 private bool is_paused;
@@ -69,7 +81,7 @@ True if the user paused the game, false otherwise.
 ## Constructor
 
 ```cpp
-GameManager()
+public GameManager()
 ```
 
 Instantiates the `GameManager` object. Initializes all member variables and shows the ***title scene***.
@@ -87,6 +99,8 @@ Since this constructor shows the ***title screen***, the `main()` function only 
 
 ## Member functions
 
+### Ready
+
 ```cpp
 private void Ready()
 ```
@@ -101,6 +115,8 @@ Shows the ***ready scene***. Initializes `Player` object into default position. 
 - High score
 - Boost bar
 - Player (at the center of the scene) 
+
+### Start
 
 ```cpp
 private void Start()
@@ -117,6 +133,8 @@ Starts playing the game on the ***gameplay scene***. Initialize the default star
 - Boost bar
 - Player (at the center of the scene)
 - `GameObject` (`Obstacle`s, `Item`s, `Drawback`s, `Surfer`s, `Kraken`)
+
+### Render
 
 ```cpp
 private void Render()
@@ -164,16 +182,20 @@ void render()
 
 </details>
 
+### DistanceToScore
+
 ```cpp
-int DistanceToScore(float distance)
+private int DistanceToScore(float distance)
 ```
 
 Returns the score from the given distance.
 
 Since the distance is in `float` type, which is an abstract representation of the position of the player in game, and the score is in `int` type, which is denoted as _meters_ in the scoreboard, the abstract position should be converted into distance traveled with a reasonable conversion rate.
 
+### LoadHighScore
+
 ```cpp
-void LoadHighScore()
+private void LoadHighScore()
 ```
 
 Reads and loads high score data from `highscore.dat` file into `high_score`.
@@ -193,8 +215,10 @@ Returns `0` if the content of the file is not a positive integer or the file doe
 
 </details>
 
+### SaveHighScore
+
 ```cpp
-void SaveHighScore()
+private void SaveHighScore()
 ```
 
 Saves and writes high score data from `high_score` into `highscore.dat` file.
