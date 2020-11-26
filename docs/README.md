@@ -2,7 +2,12 @@
 
 ## Diagram
 
+<details>
+<summary>UML diagram</summary>
+
 ![Diagram](diagram/surfing_game_diagram.jpg)
+
+</details>
 
 ## [class GameManager](GameManager.md)
 
