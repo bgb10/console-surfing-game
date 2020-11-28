@@ -6,13 +6,11 @@ Definition of a basic **object** in the game. Has attributes describing the posi
 
 **Direct known subclasses:**
 
-`MovableObject`, `Obstacle`, `Item`, `Drawback`
+[`MovableObject`](MovableObject.md), [`Obstacle`](Obstacle.md), [`Item`](Item.md), [`Drawback`](Drawback.md)
 
 ## Definition
 
-Abstract implementation of the basic object of the game. Implements all position-related operations, including collision detection via `HasIntersected()`.
-
-All `GameObject` objects are uniquely identified with `counter`, which is incremented while being instantiated.
+Abstract implementation of the basic object of the game. Implements all position-related operations, including collision detection via `HasIntersected()`. All `GameObject` objects are uniquely identified with `object_id`.
 
 ## Member variables
 
@@ -22,7 +20,7 @@ All `GameObject` objects are uniquely identified with `counter`, which is increm
 private static int object_count;
 ```
 
-The number of object instantiated. Used to assign `object_id` for identifying objects.
+The number of object instantiated. Used to assign `object_id` for identifying objects. Incremented by 1 with every constructor call.
 
 Default value is `0`.
 
@@ -32,7 +30,7 @@ Default value is `0`.
 private int object_id;
 ```
 
-The ID of the object. Used to identify the object from another.
+The ID of the object. Used to uniquely identify the object from another. `object_count` will be assigned to `object_id` and incremented by 1 on instantiation.
 
 Default value for `Player` object is `0` (instance of `Player` should be instantiated before any objects).
 
@@ -83,12 +81,12 @@ If the object has width of `n` and height of `m`, the length of `texture` variab
 > For character displaying mechanism, check the documentation on [SceneManager: Displaying on console](SceneManager.md#displaying-on-console).
 
 ```cpp
-width = 3.0;
-height = 4.0;
-texture = " /\/\ < \/ >< /\ > \/\/ ";
+width = 3.0;  // 6 characters wide
+height = 4.0; // 3 lines high
+texture = " /\/\ < \/ >< /\ > \/\/ "; // 3 * 2 * 3 = 18 characters
 ```
 
-The following is the example of `Kraken` rendering the value on the console.
+The following is the example of `Kraken` being rendered onto the console.
 
 ```
  /\/\ 
