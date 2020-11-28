@@ -146,14 +146,18 @@ Starts playing the game on the ***gameplay scene***. Initialize the default star
 private void Render()
 ```
 
-Renders a frame of gameplay.
+Renders a frame of gameplay. Calls [`SceneManager::Render()`](SceneManager.md#render) to display the objects from `ObjectManager`, [`InputManager::GetInput()`](InputManager.md#getinput), [`InputManager::ListenInput()`](InputManager.md#getinput) to get the user input.
 
-#### Render mechanism
+Also, removes useless objects above _visible object offset_. See [SceneManager: Rendering mechanism](SceneManager.md#rendering-mechanism) for all offsets.
+
+#### Rendering mechanism
 
 There is no _fixed_ time between frames. The value `deltaTime` depends on the processing speed of the computer, and the game re-calculates every entities' position values according to `deltaTime`. The following is an example using `deltaTime` logic for rendering.
 
 <details>
 <summary>Example C++ code</summary>
+
+</br>
 
 ```cpp
 /**
@@ -214,6 +218,8 @@ Returns `0` if the content of the file is not a positive integer or the file doe
 
 <details>
 <summary>Example <code>highscore.dat</code></summary>
+
+</br>
 
 ```
 420
