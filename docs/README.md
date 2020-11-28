@@ -25,6 +25,12 @@ Manages instantiated `GameObject` objects in the program.
 
 `GameObject` 객체들을 저장하고 관리하는 클래스.
 
+## [class ObjectGenerator](ObjectGenerater.md)
+
+Instantiates `GameObject` objects according to game rules.
+
+게임의 규칙에 따라 `GameObject` 객체들을 생성하는 클래스.
+
 ## [class InputManager](InputManager.md)
 
 Manages and returns user input.

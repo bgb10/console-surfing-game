@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2020-11-28T08:02:55.972Z" agent="5.0 (Macintosh; Intel Mac OS X 10_16_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" etag="agKg0oWLkHue9XFrqRX4" version="13.6.5">
+<mxfile host="65bd71144e" modified="2020-11-28T14:54:05.108Z" agent="5.0 (Macintosh; Intel Mac OS X 10_16_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" etag="wB-MeVT7d74aMoQH_F5X" version="13.6.5">
     <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-        <mxGraphModel dx="330" dy="703" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+        <mxGraphModel dx="399" dy="703" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
             <root>
                 <mxCell id="WIyWlLk6GJQsqaUBKTNV-0"/>
                 <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0"/>
@@ -308,7 +308,7 @@
                     <mxGeometry y="322" width="270" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="RiHCerz2gjzvpgdkcuPO-51" value="ObjectGenerator" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-                    <mxGeometry x="328" y="400" width="252" height="150" as="geometry">
+                    <mxGeometry x="328" y="400" width="252" height="180" as="geometry">
                         <mxRectangle x="110" y="780" width="160" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
@@ -327,11 +327,14 @@
                 <mxCell id="RiHCerz2gjzvpgdkcuPO-57" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="RiHCerz2gjzvpgdkcuPO-51" vertex="1">
                     <mxGeometry y="94" width="252" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="RiHCerz2gjzvpgdkcuPO-58" value="+SetLevel(level: int): void" style="text;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;resizeHeight=0;" parent="RiHCerz2gjzvpgdkcuPO-51" vertex="1">
-                    <mxGeometry y="102" width="252" height="20" as="geometry"/>
+                <mxCell id="RiHCerz2gjzvpgdkcuPO-67" value="+Generate(objectManager: ObjectManager&amp;,&#10;                  sceneManager: SceneManager&amp;)" style="text;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;resizeHeight=0;spacing=2;spacingTop=0;" parent="RiHCerz2gjzvpgdkcuPO-51" vertex="1">
+                    <mxGeometry y="102" width="252" height="28" as="geometry"/>
                 </mxCell>
-                <mxCell id="RiHCerz2gjzvpgdkcuPO-67" value="+Generate(objectManager: ObjectManager&amp;)" style="text;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;resizeHeight=0;" parent="RiHCerz2gjzvpgdkcuPO-51" vertex="1">
-                    <mxGeometry y="122" width="252" height="20" as="geometry"/>
+                <mxCell id="41" value="+GetLevel(): int" style="text;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;resizeHeight=0;" vertex="1" parent="RiHCerz2gjzvpgdkcuPO-51">
+                    <mxGeometry y="130" width="252" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="RiHCerz2gjzvpgdkcuPO-58" value="+LevelUp(): void" style="text;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;resizeHeight=0;" parent="RiHCerz2gjzvpgdkcuPO-51" vertex="1">
+                    <mxGeometry y="150" width="252" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="RiHCerz2gjzvpgdkcuPO-70" value="InputManager" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
                     <mxGeometry x="620" y="400" width="182" height="290" as="geometry">
@@ -817,7 +820,7 @@
                         <mxPoint as="offset"/>
                         <mxPoint x="1140" y="532" as="sourcePoint"/>
                         <Array as="points">
-                            <mxPoint x="610" y="532"/>
+                            <mxPoint x="610" y="516"/>
                             <mxPoint x="610" y="76"/>
                         </Array>
                     </mxGeometry>
