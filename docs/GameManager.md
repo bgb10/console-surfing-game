@@ -84,6 +84,8 @@ True if the user paused the game, false otherwise.
 
 ## Constructor
 
+### GameManager
+
 ```cpp
 public GameManager()
 ```

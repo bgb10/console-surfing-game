@@ -40,8 +40,10 @@ A vector of immovable objects. Contains `Obstacle` and `Drawback` objects.
 
 ## Constructor
 
+### ObjectManager
+
 ```cpp
-ObjectManager()
+public ObjectManager()
 ```
 
 Instantiates the `ObjectManager` object. Initializes `m_player` with default player position.

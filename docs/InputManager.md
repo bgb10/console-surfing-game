@@ -56,6 +56,8 @@ Click [here](https://app.diagrams.net/#Hbgb10%2Fconsole-surfing-game%2Fmaster%2F
 
 ## Constructor
 
+### InputManager
+
 ```cpp
 public InputManager()
 ```
