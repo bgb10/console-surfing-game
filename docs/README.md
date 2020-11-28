@@ -29,11 +29,11 @@ Manages instantiated `GameObject` objects in the program.
 
 ---
 
-### [class InputManager](InputManager.md)
+## [class InputManager](InputManager.md)
 
-Manages user input and calls according callback functions.
+Manages and returns user input.
 
-사용자의 입력을 받아서 올바른 콜백 함수를 호출하는 클래스.
+사용자의 입력을 받아서 반환하는 클래스.
 
 ---
 
