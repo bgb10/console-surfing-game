@@ -43,9 +43,7 @@ Manages instantiated `ObjectManager` and `InputManager` to render the game scene
 
 `ObjectManager`와 `InputManager`를 사용해서 게임을 화면에 표시하는 클래스.
 
----
-
-### [class GameObject](GameObject.md)
+## [class GameObject](GameObject.md)
 
 Definition of a basic **object** in the game. Has attributes describing the position.
 
@@ -54,7 +52,7 @@ Definition of a basic **object** in the game. Has attributes describing the posi
 <details>
 <summary>Child classes</summary>
 
-#### [class Item : public GameObject](Item.md)
+### [class Item : public GameObject](Item.md)
 
 Definition of **item** in the game. Will randomly instantiate between child classes.
 
@@ -63,13 +61,13 @@ Definition of **item** in the game. Will randomly instantiate between child clas
 <details>
 <summary>Child classes</summary>
 
-##### [class Health : public Item](Health.md)
+#### [class Health : public Item](Health.md)
 
 Definition of **health** item. Increase life by 1 when player hits one.
 
 목숨 아이템을 정의하는 클래스. 충돌시 목숨 1개 증가.
 
-##### [class Boost : public Item](Boost.md)
+#### [class Boost : public Item](Boost.md)
 
 Definition of **boost** item. Increase boost count by 1 when player hits one.
 
@@ -81,7 +79,7 @@ Definition of **boost** item. Increase boost count by 1 when player hits one.
 
 ---
 
-#### [class Obstacle : public GameObject](Obstacle.md)
+### [class Obstacle : public GameObject](Obstacle.md)
 
 Definition of **obstacle** in the game. Will randomly instantiate between child classes.
 
@@ -90,13 +88,13 @@ Definition of **obstacle** in the game. Will randomly instantiate between child 
 <details>
 <summary>Child classes</summary>
 
-##### [class Deck : public Obstacle](Deck.md)
+#### [class Deck : public Obstacle](Deck.md)
 
 Definition of **deck** obstacle. Reduce one life when player hits one.
 
 데크 장애물을 정의하는 클래스. 충돌시 목숨 1개 감소.
 
-##### [class Buoy : public Obstacle](Buoy.md)
+#### [class Buoy : public Obstacle](Buoy.md)
 
 Definition of **buoy** obstacle. Reduce one life when player hits one.
 
@@ -106,7 +104,7 @@ Definition of **buoy** obstacle. Reduce one life when player hits one.
 
 ---
 
-#### [class Drawback : public GameObject](Drawback.md)
+### [class Drawback : public GameObject](Drawback.md)
 
 Definition of **drawback** objects in the game. Will randomly instantiate between child classes.
 
@@ -115,13 +113,13 @@ Definition of **drawback** objects in the game. Will randomly instantiate betwee
 <details>
 <summary>Child classes</summary>
 
-##### [class Seaweed : public Drawback](Seaweed.md)
+#### [class Seaweed : public Drawback](Seaweed.md)
 
 Definition of **seaweed** drawback object. Reduces player speed when player goes over one.
 
 해초 장애물을 정의하는 클래스. 충돌시 속도 감소.
 
-##### [class Current : public Drawback](Current.md)
+#### [class Current : public Drawback](Current.md)
 
 Definition of **current** drawback object. Reduces player speed when player goes over one.
 
@@ -131,7 +129,7 @@ Definition of **current** drawback object. Reduces player speed when player goes
 
 ---
 
-#### [class MovableObject : public GameObject](MovableObject.md)
+### [class MovableObject : public GameObject](MovableObject.md)
 
 Definition of a basic **movable object** in the game. Has attributes describing the velocity.
 
@@ -140,19 +138,19 @@ Definition of a basic **movable object** in the game. Has attributes describing 
 <details>
 <summary>Child classes</summary>
 
-##### [class Player : public MovableObject](Player.md)
+#### [class Player : public MovableObject](Player.md)
 
 Definition of the game **player** character.
 
 게임의 플레이어 캐릭터를 정의하는 클래스.
 
-##### [class Kraken : public MovableObject](Kraken.md)
+#### [class Kraken : public MovableObject](Kraken.md)
 
 Definition of the **kraken** boss character. Game over when player hits the kraken.
 
 게임의 크라켄 캐릭터를 정의하는 클래스. 플레이어가 크라켄과 충돌하면 게임 오버.
 
-##### [class Surfer : public MovableObject](Player.md)
+#### [class Surfer : public MovableObject](Player.md)
 
 Definition of another **surfer** character in game. Reduce one life when player hits another surfer.
 
