@@ -8,15 +8,15 @@ Manages and returns user input.
 
 This class handles the keyboard input from user. List of possible inputs and its corresponding member functions are listed below.
 
-| Key                |       keyCode      | Action                                                                                   | Member function                   |
-|--------------------|:------------------:|------------------------------------------------------------------------------------------|-----------------------------------|
-| `SPACE`            |         32         | **start or pause**  the gameplay                                                         | [`IsInputSpace()`](#IsInputSpace) |
-| `UP` (`w`, `W`)    | 224 → 72 (119, 87) | **stop**  the player                                                                     | [`IsInputUp()`](#IsInputUp)       |
-| `DOWN` (`s`, `S`)  | 224 → 80 (115, 83) | **use boost**  if player is heading downwards, make player  **head downward**  otherwise | [`IsInputDown()`](#IsInputDown)   |
-| `LEFT` (`a`, `A`)  |  224 → 75 (97, 65) | rotate the player to the **left**                                                        | [`IsInputLeft()`](#IsInputLeft)   |
-| `RIGHT` (`d`, `D`) | 224 → 77 (100, 68) | rotate the player to the  **right**                                                      | [`IsInputRight()`](#IsInputRight) |
-| `f`, `F`           | 102, 70            | **use boost**                                                                            | [`IsInputBoost()`](#IsInputBoost) |
-| `ESC`              | 27                 | **exit game**                                                                            | [`IsInputExit()`](#IsInputExit)   |
+| Key                |       keyCode      | Action | Action description                                                                       | Member function                   |
+|--------------------|:------------------:|--------|------------------------------------------------------------------------------------------|-----------------------------------|
+| `SPACE`            |         32         |`SPACE` | **start or pause**  the gameplay                                                         | [`IsInputSpace()`](#IsInputSpace) |
+| `UP` (`w`, `W`)    | 224 → 72 (119, 87) |`UP`    | **stop**  the player                                                                     | [`IsInputUp()`](#IsInputUp)       |
+| `DOWN` (`s`, `S`)  | 224 → 80 (115, 83) |`DOWN`  | **use boost**  if player is heading downwards, make player  **head downward**  otherwise | [`IsInputDown()`](#IsInputDown)   |
+| `LEFT` (`a`, `A`)  |  224 → 75 (97, 65) |`LEFT`  | rotate the player to the **left**                                                        | [`IsInputLeft()`](#IsInputLeft)   |
+| `RIGHT` (`d`, `D`) | 224 → 77 (100, 68) |`RIGHT` | rotate the player to the  **right**                                                      | [`IsInputRight()`](#IsInputRight) |
+| `f`, `F`           | 102, 70            |`BOOST` | **use boost**                                                                            | [`IsInputBoost()`](#IsInputBoost) |
+| `ESC`              | 27                 |`EXIT`  | **exit game**                                                                            | [`IsInputExit()`](#IsInputExit)   |
 
 ## Member variables
 
