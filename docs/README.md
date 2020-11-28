@@ -19,15 +19,11 @@ Handles the gameplay by providing an interface to `main()`.
 
 `main()` 에서 호출되어 게임을 실행하는 클래스.
 
----
-
 ## [class ObjectManager](ObjectManager.md)
 
 Manages instantiated `GameObject` objects in the program.
 
 `GameObject` 객체들을 저장하고 관리하는 클래스.
-
----
 
 ## [class InputManager](InputManager.md)
 
@@ -35,9 +31,7 @@ Manages and returns user input.
 
 사용자의 입력을 받아서 반환하는 클래스.
 
----
-
-### [class SceneManager](SceneManager.md)
+## [class SceneManager](SceneManager.md)
 
 Manages instantiated `ObjectManager` and `InputManager` to render the game scene.
 
