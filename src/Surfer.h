@@ -1,3 +1,4 @@
+#ifndef SURFER_H
 #define SURFER_H
 
 #include "MoveableObject.h"
@@ -12,3 +13,4 @@ public:
 	void HitBy(GameObject& object);
 	void Move();
 };
+#endif
