@@ -183,7 +183,7 @@ float GetWidth()
 
 float GetHeight()
 
-float GetTexture()
+string GetTexture()
 
 ### Setters
 
