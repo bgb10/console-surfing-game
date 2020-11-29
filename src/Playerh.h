@@ -2,7 +2,6 @@
 #define PLAYER_H
 
 #include "MoveableObject.h"
-#include "GameObject.h"
 
 class Player : public MoveableObject{
 	
