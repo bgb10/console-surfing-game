@@ -13,4 +13,5 @@ public:
 	void HitBy(GameObject& object);
 	void Move();
 };
+
 #endif

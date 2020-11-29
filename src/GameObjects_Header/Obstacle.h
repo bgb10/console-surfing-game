@@ -10,4 +10,5 @@ public:
 	Obstacle(float x, float y);
 
 };
+
 #endif

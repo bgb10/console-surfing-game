@@ -12,4 +12,5 @@ public:
 public:
 	void HitBy(GameObject& object);
 };
+
 #endif
