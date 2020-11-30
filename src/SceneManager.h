@@ -1,10 +1,12 @@
 #ifndef SCENEMANAGER_H
 #define SCENEMANAGER_H
 
+#include "ObjectManager.h"
 #include <iostream>
 #include <windows.h>
 #include <string>
 #include <vector>
+#include <cmath>
 
 class SceneManager {
 private:
@@ -19,13 +21,16 @@ private:
 	void FlipBuffer(); // Flip buffer
 	void ClearBuffer(); // Clear buffer
 	void DeleteBuffer(); // Delete buffer
+	void Draw(float center_x, float center_y, int width, int height, std::string texture); // Draw texture
 public:
 	SceneManager(); // Instantiates the SceneManager object
 	SceneManager(int x, int y); // Instantiates with given width and height
 	void Init(); // Initialization
+	void Ready(); // Draw ready scene
 	void Render(ObjectManager& manager); // Renders all object
+	void Pause(); // Draw pause scene
 	void Release(); // Finish the game
-	void SetColor(unsigned char BgColor, unsigned char TextColor); // Set color
+	void SetColor(unsigned char bg_color, unsigned char txt_color); // Set color
 };
 
 #endif

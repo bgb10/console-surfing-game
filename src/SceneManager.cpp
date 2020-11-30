@@ -69,9 +69,39 @@ void SceneManager::DeleteBuffer() {
 	CloseHandle(hBuffer[0]);
 	CloseHandle(hBuffer[1]);
 }
+// Draw texture
+void SceneManager::Draw(float center_x, float center_y, int width, int height, std::string texture) {
+	int x = round(center_x - (float)(width / 2));
+	int y = round(center_y - (float)(height / 2));
+	for (int i = 0; i < height; i++) {
+		if (y + i < 0 || y + i >= size_y) continue;
+		else if (x < 0) {
+			for (int j = 0; j < width; j++) {
+				if (x + j >= 0) {
+					WriteBuffer(2 * (x + j), y + i, texture.substr(i*width + j, width - j));
+					break;
+				}
+			}
+		}
+		else {
+			int check = -1;
+			for (int j = 0; j < width; j++) {
+				if (x + j >= size_x / 2) {
+					check = j;
+					break;
+				}
+			}
+			if (check == -1) {
+				WriteBuffer(2 * x, y + i, texture.substr(i*width, width));
+			}
+			else {
+				WriteBuffer(2 * x, y + i, texture.substr(i*width, check));
+			}
+		}
+	}
+}
 //Initialization
 void SceneManager::Init() {
-
 	// Set console_size
 	char setText[100];
 	sprintf_s(setText, "mode con cols=%d lines=%d", size_x, size_y);
@@ -89,6 +119,10 @@ void SceneManager::Init() {
 	// Create buffer
 	CreateBuffer();
 }
+// Draw ready scene
+void SceneManager::Ready() {
+
+}
 // Renders all object
 void SceneManager::Render(ObjectManager& manager) {
 	// Clear buffer
@@ -97,21 +131,54 @@ void SceneManager::Render(ObjectManager& manager) {
 	// Get object from manager
 	Player player = manager.GetPlayer();
 	std::vector<MovableObject> movable_obj = manager.GetMovable();
-	std::vector<GameObject> im = manager.GetImmovable();
+	std::vector<GameObject> immovable_obj = manager.GetImmovable();
 
-	// Draw object
+	float dx, dy; // variables for coordinate calculation
+	float x, y; // centerX, centerY
+	int w, h; // width, height
+	std::string t; // texture
+
+	dx = size_x / 4 - player.GetCenterX();
+	dy = size_y * 2 / 5 - player.GetCenterY();
+
+	// Draw immovable object
+	for (int i = 0; i < immovable_obj.size(); i++) {
+		x = immovable_obj[i].GetCenterX() + dx;
+		y = immovable_obj[i].GetCenterY() + dy;
+		w = immovable_obj[i].GetWidth();
+		h = immovable_obj[i].GetHeight();
+		t = immovable_obj[i].GetTexture();
+		Draw(x, y, w, h, t);
+	}
+
+	// Draw movable object
+	for (int i = 0; i < movable_obj.size(); i++) {
+		x = movable_obj[i].GetCenterX() + dx;
+		y = movable_obj[i].GetCenterY() + dy;
+		w = movable_obj[i].GetWidth();
+		h = movable_obj[i].GetHeight();
+		t = movable_obj[i].GetTexture();
+		Draw(x, y, w, h, t);
+	}
+
+	// Draw player
+	Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
 
 	// Flip buffer
 	FlipBuffer();
+}
+// Draw pause scene
+void SceneManager::Pause() {
+
 }
 // Finish the game
 void SceneManager::Release() {
 	this->DeleteBuffer();
 }
 // Set color
-void SceneManager::SetColor(unsigned char BgColor, unsigned char TextColor){
-	if (BgColor > 15 || TextColor > 15) return;
+void SceneManager::SetColor(unsigned char bg_color, unsigned char txt_color){
+	if (bg_color > 15 || txt_color > 15) return;
 
-	unsigned short ColorNum = (BgColor << 4) | TextColor;
+	unsigned short ColorNum = (bg_color << 4) | txt_color;
 	SetConsoleTextAttribute(hBuffer[nScreenIndex], ColorNum);
 }
