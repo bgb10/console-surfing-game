@@ -1,4 +1,4 @@
-#include "..\GameObjects_Header\GameObject.h"
+#include "GameObject.h"
 
 bool GameObject::operator == (const GameObject& o) {
 	return (this->GetID() == o.GetID()) ? true : false;
