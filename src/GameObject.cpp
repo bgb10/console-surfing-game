@@ -1,6 +1,7 @@
 #include "GameObject.h"
 
-bool GameObject::operator == (const GameObject& o) {
+bool GameObject::operator == (const GameObject& o) 
+{
 	return (this->GetID() == o.GetID()) ? true : false;
 }
 
@@ -23,7 +24,8 @@ void GameObject::SetWidth(float width) { this->width = width; }
 void GameObject::SetHeight(float height) { this->height = height; }
 void GameObject::SetTexture(std::string texture) { this->texture = texture; }
 
-GameObject::GameObject() {
+GameObject::GameObject() 
+{
 	this->object_count = 0;
 	this->object_id = 0;
 	this->center_x = 0.0f;
@@ -32,7 +34,8 @@ GameObject::GameObject() {
 	this->width = 0.0f;
 }
 
-GameObject::GameObject(float x, float y) {
+GameObject::GameObject(float x, float y) 
+{
 	this->object_count = 0;
 	this->object_id = 0;
 	this->center_x = x;
@@ -41,7 +44,8 @@ GameObject::GameObject(float x, float y) {
 	this->width = 0.0f;
 }
 
-GameObject::GameObject(float x, float y, float width, float height) {
+GameObject::GameObject(float x, float y, float width, float height) 
+{
 	this->object_count = 0;
 	this->object_id = 0;
 	this->center_x = x;

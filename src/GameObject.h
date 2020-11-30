@@ -3,7 +3,8 @@
 
 #include <string>
 
-class GameObject {
+class GameObject 
+{
 private:
 	int object_count;
 	int object_id;
