@@ -1,9 +1,9 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "MoveableObject.h"
+#include "MovableObject.h"
 
-class Player : public MoveableObject{
+class Player : public MovableObject{
 	
 private:
 	float invincible_start_x;

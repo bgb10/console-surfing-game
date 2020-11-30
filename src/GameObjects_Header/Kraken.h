@@ -1,9 +1,10 @@
 #ifndef KRAKEN_H
 #define KRAKEN_H
 
-#include "MoveableObject.h"
+#include "MovableObject.h"
+#include "Player.h"
 
-class Kraken : public MoveableObject {
+class Kraken : public MovableObject {
 
 public:
 	Kraken();
@@ -11,7 +12,7 @@ public:
 
 public:
 	void HitBy(GameObject& object);
-	void Move();
+	void Move(Player& player);
 };
 
 #endif

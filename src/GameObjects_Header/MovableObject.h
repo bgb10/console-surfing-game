@@ -1,17 +1,17 @@
-#ifndef MOVEABLEOBJECT_H
-#define MOVEABLEOBJECT_H
+#ifndef MOVABLEOBJECT_H
+#define MOVABLEOBJECT_H
 
 #include "GameObject.h"
 
-class MoveableObject : public GameObject{
+class MovableObject : public GameObject{
 
 private:
 	float velocity_x;
 	float velocity_y;
 
 public:
-	MoveableObject();
-	MoveableObject(float x, float y);
+	MovableObject();
+	MovableObject(float x, float y);
 
 public:
 	float GetVelocityX();
