@@ -116,7 +116,7 @@ Reinitializes the `m_player` variable.
 ### RemoveMovable
 
 ```cpp
-public void RemoveMovable(MobableObject object)
+public void RemoveMovable(MoableObject object)
 ```
 
 Removes an element from `m_vector_movable` variable. Using `std::find_if`, search for an object in the vector which has the same `object_id` as the given argument.
