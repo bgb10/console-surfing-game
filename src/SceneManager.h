@@ -1,7 +1,6 @@
 #ifndef SCENEMANAGER_H
 #define SCENEMANAGER_H
 
-#include "ObjectManager.h"
 #include <iostream>
 #include <windows.h>
 #include <string>
@@ -25,12 +24,12 @@ private:
 public:
 	SceneManager(); // Instantiates the SceneManager object
 	SceneManager(int x, int y); // Instantiates with given width and height
-	void Init(); // Initialization
-	void Ready(); // Draw ready scene
-	void Render(ObjectManager& manager); // Renders all object
-	void Pause(); // Draw pause scene
-	void Release(); // Finish the game
-	void SetColor(unsigned char bg_color, unsigned char txt_color); // Set color
+	void Init(); // Initialize scene manager
+	void Ready(); // Print ready scene at console screen
+	void Render(ObjectManager& manager); // Print game scene at console screen
+	void Pause(); // Print pause scene at console screen
+	void Release(); // Called when finish the game
+	void SetColor(unsigned char bg_color, unsigned char txt_color); // Set background, texture color
 };
 
 #endif

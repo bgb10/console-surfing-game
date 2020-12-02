@@ -1,4 +1,4 @@
-#include "SceneManager.h"
+﻿#include "SceneManager.h"
 
 // Instantiates the SceneManager object
 SceneManager::SceneManager() {
@@ -100,7 +100,7 @@ void SceneManager::Draw(float center_x, float center_y, int width, int height, s
 		}
 	}
 }
-//Initialization
+// Initialize scene manager
 void SceneManager::Init() {
 	// Set console_size
 	char setText[100];
@@ -119,14 +119,80 @@ void SceneManager::Init() {
 	// Create buffer
 	CreateBuffer();
 }
-// Draw ready scene
+// Print ready scene at console screen
 void SceneManager::Ready() {
+	// Clear buffer
+	ClearBuffer();
 
+	// Print UI
+	std::string t;
+	int health = 2;
+	int high_score = 100;
+	int boost = 3;
+	t = "┌─────────────────────────────────────────┐";
+	WriteBuffer(size_x / 2 - 22, 0, t);
+	t = "│";
+	WriteBuffer(size_x / 2 - 22, 1, t);
+	for (int i = 0; i < 3; i++) {
+		if (i < health) {
+			t = "♥";
+		}
+		else {
+			t = "♡";
+		}
+		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
+	}
+	t = "High score : " + std::to_string(high_score);
+	WriteBuffer(size_x / 2 - 8, 1, t);
+	t = "@";
+	for (int i = 0; i < boost; i++) {
+		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
+	}
+	t = "│";
+	WriteBuffer(size_x / 2 + 20, 1, t);
+	t = "└─────────────────────────────────────────┘";
+	WriteBuffer(size_x / 2 - 22, 2, t);
+
+	// Print player
+	Player player = Player();
+	Draw(size_x / 2, size_y / 2, player.GetWidth(), player.GetHeight(), player.GetTexture());
+
+	// Flip buffer
+	FlipBuffer();
 }
-// Renders all object
+// Print game scene at console screen
 void SceneManager::Render(ObjectManager& manager) {
 	// Clear buffer
 	ClearBuffer();
+
+	// Print UI
+	std::string t;
+	int health = 2;
+	int high_score = 100;
+	int boost = 3;
+	t = "┌─────────────────────────────────────────┐";
+	WriteBuffer(size_x / 2 - 22, 0, t);
+	t = "│";
+	WriteBuffer(size_x / 2 - 22, 1, t);
+	for (int i = 0; i < 3; i++) {
+		if (i < health) {
+			t = "♥";
+		}
+		else {
+			t = "♡";
+		}
+		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
+	}
+	t = "High score : " + std::to_string(high_score);
+	WriteBuffer(size_x / 2 - 8, 1, t);
+	t = "@";
+	for (int i = 0; i < boost; i++) {
+		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
+	}
+	t = "│";
+	WriteBuffer(size_x / 2 + 20, 1, t);
+	t = "└─────────────────────────────────────────┘";
+	WriteBuffer(size_x / 2 - 22, 2, t);
 
 	// Get object from manager
 	Player player = manager.GetPlayer();
@@ -136,12 +202,11 @@ void SceneManager::Render(ObjectManager& manager) {
 	float dx, dy; // variables for coordinate calculation
 	float x, y; // centerX, centerY
 	int w, h; // width, height
-	std::string t; // texture
 
 	dx = size_x / 4 - player.GetCenterX();
 	dy = size_y * 2 / 5 - player.GetCenterY();
 
-	// Draw immovable object
+	// Print immovable object
 	for (int i = 0; i < immovable_obj.size(); i++) {
 		x = immovable_obj[i].GetCenterX() + dx;
 		y = immovable_obj[i].GetCenterY() + dy;
@@ -151,7 +216,7 @@ void SceneManager::Render(ObjectManager& manager) {
 		Draw(x, y, w, h, t);
 	}
 
-	// Draw movable object
+	// Print movable object
 	for (int i = 0; i < movable_obj.size(); i++) {
 		x = movable_obj[i].GetCenterX() + dx;
 		y = movable_obj[i].GetCenterY() + dy;
@@ -161,21 +226,102 @@ void SceneManager::Render(ObjectManager& manager) {
 		Draw(x, y, w, h, t);
 	}
 
-	// Draw player
+	// Print player
 	Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
+	
+	
+	// Flip buffer
+	FlipBuffer();
+}
+// Print pause scene at console screen
+void SceneManager::Pause() {
+	// Clear buffer
+	ClearBuffer();
+
+	// Print UI
+	std::string t;
+	int health = 2;
+	int high_score = 100;
+	int boost = 3;
+	t = "┌─────────────────────────────────────────┐";
+	WriteBuffer(size_x / 2 - 22, 0, t);
+	t = "│";
+	WriteBuffer(size_x / 2 - 22, 1, t);
+	for (int i = 0; i < 3; i++) {
+		if (i < health) {
+			t = "♥";
+		}
+		else {
+			t = "♡";
+		}
+		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
+	}
+	t = "High score : " + std::to_string(high_score);
+	WriteBuffer(size_x / 2 - 8, 1, t);
+	t = "@";
+	for (int i = 0; i < boost; i++) {
+		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
+	}
+	t = "│";
+	WriteBuffer(size_x / 2 + 20, 1, t);
+	t = "└─────────────────────────────────────────┘";
+	WriteBuffer(size_x / 2 - 22, 2, t);
+
+	// Get object from manager
+	Player player = manager.GetPlayer();
+	std::vector<MovableObject> movable_obj = manager.GetMovable();
+	std::vector<GameObject> immovable_obj = manager.GetImmovable();
+
+	float dx, dy; // variables for coordinate calculation
+	float x, y; // centerX, centerY
+	int w, h; // width, height
+
+	dx = size_x / 4 - player.GetCenterX();
+	dy = size_y * 2 / 5 - player.GetCenterY();
+
+	// Print immovable object
+	for (int i = 0; i < immovable_obj.size(); i++) {
+		x = immovable_obj[i].GetCenterX() + dx;
+		y = immovable_obj[i].GetCenterY() + dy;
+		w = immovable_obj[i].GetWidth();
+		h = immovable_obj[i].GetHeight();
+		t = immovable_obj[i].GetTexture();
+		Draw(x, y, w, h, t);
+	}
+
+	// Print movable object
+	for (int i = 0; i < movable_obj.size(); i++) {
+		x = movable_obj[i].GetCenterX() + dx;
+		y = movable_obj[i].GetCenterY() + dy;
+		w = movable_obj[i].GetWidth();
+		h = movable_obj[i].GetHeight();
+		t = movable_obj[i].GetTexture();
+		Draw(x, y, w, h, t);
+	}
+
+	// Print player
+	Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
+
+	// Print pause message
+	t = "┌─────────────────────────┐";
+	WriteBuffer(size_x / 2 - 14, 4, t);
+	t = "│    게임이 일시 중지됨   │";
+	WriteBuffer(size_x / 2 - 14, 5, t);
+	t = "│                         │";
+	WriteBuffer(size_x / 2 - 14, 6, t);
+	t = "│   다시 시작하려면 space │";
+	WriteBuffer(size_x / 2 - 14, 7, t);
+	t = "└─────────────────────────┘";
+	WriteBuffer(size_x / 2 - 14, 8, t);
 
 	// Flip buffer
 	FlipBuffer();
 }
-// Draw pause scene
-void SceneManager::Pause() {
-
-}
-// Finish the game
+// Called when finish the game
 void SceneManager::Release() {
 	this->DeleteBuffer();
 }
-// Set color
+// Set background, texture color
 void SceneManager::SetColor(unsigned char bg_color, unsigned char txt_color){
 	if (bg_color > 15 || txt_color > 15) return;
 
