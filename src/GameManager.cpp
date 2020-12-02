@@ -92,8 +92,8 @@ void GameManager::Update()
 		delta = difftime(curr, prev);
 
 	vector<MovableObject>& vec_movable = m_ObjectManager.GetMovable();
-	vector<MovableObject>& vec_immovable = m_ObjectManager.GetImmovable();
-	Player& player = vec_movable[0];
+	vector<GameObject>& vec_immovable = m_ObjectManager.GetImmovable();
+	Player& player = m_ObjectManager.GetPlayer();
 
 	// move movable objects
 	for (int id = 0; id < vec_movable.size(); id++)
