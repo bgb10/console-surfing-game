@@ -1,55 +1,57 @@
-#include "GameObject.h"
+#include "MovableObject.h"
+#include <cmath>
 
-bool GameObject::operator == (const GameObject& o) 
+const double PI = 3.14159265;
+
+//Constructors
+MovableObject::MovableObject() : GameObject() {}
+MovableObject::MovableObject(float x, float y) : GameObject(x, y) {}
+
+void MovableObject::Stop() 
 {
-	return (this->GetID() == o.GetID()) ? true : false;
+	this->velocity_x = 0;
+	this->velocity_y = 0;
 }
 
-/* soon ... 
-bool HasIntersected(GameObject& object);
-void HitBy(GameObject& object);
-*/
-
-/*Getters*/
-int GameObject::GetID() const { return this->object_id; }
-float GameObject::GetCenterX() const { return this->center_x; }
-float GameObject::GetCenterY() const { return this->center_y; }
-float GameObject::GetWidth() const { return this->width; }
-float GameObject::GetHeight() const { return this->height; }
-std::string GameObject::GetTexture() const { return this->texture; }
-
-/*Setters*/
-void GameObject::SetCenter(float px, float py) { this->center_x = px; this->center_y = py; }
-void GameObject::SetWidth(float width) { this->width = width; }
-void GameObject::SetHeight(float height) { this->height = height; }
-void GameObject::SetTexture(std::string texture) { this->texture = texture; }
-
-GameObject::GameObject() 
+//getters
+float MovableObject::GetVelocityX() { return this->velocity_x; }
+float MovableObject::GetVelocityY() { return this->velocity_y; }
+float  MovableObject::GetSpeed()
 {
-	this->object_count = 0;
-	this->object_id = 0;
-	this->center_x = 0.0f;
-	this->center_y = 0.0f;
-	this->height = 0.0f;
-	this->width = 0.0f;
+	return sqrt(pow(this->velocity_x, 2) + pow(this->velocity_y, 2));
 }
 
-GameObject::GameObject(float x, float y) 
+//setters
+void MovableObject::SetVelocityX(float velocity_x) { this->velocity_x = velocity_x; }
+void MovableObject::SetVeloctiyY(float velocity_y) { this->velocity_y = velocity_y; }
+void MovableObject::SetSpeedByFactor(float factor)
 {
-	this->object_count = 0;
-	this->object_id = 0;
-	this->center_x = x;
-	this->center_y = y;
-	this->height = 0.0f;
-	this->width = 0.0f;
+	this->velocity_x = this->velocity_x * factor;
+	this->velocity_y = this->velocity_y * factor;
 }
 
-GameObject::GameObject(float x, float y, float width, float height) 
-{
-	this->object_count = 0;
-	this->object_id = 0;
-	this->center_x = x;
-	this->center_y = y;
-	this->height = width;
-	this->width = height;
+
+void MovableObject::SetDirection(int direction) {
+	switch (direction) {
+	case -2:/*8'o clock dir*/
+		this->velocity_x = tan((4 / 3) * PI); break;//240 DEGREE
+	case -1:/*7'o clock dir*/
+		this->velocity_x = tan((7 / 6) * PI); break;//210 DEGREE
+	case 0:/*6'o clock dir*/
+		this->velocity_x = tan(PI); break;//180 DEGREE
+	case 1:/*5'o clock dir*/
+		this->velocity_x = tan((5 / 6) * PI); break;//150 DEGREE
+	case 2:/*4'o clock dir*/
+		this->velocity_x = tan((2 / 3) * PI); break;//120 DEGREE
+	}
 }
+void MovableObject::RotateRight()
+{
+	this->velocity_x = tan(atan(this->velocity_x) - (22 * PI / 180));
+}
+void MovableObject::RotateLeft() 
+{
+	this->velocity_x = tan(atan(this->velocity_x) + (22 * PI / 180));
+}
+void MovableObject::ResetRotate() { this->velocity_x = 0; }
+

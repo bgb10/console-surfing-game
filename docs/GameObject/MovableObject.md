@@ -133,7 +133,7 @@ Returns scalar value of vector consisted of `velocity_x` and `velocity_y`.
 ### SetVelocityX
 
 ```cpp
-public void SetVelocityX()
+public void SetVelocityX(float velocity_x)
 ```
 
 Sets `velocity_x`.
@@ -141,7 +141,7 @@ Sets `velocity_x`.
 ### SetVelocityY
 
 ```cpp
-public void SetVelocityY()
+public void SetVelocityY(float velocity_y)
 ```
 
 Sets `velocity_y`.
