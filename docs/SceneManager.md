@@ -94,13 +94,40 @@ public void Init()
 
 Initialize scene manager.
 
+### Start
+
+```cpp
+private void Start()
+```
+
+Starts playing the game on the ***gameplay scene***. Initialize the default starting `GameObject` objects into position. Called as a callback function from `InputManager`.
+
+### Scene: _Gameplay_
+
+***Gameplay scene*** contains the following components.
+
+- Health bar
+- High score
+- Boost bar
+- Player (at the center of the scene)
+- `GameObject` (`Obstacle`s, `Item`s, `Drawback`s, `Surfer`s, `Kraken`)
+
 ### Ready
 
 ```cpp
 public void Ready()
 ```
 
-Draw ready scene at the console screen.
+Shows the ***ready scene***. Initializes `Player` object into default position. Called as a callback function from `InputManager` or on game over situation.
+
+### Scene: _Ready_
+
+***Ready scene*** contains the following components.
+
+- Health bar
+- High score
+- Boost bar
+- Player (at the center of the scene) 
 
 ### Render
 
