@@ -25,10 +25,20 @@ void ObjectManager::ResetPlayer(){
     
 }
 void ObjectManager::RemoveMovable(MovableObject object){
-    //find_if
+    vector <MovableObject>::iterator it;
+    for(int i=0;i<m_vector_movable.size();i++){
+        if(m_vector_movable[i].GetID()==object.GetID()){
+            m_vector_movable.erase(m_vector_movable.begin()+i);
+        }
+    }
+   //I don'know how can i use std::find_if
 }
 void ObjectManager::RemoveImmovable(GameObject object){
-    //find_if
+      for(int i=0;i<m_vector_movable.size();i++){
+        if(m_vector_movable[i].GetID()==object.GetID()){
+            m_vector_movable.erase(m_vector_movable.begin()+i);
+        }
+    }
 }
 void ObjectManager::RemoveAllMovables(){
     m_vector_movable.clear();
