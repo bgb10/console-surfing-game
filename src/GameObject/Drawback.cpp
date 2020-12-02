@@ -7,5 +7,5 @@ Drawback::Drawback(float x, float y) : GameObject(x,y){}
 
 /* soon ...
 bool HasIntersected(GameObject& object);
-void HitBy(GameObject& object);
+void HitBy(MovableObject& object);
 */

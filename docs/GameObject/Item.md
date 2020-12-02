@@ -63,7 +63,7 @@ Randomly instantiates a subclass of `Item`, between `Boost` and `Health`. Initia
 ### HitBy
 
 ```cpp
-public void HitBy(GameObject& object)
+public void HitBy(MovableObject& object)
 ```
 
 Specification of [`GameObject::HitBy`](../GameObject.md#HitBy). Increment specific user values (between `boost_count` and `life_count`) by 1.

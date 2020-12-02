@@ -79,7 +79,7 @@ Instantiates the `Current` object. Initializes with given position.
 ### HitBy
 
 ```cpp
-public void HitBy(GameObject& object)
+public void HitBy(MovableObject& object)
 ```
 
 Reduces speed of given `object` by **80%**. Uses [`MovableObject::SetSpeedByFactor`](MovableObject.md#SetSpeedByFactor).

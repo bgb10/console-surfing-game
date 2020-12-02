@@ -6,7 +6,7 @@ extern int boost_count;
 Boost::Boost() : Item() {}
 Boost::Boost(float x, float y) : Item(x, y){}
 
-void Boost::HitBy(GameObject& object) 
+void Boost::HitBy(MovableObject& object) 
 {
 	boost_count++;
 }

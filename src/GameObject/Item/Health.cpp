@@ -6,7 +6,7 @@ extern int life_count;
 Health::Health() : Item(){}
 Health::Health(float x, float y) : Item(x, y){}
 
-void Health::HitBy(GameObject& object) 
+void Health::HitBy(MovableObject& object) 
 {
 	life_count++;
 }

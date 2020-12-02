@@ -36,7 +36,7 @@ public:
 	void SetTexture(std::string texture);
 	
 	bool HasIntersected(GameObject& object);
-	virtual void HitBy(GameObject& object) = 0;
+	virtual void HitBy(MovableObject& object) = 0;
 };
 
 #endif

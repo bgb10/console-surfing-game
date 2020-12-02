@@ -19,7 +19,7 @@ bool Player::HasIntersected(GameObject& object)
 
 }
 	
-void Player::HitBy(GameObject& object)
+void Player::HitBy(MovableObject& object)
 {
 
 }

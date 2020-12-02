@@ -81,7 +81,7 @@ Initializes a movable object with given position.
 ### HitBy
 
 ```cpp
-public void HitBy(GameObject& object)
+public void HitBy(MovableObject& object)
 ```
 
 Specification of [`GameObject::HitBy`](../GameObject.md#HitBy).

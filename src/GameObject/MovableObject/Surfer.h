@@ -10,7 +10,7 @@ public:
 	Surfer(float x, float y);
 
 public:
-	void HitBy(GameObject& object);
+	void HitBy(MovableObject& object);
 	void Move();
 };
 

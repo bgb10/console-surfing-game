@@ -17,7 +17,7 @@ public:
 public:
 	void Move();
 	bool HasIntersected(GameObject& object);
-	void HitBy(GameObject& object);
+	void HitBy(MovableObject& object);
 	void SetInvincibleDistance(float distance);
 };
 

@@ -11,7 +11,7 @@ public:
 	Kraken(float x, float y, Player& player);
 
 public:
-	void HitBy(GameObject& object);
+	void HitBy(MovableObject& object);
 	void Move();
 };
 

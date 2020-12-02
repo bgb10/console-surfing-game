@@ -76,7 +76,7 @@ Instantiates the `Deck` object. Initializes with given position.
 ### HitBy
 
 ```cpp
-public void HitBy(GameObject& object)
+public void HitBy(MovableObject& object)
 ```
 
 Decreases `life_count` by 1 and make the player invincible for a while.

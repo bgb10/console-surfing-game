@@ -7,7 +7,7 @@ bool GameObject::operator == (const GameObject& o)
 
 /* soon ... 
 bool HasIntersected(GameObject& object);
-void HitBy(GameObject& object);
+void HitBy(MovableObject& object);
 */
 
 /*Getters*/
