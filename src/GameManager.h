@@ -7,7 +7,9 @@
 #include "InputManager.h"
 #include "SceneManager.h"
 
-#include <math>
+#include "GameObject/MovableObject/Player.h"
+
+#include <math.h>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -30,6 +32,7 @@ private:
 
 	void Init();
 	void Ready();
+	void Play();
 	void Update();
 	void DistanceToScore();
 	int LoadHighScore();

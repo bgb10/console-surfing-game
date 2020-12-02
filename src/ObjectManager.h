@@ -2,8 +2,8 @@
 #define OBJECTMANAGER_H
 
 #include "SceneManager.h"
-#include "MovableObject.h"
-#include "Player.h" 
+#include "GameObject/MovableObject.h"
+#include "GameObject/MovableObject/Player.h" 
 #include <vector>
 
 using namespace std;

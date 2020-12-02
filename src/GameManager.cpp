@@ -1,7 +1,14 @@
 #include "GameManager.h"
 
+extern int score;
+
 void GameManager::Init()
 {
+	m_ObjectManager = ObjectManager();
+	m_ObjectGenerator = ObjectGenerator();
+	m_InputManager = InputManager();
+	m_SceneManager = SceneManager();
+
 	Ready();
 
 	Play();
@@ -95,25 +102,25 @@ void GameManager::Update()
 	Player& player = vec_movable[0];
 
 	// move movable objects
-	for (int id = 0; i < vec_movable.size(); id++)
+	for (int id = 0; id < vec_movable.size(); id++)
 	{
 		vec_movable[id].Move();
 	}
 
 	// check collision between movable and player
-	for (int id = 1; i < vec_movable.size(); id++)
+	for (int id = 1; id < vec_movable.size(); id++)
 	{
 		vec_movable[id].HitBy(player);
 	}
 
 	// check collision between immovable and player
-	for (int id = 0; i < vec_immovable.size(); id++)
+	for (int id = 0; id < vec_immovable.size(); id++)
 	{
 		vec_immovable[id].HitBy(player);
 	}
 
 	DistanceToScore();
-	m_SceneManager.Render();
+	m_SceneManager.Render(m_ObjectManager);
 	prev = curr;
 }
 
@@ -127,7 +134,7 @@ void GameManager::DistanceToScore()
 	float player_distance = sqrt(player_x * player_x + player_y * player_y);
 
 	// suggestion
-	score = round(player_distance);
+	score = floor(player_distance);
 
 	if (high_score < score)
 	{
