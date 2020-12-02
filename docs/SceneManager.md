@@ -86,6 +86,22 @@ Instantiates the `SceneManager` object with given width and height.
 
 ## Member functions
 
+### Init
+
+```cpp
+public void Init()
+```
+
+Initialize scene manager.
+
+### Ready
+
+```cpp
+public void Ready()
+```
+
+Draw ready scene at the console screen.
+
 ### Render
 
 ```cpp
@@ -93,6 +109,30 @@ public void Render(ObjectManager& manager)
 ```
 
 Renders all object from given `manager` onto console screen.
+
+### Pause
+
+```cpp
+public void Pause()
+```
+
+Draw pause scene at the console screen.
+
+### Release
+
+```cpp
+public void Release()
+```
+
+Release buffers and finish the game.
+
+### SetColor
+
+```cpp
+public void SetColor(unsigned char bg_color, unsigned char txt_color)
+```
+
+Set background, texture color.
 
 **See also:**
 
