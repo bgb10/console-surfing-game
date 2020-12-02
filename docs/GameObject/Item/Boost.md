@@ -33,11 +33,10 @@ Texture of the object. Will be set with `SetTexture()` in the constructor.
 #### Texture example
 
 - `width`: 1
-- `height`: 2
+- `height`: 1
 
 ```
-/\
-\/
+ⓔ
 ```
 
 ## Constructors

@@ -9,14 +9,16 @@ void GameManager::Init()
 
 void GameManager::Ready()
 {
-	m_ObjectGenerator.Generate(m_ObjectManager); // NEED
+	m_ObjectGenerator.Generate(m_ObjectManager);
 
 	m_SceneManager.Ready();
 }
 
 void GameManager::Play()
 {
-	bool is_paused = false;
+	is_paused = false;
+
+	Player& player = m_ObjectManager.GetPlayer();
 
 	while (1)
 	{
@@ -26,24 +28,24 @@ void GameManager::Play()
 
 		if (m_InputManager.IsInputUp())
 		{
-			m_ObjectManager.GetPlayer().SetVelocityX(0.0f);
-			m_ObjectManager.GetPlayer().SetVelocityY(0.0f);
+			player.SetVelocityX(0.0f);
+			player.SetVelocityY(0.0f);
 		}
 		else if (m_InputManager.IsInputDown())
 		{
-			m_ObjectManager.GetPlayer().SetVelocityX(0.0f);
+			player.SetVelocityX(0.0f);
 		}
 		else if (m_InputManager.IsInputLeft())
 		{
-			m_ObjectManager.GetPlayer().MoveDirectionLeft(); // NEED
+			player.RotateLeft();
 		}
 		else if (m_InputManager.IsInputRight())
 		{
-			m_ObjectManager.GetPlayer().MoveDirectionRight; // NEED
+			player.RotateRight;
 		}
 		else if (m_InputManager.IsInputBoost())
 		{
-			m_ObjectManager.GetPlayer().IncreaseSpeed(1.0f); // NEED
+			player.SetSpeedByFactor(1.2f);
 		}
 		else if (m_InputManager.IsInputSpace())
 		{
@@ -87,29 +89,50 @@ void GameManager::Update()
 		delta = 0;
 	else
 		delta = difftime(curr, prev);
-	
-	m_ObjectManager.GetPlayer().SetCenter(
-		m_ObjectManager.GetPlayer().GetCenterX() + delta * ratio * m_ObjectManager.GetPlayer().GetVelocityX(),
-		m_ObjectManager.GetPlayer().GetCenterY() + delta * ratio * m_ObjectManager.GetPlayer().GetVelocityY(),
-	);
 
-	// collision detection
+	vector<MovableObject>& vec_movable = m_ObjectManager.GetMovable();
+	vector<MovableObject>& vec_immovable = m_ObjectManager.GetImmovable();
+	Player& player = vec_movable[0];
 
+	// move movable objects
+	for (int id = 0; i < vec_movable.size(); id++)
+	{
+		vec_movable[id].Move();
+	}
 
+	// check collision between movable and player
+	for (int id = 1; i < vec_movable.size(); id++)
+	{
+		vec_movable[id].HitBy(player);
+	}
 
+	// check collision between immovable and player
+	for (int id = 0; i < vec_immovable.size(); id++)
+	{
+		vec_immovable[id].HitBy(player);
+	}
+
+	DistanceToScore();
 	m_SceneManager.Render();
 	prev = curr;
 }
 
-int GameManager::DistanceToScore(float distance)
+void GameManager::DistanceToScore()
 {
-	float player_x = m_ObjectManager.GetPlayer().GetCenterX();
-	float player_y = m_ObjectManager.GetPlayer().GetCenterY();
+	Player& player = m_ObjectManager.GetPlayer();
+
+	float player_x = player.GetCenterX();
+	float player_y = player.GetCenterY();
 
 	float player_distance = sqrt(player_x * player_x + player_y * player_y);
 
-	//초당 몇 칸을 움직이는가를 모르겠다.
+	// suggestion
+	score = static_cast<int>(player_distance);
 
+	if (high_score < score)
+	{
+		high_score = score;
+	}
 }
 
 int GameManager::LoadHighScore()
