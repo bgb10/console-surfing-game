@@ -1,7 +1,7 @@
 #ifndef MOVABLEOBJECT_H
 #define MOVABLEOBJECT_H
 
-#include "GameObject.h"
+#include "../GameObject.h"
 
 class MovableObject : public GameObject{
 
