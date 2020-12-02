@@ -7,9 +7,9 @@
 
 </br>
 
-![Diagram](diagram/surfing_game_diagram.jpg)
+![Diagram](diagram/surfing_game_diagram.drawio.svg)
 
-Click [here](https://app.diagrams.net/#Hbgb10%2Fconsole-surfing-game%2Fmaster%2Fdocs%2Fdiagram%2Fsurfing_game_diagram.drawio) to edit this diagram on _draw.io_.
+Click [here](https://app.diagrams.net/#Hbgb10%2Fconsole-surfing-game%2Fmaster%2Fdocs%2Fdiagram%2Fsurfing_game_diagram.drawio.svg) to edit this diagram on _draw.io_.
 
 </details>
 
