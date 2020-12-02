@@ -2,6 +2,12 @@
 #define GAMEMANAGER_H
 
 //include required components
+#include "ObjectManager.h";
+#include "ObjectGenerator.h"
+#include "InputManager.h"
+#include "SceneManager.h"
+
+#include <math.h>
 
 class GameManager {
 
