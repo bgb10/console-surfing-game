@@ -14,7 +14,7 @@ Abstract implementation of the **item** object of the game. Increases user value
 
 ## Member variables
 
-### Member variables inherited from class [../GameObject.md]
+### Member variables inherited from class [GameObject](../GameObject.md)
 
 [`object_count`](../GameObject.md#object_count), 
 [`object_id`](../GameObject.md#object_id), 

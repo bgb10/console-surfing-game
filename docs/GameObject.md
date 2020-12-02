@@ -82,7 +82,7 @@ If the object has width of `n` and height of `m`, the length of `texture` variab
 
 ```cpp
 width = 3.0;  // 6 characters wide
-height = 4.0; // 3 lines high
+height = 4.0; // 4 lines high
 texture = " /\/\ < \/ >< /\ > \/\/ "; // 3 * 2 * 3 = 18 characters
 ```
 
