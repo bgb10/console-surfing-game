@@ -144,7 +144,7 @@ void SceneManager::Ready() {
 	}
 	t = "High score : " + std::to_string(high_score) + "m";
 	WriteBuffer(size_x / 2 - 8, 1, t);
-	t = "@";
+	t = "ⓔ";
 	for (int i = 0; i < boost; i++) {
 		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
 	}
@@ -185,7 +185,7 @@ void SceneManager::Render(ObjectManager& manager) {
 	}
 	t = "Score : " + std::to_string(score) + "m";
 	WriteBuffer(size_x / 2 - 6, 1, t);
-	t = "@";
+	t = "ⓔ";
 	for (int i = 0; i < boost; i++) {
 		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
 	}
@@ -258,7 +258,7 @@ void SceneManager::Pause() {
 	}
 	t = "Score : " + std::to_string(score) + "m";
 	WriteBuffer(size_x / 2 - 6, 1, t);
-	t = "@";
+	t = "ⓔ";
 	for (int i = 0; i < boost; i++) {
 		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
 	}
@@ -301,7 +301,7 @@ void SceneManager::Pause() {
 
 	// Print player
 	Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
-
+	
 	// Print pause message
 	t = "┌─────────────────────────┐";
 	WriteBuffer(size_x / 2 - 14, size_y / 4, t);
@@ -342,7 +342,7 @@ void SceneManager::GameOver() {
 	}
 	t = "Score : " + std::to_string(score) + "m";
 	WriteBuffer(size_x / 2 - 8, 1, t);
-	t = "@";
+	t = "ⓔ";
 	for (int i = 0; i < boost; i++) {
 		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
 	}
@@ -385,7 +385,7 @@ void SceneManager::GameOver() {
 
 	// Print player
 	Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
-
+	
 	// Print pause message
 	t = "┌─────────────────────────┐";
 	WriteBuffer(size_x / 2 - 14, size_y / 4, t);
