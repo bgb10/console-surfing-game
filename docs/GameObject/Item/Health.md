@@ -8,6 +8,10 @@ Definition of **health** item. Increase life by 1 when player hits one.
 
 Implementation of Health object in game. Increments `life_count` by 1 on collision.
 
+Texture of the original game is shown in the image below.
+
+![In-game texture](../../image/health.png)
+
 ## Member variables
 
 ### Member variables inherited from class [../../GameObject.md]
@@ -30,7 +34,7 @@ Texture of the object. Will be set with `SetTexture()` in the constructor.
 - `height`: 1
 
 ```
-()
+♥
 ```
 
 ## Constructors
