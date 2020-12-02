@@ -1,14 +1,18 @@
 #include "GameObject.h"
 
+//static member variable init
+int GameObject::object_count = 0;
+
 bool GameObject::operator == (const GameObject& o) 
 {
 	return (this->GetID() == o.GetID()) ? true : false;
 }
 
-/* soon ... 
-bool HasIntersected(GameObject& object);
-void HitBy(GameObject& object);
-*/
+
+bool GameObject::HasIntersected(GameObject& object) {
+
+}
+
 
 /*Getters*/
 int GameObject::GetID() const { return this->object_id; }
@@ -26,8 +30,8 @@ void GameObject::SetTexture(std::string texture) { this->texture = texture; }
 
 GameObject::GameObject() 
 {
-	this->object_count = 0;
-	this->object_id = 0;
+	this->object_count += 1;
+	this->object_id = this->object_count;
 	this->center_x = 0.0f;
 	this->center_y = 0.0f;
 	this->height = 0.0f;
@@ -36,8 +40,8 @@ GameObject::GameObject()
 
 GameObject::GameObject(float x, float y) 
 {
-	this->object_count = 0;
-	this->object_id = 0;
+	this->object_count += 1;
+	this->object_id = this->object_count;
 	this->center_x = x;
 	this->center_y = y;
 	this->height = 0.0f;
@@ -46,8 +50,8 @@ GameObject::GameObject(float x, float y)
 
 GameObject::GameObject(float x, float y, float width, float height) 
 {
-	this->object_count = 0;
-	this->object_id = 0;
+	this->object_count += 1;
+	this->object_id = this->object_count;
 	this->center_x = x;
 	this->center_y = y;
 	this->height = width;

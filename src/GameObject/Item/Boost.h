@@ -1,7 +1,7 @@
 #ifndef BOOST_H
 #define BOOST_H
 
-#include "Item.h"
+#include "../Item.h"
 
 class Boost : public Item {
 	
