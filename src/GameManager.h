@@ -7,7 +7,7 @@
 #include "InputManager.h"
 #include "SceneManager.h"
 
-#include <math.h>
+#include <math>
 #include <fstream>
 #include <iostream>
 #include <string>

@@ -41,7 +41,7 @@ void GameManager::Play()
 		}
 		else if (m_InputManager.IsInputRight())
 		{
-			player.RotateRight;
+			player.RotateRight();
 		}
 		else if (m_InputManager.IsInputBoost())
 		{
@@ -127,7 +127,7 @@ void GameManager::DistanceToScore()
 	float player_distance = sqrt(player_x * player_x + player_y * player_y);
 
 	// suggestion
-	score = static_cast<int>(player_distance);
+	score = round(player_distance);
 
 	if (high_score < score)
 	{
