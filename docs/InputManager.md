@@ -48,9 +48,9 @@ Input for next frame (next `GameManager::Render()` function call) is saved in `m
 <summary>Data flow diagram</summary>
 <br>
 
-![Data flow of m_input](diagram/InputManager_timing_diagram.jpg)
+![Data flow of m_input](diagram/InputManager_timing_diagram.drawio.svg)
 
-Click [here](https://app.diagrams.net/#Hbgb10%2Fconsole-surfing-game%2Fmaster%2Fdocs%2Fdiagram%2FInputManager_timing_diagram.drawio) to edit this diagram on _draw.io_.
+Click [here](https://app.diagrams.net/#Hbgb10%2Fconsole-surfing-game%2Fmaster%2Fdocs%2Fdiagram%2FInputManager_timing_diagram.drawio.svg) to edit this diagram on _draw.io_.
 
 </details>
 
