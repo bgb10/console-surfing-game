@@ -1,7 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "MovableObject.h"
+#include "../MovableObject.h"
 
 class Player : public MovableObject{
 	

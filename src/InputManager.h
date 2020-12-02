@@ -4,6 +4,11 @@
 
 //include required components
 
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <Windows.h>
+#include <conio.h>
+
 class InputManager {
 private:
 	int m_input;
@@ -12,13 +17,13 @@ public:
 	InputManager();
 	void ListenInput();
 	int GetInput();
-	bool IsInputSpace(int input);
-	bool IsInputUp(int input);
-	bool IsInputDown(int input);
-	bool IsInputLeft(int input);
-	bool IsInputRight(int input);
-	bool IsInputBoost(int input);
-	bool IsInputExit(int input);
+	bool IsInputSpace();
+	bool IsInputUp();
+	bool IsInputDown();
+	bool IsInputLeft();
+	bool IsInputRight();
+	bool IsInputBoost();
+	bool IsInputExit();
 };
 
 

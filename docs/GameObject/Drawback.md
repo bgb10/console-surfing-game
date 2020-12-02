@@ -14,7 +14,7 @@ Abstract implementation of the basic **drawback** object of the game. Decreases 
 
 ## Member variables
 
-### Member variables inherited from class [../GameObject.md]
+### Member variables inherited from class [GameObject](../GameObject.md)
 
 [`object_count`](../GameObject.md#object_count), 
 [`object_id`](../GameObject.md#object_id), 

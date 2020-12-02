@@ -7,12 +7,12 @@
 class Kraken : public MovableObject {
 
 public:
-	Kraken();
-	Kraken(float x, float y);
+	Kraken(Player& player);
+	Kraken(float x, float y, Player& player);
 
 public:
 	void HitBy(GameObject& object);
-	void Move(Player& player);
+	void Move();
 };
 
 #endif

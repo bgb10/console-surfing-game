@@ -37,6 +37,10 @@ Texture of the object. Will be set with `SetTexture()` in the constructor.
 ▒
 ```
 
+Texture in the console is shown in the image below.
+
+![In-game texture](../../image/current_1.png)
+
 ## Constructors
 
 ### Current
