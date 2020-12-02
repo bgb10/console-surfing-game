@@ -13,6 +13,8 @@ This class is expected to be used like the example below.
 <details>
 <summary><code>main.cpp</code></summary>
 
+</br>
+
 ```cpp
 #include ... // include required components
 
@@ -112,7 +114,7 @@ private void Ready()
 private void Play()
 ```
 
-Plays rendered frame of gameplay. Calls [`SceneManager::Render()`](SceneManager.md#render) to display the objects from `ObjectManager`, [`InputManager::GetInput()`](InputManager.md#getinput), [`InputManager::ListenInput()`](InputManager.md#getinput) to get the user input.
+Plays a frame of gameplay. Calls [`SceneManager::Render()`](SceneManager.md#render) to render the objects from `ObjectManager`, [`InputManager::GetInput()`](InputManager.md#getinput), [`InputManager::ListenInput()`](InputManager.md#getinput) to get the user input.
 
 Also, removes useless objects above _visible object offset_. See [SceneManager: Rendering mechanism](SceneManager.md#rendering-mechanism) for all offsets.
 
@@ -157,6 +159,16 @@ void render()
 ```
 
 </details>
+
+### GameOver
+
+```cpp
+private void GameOver()
+```
+
+Handles the game over event. Called when `life_count` _(global variable)_ becomes 0.
+
+Saves score to file if the current score is the higher than current `high_score`.
 
 ### DistanceToScore
 

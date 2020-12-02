@@ -140,10 +140,10 @@ Print pause scene at console screen.
 ### Release
 
 ```cpp
-public void Release()
+public void GameOver()
 ```
 
-Called when finish the game.
+Called when the game is finished when `life_count` is 0.
 
 ### SetColor
 
