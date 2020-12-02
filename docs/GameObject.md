@@ -173,24 +173,84 @@ Performs corresponding actions to perform on collsion.
 
 ### Getters
 
-int GetID()
+### GetID
 
+```cpp
+int GetID() 
+```
+
+Returns `object_id`.
+
+### GetCenterX
+
+```cpp
 float GetCenterX()
+```
 
+Returns `center_x`.
+
+### GetCenterX
+
+```cpp
 float GetCenterX()
+```
 
-float GetWidth()
+Returns `center_y`.
 
-float GetHeight()
+### GetWidth
 
+```cpp
+int GetWidth()
+```
+
+Returns `width`.
+
+### GetHeight
+
+```cpp
+int GetHeight()
+```
+
+Returns `height`.
+
+### GetTexture
+
+```cpp
 string GetTexture()
+```
+
+Returns `texture`.
 
 ### Setters
 
+### SetCenter
+
+```cpp
 void SetCenter(float px, float py)
+```
 
+Sets `center_x` and `center_y`.
+
+### SetWidth
+
+```cpp
 void SetWidth(float width)
+```
 
+Sets `width`.
+
+### SetHeight
+
+```cpp
 void SetHeight(float height)
+```
 
+Sets `height`.
+
+### SetTexture
+
+```cpp
 void SetTexture(float texture)
+```
+
+Sets `texture`.
