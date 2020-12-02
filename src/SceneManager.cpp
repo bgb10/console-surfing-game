@@ -71,31 +71,31 @@ void SceneManager::DeleteBuffer() {
 }
 // Draw texture
 void SceneManager::Draw(float center_x, float center_y, int width, int height, std::string texture) {
-	int x = round(center_x - (float)(width / 2));
+	int x = round(center_x - (float)(width));
 	int y = round(center_y - (float)(height / 2));
 	for (int i = 0; i < height; i++) {
 		if (y + i < 0 || y + i >= size_y) continue;
 		else if (x < 0) {
-			for (int j = 0; j < width; j++) {
+			for (int j = 0; j < 2 * width; j++) {
 				if (x + j >= 0) {
-					WriteBuffer(2 * (x + j), y + i, texture.substr(i*width + j, width - j));
+					WriteBuffer(2 * (x + j), y + i, texture.substr(i * 2 * width + j, 2 * width - j));
 					break;
 				}
 			}
 		}
 		else {
 			int check = -1;
-			for (int j = 0; j < width; j++) {
+			for (int j = 0; j < 2 * width; j++) {
 				if (x + j >= size_x / 2) {
 					check = j;
 					break;
 				}
 			}
 			if (check == -1) {
-				WriteBuffer(2 * x, y + i, texture.substr(i*width, width));
+				WriteBuffer(2 * x, y + i, texture.substr(i * 2 * width, 2 * width));
 			}
 			else {
-				WriteBuffer(2 * x, y + i, texture.substr(i*width, check));
+				WriteBuffer(2 * x, y + i, texture.substr(i * 2 * width, check));
 			}
 		}
 	}
@@ -304,15 +304,15 @@ void SceneManager::Pause() {
 
 	// Print pause message
 	t = "┌─────────────────────────┐";
-	WriteBuffer(size_x / 2 - 14, 4, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 4, t);
 	t = "│    게임이 일시 중지됨   │";
-	WriteBuffer(size_x / 2 - 14, 5, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 4 + 1, t);
 	t = "│                         │";
-	WriteBuffer(size_x / 2 - 14, 6, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 4 + 2, t);
 	t = "│   다시 시작하려면 space │";
-	WriteBuffer(size_x / 2 - 14, 7, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 4 + 3, t);
 	t = "└─────────────────────────┘";
-	WriteBuffer(size_x / 2 - 14, 8, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 4 + 4, t);
 
 	// Flip buffer
 	FlipBuffer();
@@ -388,15 +388,15 @@ void SceneManager::GameOver() {
 
 	// Print pause message
 	t = "┌─────────────────────────┐";
-	WriteBuffer(size_x / 2 - 14, 4, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 4, t);
 	t = "│      게임이  종료됨     │";
-	WriteBuffer(size_x / 2 - 14, 5, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 4 + 1, t);
 	t = "│                         │";
-	WriteBuffer(size_x / 2 - 14, 6, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 4 + 2, t);
 	t = "│   다시 시작하려면 space │";
-	WriteBuffer(size_x / 2 - 14, 7, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 4 + 3, t);
 	t = "└─────────────────────────┘";
-	WriteBuffer(size_x / 2 - 14, 8, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 4 + 4, t);
 
 	// Flip buffer
 	FlipBuffer();
