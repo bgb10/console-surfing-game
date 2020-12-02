@@ -27,56 +27,74 @@ int InputManager::GetInput()
 		return m_input;
 }
 
-bool InputManager::IsInputSpace(int input) 
+bool InputManager::IsInputSpace() 
 {
-	if (input == 32)
+	if (this->m_input == 32)
 		return 1;
 	else 
 		return 0;
 }
 
-bool InputManager::IsInputUp(int input)
+bool InputManager::IsInputUp()
 {
-	if (input == 72 ||input ==119 ||input == 87)
+	int input = this->m_input;
+	if (input ==119 ||input == 87)
 		return 1;
 	else
-		return 0;
+		if((input == 0|| input == 224)&&(this->m_special_input==72))
+			return 1;
+		else
+			return 0;
 }
 
-bool InputManager::IsInputDown(int input)
+bool InputManager::IsInputDown()
 {
-	if (input == 80 || input == 115 || input == 83)
+	int input = this->m_input;
+	if ( input == 115 || input == 83)
 		return 1;
 	else
-		return 0;
+		if((input == 0|| input == 224)&&(this->m_special_input==80))
+			return 1;
+		else
+			return 0;
 }
 
-bool InputManager::IsInputLeft(int input)
+bool InputManager::IsInputLeft()
 {
-	if (input == 75 || input == 97 || input == 65)
+	int input = this->m_input;
+	if ( input == 97 || input == 65)
 		return 1;
 	else
-		return 0;
+		if((input == 0|| input == 224)&&(this->m_special_input==75))
+			return 1;
+		else
+			return 0;
 }
 
-bool InputManager::IsInputRight(int input) // 77 (100, 68)
+bool InputManager::IsInputRight() // 77 (100, 68)
 {
-	if (input == 77 || input ==  100|| input == 68)
+	int input = this->m_input;
+	if ( input ==  100|| input == 68)
 		return 1;
 	else
-		return 0;
+		if((input == 0|| input == 224)&&(this->m_special_input==77))
+			return 1;
+		else
+			return 0;
 }
 
-bool InputManager::IsInputBoost(int input) // 102, 70
+bool InputManager::IsInputBoost() // 102, 70
 {
+	int input = this->m_input;
 	if (input == 102 || input == 70 )
 		return 1;
 	else
 		return 0;
 }
 
-bool InputManager::IsInputExit(int input)
+bool InputManager::IsInputExit()
 {
+	int input = this->m_input;
 	if (input == 27)
 		return 1;
 	else
