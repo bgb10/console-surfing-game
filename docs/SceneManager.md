@@ -92,19 +92,32 @@ Instantiates the `SceneManager` object with given width and height.
 public void Init()
 ```
 
-Initialize scene manager.
+Initialize scene manager. Called when start to print something at console screen.
 
-### Start
+### Ready
 
 ```cpp
-private void Start()
+private void Ready()
 ```
 
-Starts playing the game on the ***gameplay scene***. Initialize the default starting `GameObject` objects into position. Called as a callback function from `InputManager`.
+Print ready scene at console screen.
 
-### Scene: _Gameplay_
+***ready scene*** contains the following components.
 
-***Gameplay scene*** contains the following components.
+- Health bar
+- High score
+- Boost bar
+- Player (at the center of the scene)
+
+### Play
+
+```cpp
+public void Play(ObjectManager& manager)
+```
+
+Print play scene at console screen. (Renders all object from given `manager` onto console screen.)
+
+***play scene*** contains the following components.
 
 - Health bar
 - High score
@@ -112,30 +125,6 @@ Starts playing the game on the ***gameplay scene***. Initialize the default star
 - Player (at the center of the scene)
 - `GameObject` (`Obstacle`s, `Item`s, `Drawback`s, `Surfer`s, `Kraken`)
 
-### Ready
-
-```cpp
-public void Ready()
-```
-
-Shows the ***ready scene***. Initializes `Player` object into default position. Called as a callback function from `InputManager` or on game over situation.
-
-### Scene: _Ready_
-
-***Ready scene*** contains the following components.
-
-- Health bar
-- High score
-- Boost bar
-- Player (at the center of the scene) 
-
-### Render
-
-```cpp
-public void Render(ObjectManager& manager)
-```
-
-Renders all object from given `manager` onto console screen.
 
 ### Pause
 
@@ -143,7 +132,7 @@ Renders all object from given `manager` onto console screen.
 public void Pause()
 ```
 
-Draw pause scene at the console screen.
+Print pause scene at console screen.
 
 ### Release
 
@@ -151,7 +140,7 @@ Draw pause scene at the console screen.
 public void Release()
 ```
 
-Release buffers and finish the game.
+Called when finish the game.
 
 ### SetColor
 
