@@ -15,7 +15,6 @@
 
 #define ratio 0.1
 
-
 class GameManager {
 
 private:
@@ -24,16 +23,15 @@ private:
 	InputManager m_InputManager;
 	SceneManager m_SceneManager;
 
-	int high_score;
+	int high_score = 0;
 	bool is_paused;
 
 	time_t curr, prev = -1;
 
 	void Init();
 	void Ready();
-	void Start();
 	void Update();
-	int DistanceToScore(float distance);
+	void DistanceToScore();
 	int LoadHighScore();
 	void SaveHighScore();
 
