@@ -34,7 +34,7 @@ Texture of the object. Will be set with `SetTexture()` in the constructor.
 - `height`: 1
 
 ```
-◎
+▒
 ```
 
 ## Constructors
