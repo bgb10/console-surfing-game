@@ -17,9 +17,9 @@ class ObjectManager{
         //Constructor
         ObjectManager();
         //Getters
-        Player GetPlayer();
-        vector<MovableObject> GetMovable();
-        vector<GameObject> GetImmovable();
+        Player& GetPlayer();
+        vector<MovableObject>& GetMovable();
+        vector<GameObject>& GetImmovable();
         //Setters
         void AddMovable(MovableObject object);
         void AddImmovable(GameObject object);
