@@ -92,7 +92,7 @@ Instantiates the `SceneManager` object with given width and height.
 public void Init()
 ```
 
-Initialize scene manager. Called when start to print something at console screen.
+Initialize scene manager. Called when the game is started and print something at console screen.
 
 ### Ready
 
@@ -137,13 +137,21 @@ public void Pause()
 
 Print pause scene at console screen.
 
-### Release
+### GameOver
 
 ```cpp
 public void GameOver()
 ```
 
 Called when the game is finished when `life_count` is 0.
+
+### Release
+
+```cpp
+public void Release()
+```
+
+Release buffers. Called when there is no need to print something at console screen.
 
 ### SetColor
 

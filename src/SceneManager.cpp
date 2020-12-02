@@ -142,7 +142,7 @@ void SceneManager::Ready() {
 		}
 		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
 	}
-	t = "High score : " + std::to_string(high_score);
+	t = "High score : " + std::to_string(high_score) + "m";
 	WriteBuffer(size_x / 2 - 8, 1, t);
 	t = "@";
 	for (int i = 0; i < boost; i++) {
@@ -168,7 +168,7 @@ void SceneManager::Render(ObjectManager& manager) {
 	// Print UI
 	std::string t;
 	int health = 2;
-	int high_score = 100;
+	int score = 80;
 	int boost = 3;
 	t = "┌─────────────────────────────────────────┐";
 	WriteBuffer(size_x / 2 - 22, 0, t);
@@ -183,8 +183,8 @@ void SceneManager::Render(ObjectManager& manager) {
 		}
 		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
 	}
-	t = "High score : " + std::to_string(high_score);
-	WriteBuffer(size_x / 2 - 8, 1, t);
+	t = "Score : " + std::to_string(score) + "m";
+	WriteBuffer(size_x / 2 - 6, 1, t);
 	t = "@";
 	for (int i = 0; i < boost; i++) {
 		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
@@ -241,7 +241,7 @@ void SceneManager::Pause() {
 	// Print UI
 	std::string t;
 	int health = 2;
-	int high_score = 100;
+	int score = 80;
 	int boost = 3;
 	t = "┌─────────────────────────────────────────┐";
 	WriteBuffer(size_x / 2 - 22, 0, t);
@@ -256,8 +256,8 @@ void SceneManager::Pause() {
 		}
 		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
 	}
-	t = "High score : " + std::to_string(high_score);
-	WriteBuffer(size_x / 2 - 8, 1, t);
+	t = "Score : " + std::to_string(score) + "m";
+	WriteBuffer(size_x / 2 - 6, 1, t);
 	t = "@";
 	for (int i = 0; i < boost; i++) {
 		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
@@ -317,7 +317,91 @@ void SceneManager::Pause() {
 	// Flip buffer
 	FlipBuffer();
 }
-// Called when finish the game
+// Called when life_count is 0
+void SceneManager::GameOver() {
+	// Clear buffer
+	ClearBuffer();
+
+	// Print UI
+	std::string t;
+	int health = 0;
+	int score = 80;
+	int boost = 2;
+	t = "┌─────────────────────────────────────────┐";
+	WriteBuffer(size_x / 2 - 22, 0, t);
+	t = "│";
+	WriteBuffer(size_x / 2 - 22, 1, t);
+	for (int i = 0; i < 3; i++) {
+		if (i < health) {
+			t = "♥";
+		}
+		else {
+			t = "♡";
+		}
+		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
+	}
+	t = "Score : " + std::to_string(score) + "m";
+	WriteBuffer(size_x / 2 - 8, 1, t);
+	t = "@";
+	for (int i = 0; i < boost; i++) {
+		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
+	}
+	t = "│";
+	WriteBuffer(size_x / 2 + 20, 1, t);
+	t = "└─────────────────────────────────────────┘";
+	WriteBuffer(size_x / 2 - 22, 2, t);
+
+	// Get object from manager
+	Player player = manager.GetPlayer();
+	std::vector<MovableObject> movable_obj = manager.GetMovable();
+	std::vector<GameObject> immovable_obj = manager.GetImmovable();
+
+	float dx, dy; // variables for coordinate calculation
+	float x, y; // centerX, centerY
+	int w, h; // width, height
+
+	dx = size_x / 4 - player.GetCenterX();
+	dy = size_y * 2 / 5 - player.GetCenterY();
+
+	// Print immovable object
+	for (int i = 0; i < immovable_obj.size(); i++) {
+		x = immovable_obj[i].GetCenterX() + dx;
+		y = immovable_obj[i].GetCenterY() + dy;
+		w = immovable_obj[i].GetWidth();
+		h = immovable_obj[i].GetHeight();
+		t = immovable_obj[i].GetTexture();
+		Draw(x, y, w, h, t);
+	}
+
+	// Print movable object
+	for (int i = 0; i < movable_obj.size(); i++) {
+		x = movable_obj[i].GetCenterX() + dx;
+		y = movable_obj[i].GetCenterY() + dy;
+		w = movable_obj[i].GetWidth();
+		h = movable_obj[i].GetHeight();
+		t = movable_obj[i].GetTexture();
+		Draw(x, y, w, h, t);
+	}
+
+	// Print player
+	Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
+
+	// Print pause message
+	t = "┌─────────────────────────┐";
+	WriteBuffer(size_x / 2 - 14, 4, t);
+	t = "│      게임이  종료됨     │";
+	WriteBuffer(size_x / 2 - 14, 5, t);
+	t = "│                         │";
+	WriteBuffer(size_x / 2 - 14, 6, t);
+	t = "│   다시 시작하려면 space │";
+	WriteBuffer(size_x / 2 - 14, 7, t);
+	t = "└─────────────────────────┘";
+	WriteBuffer(size_x / 2 - 14, 8, t);
+
+	// Flip buffer
+	FlipBuffer();
+}
+// Release buffers
 void SceneManager::Release() {
 	this->DeleteBuffer();
 }
@@ -327,4 +411,12 @@ void SceneManager::SetColor(unsigned char bg_color, unsigned char txt_color){
 
 	unsigned short ColorNum = (bg_color << 4) | txt_color;
 	SetConsoleTextAttribute(hBuffer[nScreenIndex], ColorNum);
+}
+// Get width of the console
+int SceneManager::GetWidth() {
+	return size_x;
+}
+// Get height of the console
+int SceneManager::GetHeight() {
+	return size_y;
 }
