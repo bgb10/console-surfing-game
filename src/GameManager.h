@@ -40,7 +40,6 @@ private:
 
 public:
 	GameManager();
-
 };
 
 #endif

@@ -1,14 +1,10 @@
 #include "GameManager.h"
 
 extern int score;
+extern int boost_count;
 
 void GameManager::Init()
 {
-	m_ObjectManager = ObjectManager();
-	m_ObjectGenerator = ObjectGenerator();
-	m_InputManager = InputManager();
-	m_SceneManager = SceneManager();
-
 	Ready();
 
 	Play();
@@ -29,18 +25,14 @@ void GameManager::Play()
 
 	while (1)
 	{
-		m_ObjectGenerator.Generate(m_ObjectManager, m_SceneManager);
-
-		m_InputManager.ListenInput();
-
+		// 1. Update objects and states according to input (from previous frame)
 		if (m_InputManager.IsInputUp())
 		{
-			player.SetVelocityX(0.0f);
-			player.SetVelocityY(0.0f);
+			player.Stop(); // stop the player character
 		}
 		else if (m_InputManager.IsInputDown())
 		{
-			player.SetVelocityX(0.0f);
+			player.ResetRotate(); // rotate to direct down
 		}
 		else if (m_InputManager.IsInputLeft())
 		{
@@ -52,37 +44,39 @@ void GameManager::Play()
 		}
 		else if (m_InputManager.IsInputBoost())
 		{
-			player.SetSpeedByFactor(1.2f);
+			if (boost_count > 0)
+			{
+				player.SetSpeedByFactor(1.5f); // 150% speed boost on use
+				boost_count--;
+			}
 		}
 		else if (m_InputManager.IsInputSpace())
 		{
-			if (is_paused)
-			{
-				is_paused = false;
-			}
-			else
-			{
-				is_paused = true;
-			}
+			is_paused = !is_paused; // invert the pause state
 		}
 		else if (m_InputManager.IsInputExit())
 		{
-			// exit
-			return;
+			return; // exit game
 		}
 		else
 		{
 			//exception
 		}
 
+		// 2. Listen for inputs in the next frame
+		m_InputManager.ListenInput();
+
+		// 3. Calculate and render frame
+
+		// Generate entities
+		m_ObjectGenerator.Generate(m_ObjectManager, m_SceneManager);
+		
+		// Pause screen if pause state is true
 		if (is_paused)
-		{
 			m_SceneManager.Pause();
-		}
 		else
-		{
 			Update();
-		}
+
 	}
 }
 
@@ -147,7 +141,7 @@ int GameManager::LoadHighScore()
 	std::ifstream in("highscore.dat");
 	std::string s;
 
-	if (in.is_open()) 
+	if (in.is_open())
 	{
 		in >> s;
 		high_score = std::stoi(s);
@@ -163,7 +157,7 @@ int GameManager::LoadHighScore()
 void GameManager::SaveHighScore()
 {
 	std::ofstream out("highscore.dat");
-	
+
 	if (out.is_open())
 	{
 		out << high_score;
@@ -178,4 +172,6 @@ GameManager::GameManager()
 	m_ObjectGenerator = ObjectGenerator();
 	m_InputManager = InputManager();
 	m_SceneManager = SceneManager();
+
+	Init();
 }
