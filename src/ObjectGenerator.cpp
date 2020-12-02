@@ -12,28 +12,66 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
     mt19937 gen(rd());
     //Scene x:160 y:45 
     uniform_int_distribution<float> x_pos(-sceneManager.GetWidth()/2, -sceneManager.GetWidth()/2); //-80<x_pos<80 
-    uniform_int_distribution<float> y_pos(-sceneManager.GetHeight()/2,-sceneManager.GetHeight()/2-3); //-27.5<y_pos<-22.5 
     srand(time(0));
+    float obstacle_x_pos;
+    int db,hb; //deck,byou - health,boost
 
     //Create Obstacles to Match chance_map Probability
     if(rand()%100<chance_map[GetLevel()-1][2]*100){
-        if(rand()%2)
-            deck.SetCenter(x_pos(gen),y_pos(gen));
+        obstacle_x_pos = x_pos(gen);
+        db = rand()%2;
+        if(db)
+            deck.SetCenter(obstacle_x_pos,-24);
         else
-            byou.SetCenter(x_pos(gen),y_pos(gen));
+            byou.SetCenter(obstacle_x_pos,-24);
     }
-
-    uniform_int_distribution<float> krakeny_pos(sceneManager.GetHeight()/2,sceneManager.GetHeight()/2+3); //22.5<krakeny_pos<27.5
+    /*
+    After the hasintersected test,
+    If it is hasintersected, use 'goto' to setcenter again.
+    */
+    //Create Kraken to Match chance_map Probability
     if(rand()%100<chance_map[GetLevel()-1][0]*100){
-         kraken.SetCenter(x_pos(gen),krakeny_pos(gen));
-    } //Create Kraken to Match chance_map Probability
+        K:
+        kraken.SetCenter(x_pos(gen),24);
+        if(db == 1){
+            if(kraken.HasIntersected(deck))
+                goto K;
+        }    
+        else{ 
+            if(kraken.HasIntersected(byou))
+                goto K; 
+        }
+    } 
 
+    //Create Item to Match chance_map Probability
     if(rand()%100<chance_map[GetLevel()-1][3]*100){
-        if(rand()%2)
-            health.SetCenter(x_pos(gen),y_pos(gen));
-        else
-            boost.SetCenter(x_pos(gen),y_pos(gen));
-     } //Create Item to Match chance_map Probability
+        hb = rand()%2;
+        if(hb){
+            h:
+            health.SetCenter(x_pos(gen),-24);
+            if(db){
+                if(health.HasIntersected(deck)||health.HasIntersected(kraken)){
+                    goto h;
+                }
+                else if(health.HasIntersected(byou)||health.HasIntersected(kraken)){
+                    goto h;
+                }
+            }
+        }
+        else{
+            b:
+            boost.SetCenter(x_pos(gen),-24);
+            if(db){
+                if(boost.HasIntersected(deck)||boost.HasIntersected(kraken)){
+                    goto b;
+                }
+                else if(byou.HasIntersected(deck)||byou.HasIntersected(kraken)){
+                    goto b;
+                }
+            }
+        }
+    } 
+    
 }
 //Getter
 int ObjectGenerator::GetLevel(){
