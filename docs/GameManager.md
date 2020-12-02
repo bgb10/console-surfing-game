@@ -92,53 +92,7 @@ public GameManager()
 
 Instantiates the `GameManager` object. Initializes all member variables and shows the ***title scene***.
 
-### Scene: _Title_
-
-***Title scene*** contains the following components.
-
-- Game title
-- How to play (brief explanation of controls)
-- High scores
-- *Press spacebar to start surfing* text
-
-Since this constructor shows the ***title screen***, the `main()` function only has to instantiate this class.
-
 ## Member functions
-
-### Ready
-
-```cpp
-private void Ready()
-```
-
-Shows the ***ready scene***. Initializes `Player` object into default position. Called as a callback function from `InputManager` or on game over situation.
-
-### Scene: _Ready_
-
-***Ready scene*** contains the following components.
-
-- Health bar
-- High score
-- Boost bar
-- Player (at the center of the scene) 
-
-### Start
-
-```cpp
-private void Start()
-```
-
-Starts playing the game on the ***gameplay scene***. Initialize the default starting `GameObject` objects into position. Called as a callback function from `InputManager`.
-
-### Scene: _Gameplay_
-
-***Gameplay scene*** contains the following components.
-
-- Health bar
-- High score
-- Boost bar
-- Player (at the center of the scene)
-- `GameObject` (`Obstacle`s, `Item`s, `Drawback`s, `Surfer`s, `Kraken`)
 
 ### Render
 
