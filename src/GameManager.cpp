@@ -9,7 +9,7 @@ void GameManager::Init()
 
 void GameManager::Ready()
 {
-	m_ObjectGenerator.GenerateDefaultObstacles(m_ObjectManager); // NEED
+	m_ObjectGenerator.Generate(m_ObjectManager); // NEED
 
 	m_SceneManager.Ready();
 }
@@ -20,7 +20,7 @@ void GameManager::Play()
 
 	while (1)
 	{
-		m_ObjectGenerator.Generate(m_ObjectManager);
+		m_ObjectGenerator.Generate(m_ObjectManager, m_SceneManager);
 
 		m_InputManager.ListenInput();
 
@@ -47,7 +47,14 @@ void GameManager::Play()
 		}
 		else if (m_InputManager.IsInputSpace())
 		{
-			is_paused = true;
+			if (is_paused)
+			{
+				is_paused = false;
+			}
+			else
+			{
+				is_paused = true;
+			}
 		}
 		else if (m_InputManager.IsInputExit())
 		{
@@ -62,12 +69,10 @@ void GameManager::Play()
 		if (is_paused)
 		{
 			m_SceneManager.Pause();
-			is_paused = false;
 		}
 		else
 		{
 			Update();
-			m_SceneManager.Render();
 		}
 	}
 }
@@ -89,6 +94,8 @@ void GameManager::Update()
 	);
 
 	// collision detection
+
+
 
 	m_SceneManager.Render();
 	prev = curr;
