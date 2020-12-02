@@ -25,7 +25,7 @@ Manages instantiated `GameObject` objects in the program.
 
 `GameObject` 객체들을 저장하고 관리하는 클래스.
 
-## [class ObjectGenerator](ObjectGenerater.md)
+## [class ObjectGenerator](ObjectGenerator.md)
 
 Instantiates `GameObject` objects according to game rules.
 
