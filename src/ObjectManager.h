@@ -1,5 +1,5 @@
-#ifndef OBJECTGENERATOR_H
-#define OBJECTGENERATOR_H
+#ifndef OBJECTMANAGER_H
+#define OBJECTMANAGER_H
 
 #include "SceneManager.h"
 #include "MovableObject.h"
