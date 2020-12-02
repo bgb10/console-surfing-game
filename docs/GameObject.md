@@ -6,7 +6,7 @@ Definition of a basic **object** in the game. Has attributes describing the posi
 
 **Direct known subclasses:**
 
-[`MovableObject`](MovableObject.md), [`Obstacle`](Obstacle.md), [`Item`](Item.md), [`Drawback`](Drawback.md)
+[`MovableObject`](GameObject/MovableObject.md), [`Obstacle`](GameObject/Obstacle.md), [`Item`](GameObject/Item.md), [`Drawback`](GameObject/Drawback.md)
 
 ## Definition
 
@@ -153,23 +153,23 @@ Performs corresponding actions to perform on collsion.
 
 **Specified by:**
 
-[`HitBy`](Player.md#hitby) in [`Player`](Player.md)
+[`HitBy`](GameObject/MovableObject/Player.md#hitby) in [`Player`](GameObject/MovableObject/Player.md)
 
-[`HitBy`](Kraken.md#hitby) in [`Kraken`](Kraken.md)
+[`HitBy`](GameObject/MovableObject/Kraken.md#hitby) in [`Kraken`](GameObject/MovableObject/Kraken.md)
 
-[`HitBy`](Surfer.md#hitby) in [`Surfer`](Surfer.md)
+[`HitBy`](GameObject/MovableObject/Surfer.md#hitby) in [`Surfer`](GameObject/MovableObject/Surfer.md)
 
-[`HitBy`](Deck.md#hitby) in [`Deck`](Deck.md)
+[`HitBy`](GameObject/Obstacle/Deck.md#hitby) in [`Deck`](GameObject/Obstacle/Deck.md)
 
-[`HitBy`](Buoy.md#hitby) in [`Buoy`](Buoy.md)
+[`HitBy`](GameObject/Obstacle/Buoy.md#hitby) in [`Buoy`](GameObject/Obstacle/Buoy.md)
 
-[`HitBy`](Health.md#hitby) in [`Health`](Health.md)
+[`HitBy`](GameObject/Item/Health.md#hitby) in [`Health`](GameObject/Item/Health.md)
 
-[`HitBy`](Boost.md#hitby) in [`Boost`](Boost.md)
+[`HitBy`](GameObject/Item/Boost.md#hitby) in [`Boost`](GameObject/Item/Boost.md)
 
-[`HitBy`](Seaweed.md#hitby) in [`Seaweed`](Seaweed.md)
+[`HitBy`](GameObject/Drawback/Seaweed.md#hitby) in [`Seaweed`](GameObject/Drawback/Seaweed.md)
 
-[`HitBy`](Current.md#hitby) in [`Current`](Current.md)
+[`HitBy`](GameObject/Drawback/Current.md#hitby) in [`Current`](GameObject/Drawback/Current.md)
 
 ### Getters
 
@@ -234,7 +234,7 @@ Sets `center_x` and `center_y`.
 ### SetWidth
 
 ```cpp
-void SetWidth(float width)
+void SetWidth(int width)
 ```
 
 Sets `width`.
@@ -242,7 +242,7 @@ Sets `width`.
 ### SetHeight
 
 ```cpp
-void SetHeight(float height)
+void SetHeight(int height)
 ```
 
 Sets `height`.
@@ -250,7 +250,7 @@ Sets `height`.
 ### SetTexture
 
 ```cpp
-void SetTexture(float texture)
+void SetTexture(string texture)
 ```
 
 Sets `texture`.
