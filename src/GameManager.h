@@ -8,6 +8,13 @@
 #include "SceneManager.h"
 
 #include <math.h>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <ctime>
+
+#define ratio 0.1
+
 
 class GameManager {
 
@@ -20,12 +27,16 @@ private:
 	int high_score;
 	bool is_paused;
 
+	time_t curr, prev = -1;
+
+	void Init();
 	void Ready();
 	void Start();
-	void Render();
+	void Update();
 	int DistanceToScore(float distance);
-	void LoadHighScore();
+	int LoadHighScore();
 	void SaveHighScore();
+
 public:
 	GameManager();
 
