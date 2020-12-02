@@ -171,7 +171,7 @@ Since the distance is in `float` type, which is an abstract representation of th
 ### LoadHighScore
 
 ```cpp
-private void LoadHighScore()
+private int LoadHighScore()
 ```
 
 Reads and loads high score data from `highscore.dat` file into `high_score`.
