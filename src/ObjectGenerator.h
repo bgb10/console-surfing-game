@@ -24,6 +24,7 @@ class ObjectGenerator{
             {0.2, 0.3,  0.25, 0.15, 0.3},
         };
     public:
+        ObjectGenerator();
         void Generate(ObjectManager& objectManager);
         void Generate(ObjectManager& objectManager, SceneManager& sceneManager);
         int GetLevel();
