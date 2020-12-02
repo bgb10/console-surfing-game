@@ -109,15 +109,15 @@ Print ready scene at console screen.
 - Boost bar
 - Player (at the center of the scene)
 
-### Play
+### Render
 
 ```cpp
-public void Play(ObjectManager& manager)
+public void Render(ObjectManager& manager)
 ```
 
-Print play scene at console screen. (Renders all object from given `manager` onto console screen.)
+Print game scene at console screen. (Renders all object from given `manager` onto console screen.)
 
-***play scene*** contains the following components.
+***game scene*** contains the following components.
 
 - Health bar
 - High score
