@@ -1,21 +1,23 @@
 #include "Kraken.h"
 
-Kraken::Kraken(Player& player)
+//Constructors
+Kraken::Kraken(Player& player) : MovableObject()
 {
 
 }
 
-Kraken::Kraken(float x, float y, Player& player)
+Kraken::Kraken(float x, float y, Player& player) :: MovableObject(x, y)
 {
 
 }
 
-void Kraken::HitBy(GameObject& object)
+//gameover?
+void Kraken::HitBy(GameObject& object) 
 {
-
+	  life_count = 0;
 }
 
-void Kraken::Move()
+void Kraken::Move(Player& player)
 {
 
 }

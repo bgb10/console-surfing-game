@@ -1,7 +1,7 @@
 #ifndef KRAKEN_H
 #define KRAKEN_H
 
-#include "MovableObject.h"
+#include "../MovableObject.h"
 #include "Player.h"
 
 class Kraken : public MovableObject {

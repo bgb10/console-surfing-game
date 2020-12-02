@@ -1,7 +1,7 @@
 #ifndef DRAWBACK_H
 #define DRAWBACK_H
 
-#include "GameObject.h"
+#include "../GameObject.h"
 
 class Drawback : public GameObject {
 	

@@ -6,7 +6,7 @@
 class GameObject 
 {
 private:
-	int object_count;
+	static int object_count;
 	int object_id;
 	float center_x;
 	float center_y;
@@ -34,9 +34,9 @@ public:
 	void SetWidth(float width);
 	void SetHeight(float height);
 	void SetTexture(std::string texture);
-
+	
 	bool HasIntersected(GameObject& object);
-	void HitBy(GameObject& object);
+	virtual void HitBy(GameObject& object) = 0;
 };
 
 #endif
