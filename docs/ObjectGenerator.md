@@ -54,6 +54,16 @@ float chance_map[][] = {
 
 - Note that the reason why I didn't include chances (_a.k.a_ spawn rate) for all the subclasses is because class `Obstacle`, `Item`, `Drawback` randomly instantiates their subclasses with their constructors.
 
+## Constructor
+
+### ObjectGenerator
+
+```cpp
+public ObjectGenerator()
+```
+
+Instantiates the `ObjectGenerator` object. Initializes `m_player` variable with its constructor.
+
 ## Member functions
 
 ### Generate
