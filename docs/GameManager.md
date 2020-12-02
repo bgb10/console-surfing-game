@@ -94,13 +94,25 @@ Instantiates the `GameManager` object. Initializes all member variables and show
 
 ## Member functions
 
-### Render
+### Start
 
 ```cpp
-private void Render()
+private void Start()
 ```
 
-Renders a frame of gameplay. Calls [`SceneManager::Render()`](SceneManager.md#render) to display the objects from `ObjectManager`, [`InputManager::GetInput()`](InputManager.md#getinput), [`InputManager::ListenInput()`](InputManager.md#getinput) to get the user input.
+### Ready
+
+```cpp
+private void Ready()
+```
+
+### Play
+
+```cpp
+private void Play()
+```
+
+Plays rendered frame of gameplay. Calls [`SceneManager::Render()`](SceneManager.md#render) to display the objects from `ObjectManager`, [`InputManager::GetInput()`](InputManager.md#getinput), [`InputManager::ListenInput()`](InputManager.md#getinput) to get the user input.
 
 Also, removes useless objects above _visible object offset_. See [SceneManager: Rendering mechanism](SceneManager.md#rendering-mechanism) for all offsets.
 
