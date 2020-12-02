@@ -125,6 +125,9 @@ Print game scene at console screen. (Renders all object from given `manager` ont
 - Player (at the center of the scene)
 - `GameObject` (`Obstacle`s, `Item`s, `Drawback`s, `Surfer`s, `Kraken`)
 
+**See also:**
+
+[SceneManager: Rendering mechanism](#Rendering-mechanism)
 
 ### Pause
 
@@ -148,8 +151,22 @@ Called when finish the game.
 public void SetColor(unsigned char bg_color, unsigned char txt_color)
 ```
 
-Set background, texture color.
+Set the background to `bg_color`, and texture color to `txt_color`.
 
-**See also:**
+### Getters
 
-[SceneManager: Rendering mechanism](#Rendering-mechanism)
+### GetWidth
+
+```cpp
+public int GetWidth()
+```
+
+Returns `size_x`, width of the console window.
+
+### GetHeight
+
+```cpp
+public int GetHeight()
+```
+
+Returns `size_y`, height of the console window.
