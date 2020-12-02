@@ -16,7 +16,7 @@ Texture of the original game is shown in the image below.
 
 ## Member variables
 
-### Member variables inherited from class [../../GameObject.md]
+### Member variables inherited from class [GameObject](../../GameObject.md)
 
 [`object_count`](../../GameObject.md#object_count), 
 [`object_id`](../../GameObject.md#object_id), 
