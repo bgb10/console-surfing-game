@@ -5,6 +5,9 @@
 
 class MovableObject : public GameObject {
 
+protected:
+	short direction = 0;
+
 private:
 	float velocity_x = 0;
 	float velocity_y = 0;
@@ -22,10 +25,10 @@ public:
 	float GetSpeed();
 	void SetVelocityX(float velocity_x);
 	void SetVelocityY(float velocity_y);
-	void SetDirection(int direction);
-	void RotateRight();
-	void RotateLeft();
-	void ResetRotate();
+	virtual void SetDirection(int direction);
+	virtual void RotateRight();
+	virtual void RotateLeft();
+	virtual void ResetRotate();
 	void SetSpeedByFactor(float factor);
 	void Stop();
 };

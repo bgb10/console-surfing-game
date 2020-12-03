@@ -4,8 +4,6 @@
 const double PI = 3.14159265;
 const float ratio = 5;
 
-short direction = 0;
-
 // Constructors
 MovableObject::MovableObject() : GameObject() {}
 MovableObject::MovableObject(float x, float y) : GameObject(x, y) {}
@@ -46,36 +44,36 @@ void MovableObject::SetDirection(int d) {
 		direction = d;
 	else if (d < -2)
 		direction = -2;
-	else
+	else if (d > 2)
 		direction = 2;
 
 	switch (direction) {
 	case -2:/*8'o clock dir*/
-		this->velocity_x = this->velocity_y * tan((4.0 / 3.0) * PI); break; //240 DEGREE
+		this->velocity_x = this->velocity_y * tan((4.8 / 4.0) * PI); break; // -45 DEGREE
 	case -1:/*7'o clock dir*/						 
-		this->velocity_x = this->velocity_y * tan((7.0 / 6.0) * PI); break; //210 DEGREE
+		this->velocity_x = this->velocity_y * tan((4.4 / 4.0) * PI); break; // -22.5 DEGREE
 	case 0:/*6'o clock dir*/						 
-		this->velocity_x = this->velocity_y * tan(PI); break;           //180 DEGREE
+		this->velocity_x = this->velocity_y * tan(PI); break;               // 0 DEGREE
 	case 1:/*5'o clock dir*/						 
-		this->velocity_x = this->velocity_y * tan((5.0 / 6.0) * PI); break; //150 DEGREE
+		this->velocity_x = this->velocity_y * tan((3.6 / 4.0) * PI); break; // +22.5 DEGREE
 	case 2:/*4'o clock dir*/						 
-		this->velocity_x = this->velocity_y * tan((2.0 / 3.0) * PI); break; //120 DEGREE
+		this->velocity_x = this->velocity_y * tan((3.2 / 4.0) * PI); break; // +45 DEGREE
 	}
 
 }
 void MovableObject::RotateRight()
 {
-	SetDirection(++direction);
+	SetDirection(direction + 1);
 	//this->velocity_x = tan(atan(this->velocity_x) - (22 * PI / 180));
 }
 void MovableObject::RotateLeft() 
 {
-	SetDirection(--direction);
+	SetDirection(direction - 1);
 	//this->velocity_x = tan(atan(this->velocity_x) + (22 * PI / 180));
 }
 void MovableObject::ResetRotate() 
 { 
 	SetDirection(0);
-	this->velocity_y = 1.0f; 
+	//this->velocity_y = 1.0f; 
 }
 
