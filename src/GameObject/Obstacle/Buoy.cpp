@@ -1,6 +1,8 @@
 ﻿#include "Buoy.h"
 #include "../MovableObject/Player.h"
 
+#include <random> // Random
+
 // Constructors
 Buoy::Buoy() : Buoy(0, 0) {}
 
@@ -14,7 +16,30 @@ Buoy::Buoy(float x, float y) : Obstacle(x, y)
 void Buoy::HitBy(MovableObject& object)
 {
 	// Invert the moving direction
-	object.SetVelocityX(-object.GetVelocityX());
+	if (object.GetVelocityX() == 0.0)
+	{
+		srand(GetTickCount());
+
+		if (rand() % 100 > 50)
+			object.RotateLeft();
+		else
+			object.RotateRight();
+	}
+	else
+	{
+		if (object.GetVelocityX() > 0)
+		{
+			// object was going right
+			object.RotateLeft();
+			object.RotateLeft();
+		}
+		else
+		{
+			// object was going left
+			object.RotateRight();
+			object.RotateRight();
+		}
+	}
 }
 
 void Buoy::HitBy(Player& player)
