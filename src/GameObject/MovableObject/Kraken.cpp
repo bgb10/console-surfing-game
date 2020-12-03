@@ -32,10 +32,11 @@ void Kraken::HitBy(Player& player)
 void Kraken::Move(double delta_time)
 {
 	// kraken follows the player
-	if (player->GetCenterX() < this->GetCenterX())
-		this->RotateLeft(); // player is on the left of player, rotate left
-	else
-		this->RotateRight(); // player is on the right of player, rotate right
+	this->SetVelocityX(player->GetCenterX() - this->GetCenterX());
+	this->SetVelocityY(player->GetCenterY() - this->GetCenterY());
+
+	// adjust speed relative to user speed
+	this->SetSpeedByFactor((player->GetSpeed() * 1.00001) / this->GetSpeed());
 
 	MovableObject::Move(delta_time);
 }
