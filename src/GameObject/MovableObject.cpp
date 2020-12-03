@@ -14,7 +14,7 @@ void MovableObject::Move(double delta_time)
 		GetCenterX() + delta_time * ratio * velocity_x,
 		GetCenterY() + delta_time * ratio * velocity_y
 	);
-}
+ }
 
 void MovableObject::Stop() 
 {

@@ -6,8 +6,8 @@
 class MovableObject : public GameObject {
 
 private:
-	float velocity_x;
-	float velocity_y;
+	float velocity_x = 0;
+	float velocity_y = 0;
 
 public:
 	MovableObject();
