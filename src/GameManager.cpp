@@ -3,15 +3,6 @@
 extern int score;
 extern int boost_count;
 
-void GameManager::Init()
-{
-	m_SceneManager.Init();
-
-	Ready();
-
-	Play();
-}
-
 void GameManager::Ready()
 {
 	// Generate default obstacles
@@ -20,13 +11,11 @@ void GameManager::Ready()
 	while (1)
 	{
 		m_SceneManager.Ready();
-		//m_InputManager.ListenInput();
 
 		if (m_InputManager.IsInputSpace())
 		{
 			m_ObjectManager.GetPlayer().SetVeloctiyY(1.0);
 			
-			//m_InputManager.Clear();
 			return;
 		}
 	}
@@ -77,11 +66,6 @@ void GameManager::Play()
 		{
 			//exception
 		}
-
-		/* 2. Listen for inputs in the next frame */
-		//m_InputManager.ListenInput();
-
-		/* 3. Calculate and render frame */
 
 		// Generate entities
 		m_ObjectGenerator.Generate(m_ObjectManager, m_SceneManager);
@@ -201,13 +185,9 @@ void GameManager::SaveHighScore()
 
 GameManager::GameManager()
 {
-	// C++ doesn't need explicit instantiation
+	m_SceneManager.Init();
 
-	// m_ObjectManager = ObjectManager();
-	// m_ObjectGenerator = ObjectGenerator();
-	// m_InputManager = InputManager();
-	// m_SceneManager = SceneManager();
+	Ready();
 
-	// TODO: Merge Init() and GameManager() if they do the same thing
-	Init();
+	Play();
 }

@@ -33,7 +33,6 @@ private:
 	system_clock::time_point curr;
 	system_clock::time_point prev;
 
-	void Init();
 	void Ready();
 	void Play();
 	void Pause();
