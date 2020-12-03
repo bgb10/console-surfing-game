@@ -3,8 +3,11 @@
 
 #include <string>
 
-#include "GameObject/MovableObject.h"
-#include "GameObject/MovableObject/Player.h"
+// #include "GameObject/MovableObject.h"
+// #include "GameObject/MovableObject/Player.h"
+
+class MovableObject;
+class Player;
 
 class GameObject 
 {

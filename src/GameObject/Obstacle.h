@@ -2,6 +2,7 @@
 #define OBSTACLE_H
 
 #include "../GameObject.h"
+#include "MovableObject.h"
 
 class Obstacle : public GameObject {
 	
