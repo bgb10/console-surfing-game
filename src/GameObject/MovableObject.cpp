@@ -4,6 +4,8 @@
 const double PI = 3.14159265;
 const float ratio = 0.1;
 
+short direction = 0;
+
 // Constructors
 MovableObject::MovableObject() : GameObject() {}
 MovableObject::MovableObject(float x, float y) : GameObject(x, y) {}
@@ -39,7 +41,14 @@ void MovableObject::SetSpeedByFactor(float factor)
 	this->velocity_y = this->velocity_y * factor;
 }
 
-void MovableObject::SetDirection(int direction) {
+void MovableObject::SetDirection(int d) {
+	if (-2 <= d && d <= 2)
+		direction = d;
+	else if (d < -2)
+		direction = -2;
+	else
+		direction = 2;
+
 	switch (direction) {
 	case -2:/*8'o clock dir*/
 		this->velocity_x = tan((4 / 3) * PI); break; //240 DEGREE
@@ -55,11 +64,17 @@ void MovableObject::SetDirection(int direction) {
 }
 void MovableObject::RotateRight()
 {
-	this->velocity_x = tan(atan(this->velocity_x) - (22 * PI / 180));
+	SetDirection(direction++);
+	//this->velocity_x = tan(atan(this->velocity_x) - (22 * PI / 180));
 }
 void MovableObject::RotateLeft() 
 {
+	SetDirection(direction--);
 	this->velocity_x = tan(atan(this->velocity_x) + (22 * PI / 180));
 }
-void MovableObject::ResetRotate() { this->velocity_x = 0; }
+void MovableObject::ResetRotate() 
+{ 
+	SetDirection(0);
+	this->velocity_x = 0; 
+}
 
