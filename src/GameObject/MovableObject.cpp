@@ -51,25 +51,26 @@ void MovableObject::SetDirection(int d) {
 
 	switch (direction) {
 	case -2:/*8'o clock dir*/
-		this->velocity_x = tan((4 / 3) * PI); break; //240 DEGREE
+		this->velocity_x = this->velocity_y * tan((4.0 / 3.0) * PI); break; //240 DEGREE
 	case -1:/*7'o clock dir*/						 
-		this->velocity_x = tan((7 / 6) * PI); break; //210 DEGREE
+		this->velocity_x = this->velocity_y * tan((7.0 / 6.0) * PI); break; //210 DEGREE
 	case 0:/*6'o clock dir*/						 
-		this->velocity_x = tan(PI); break;           //180 DEGREE
+		this->velocity_x = this->velocity_y * tan(PI); break;           //180 DEGREE
 	case 1:/*5'o clock dir*/						 
-		this->velocity_x = tan((5 / 6) * PI); break; //150 DEGREE
+		this->velocity_x = this->velocity_y * tan((5.0 / 6.0) * PI); break; //150 DEGREE
 	case 2:/*4'o clock dir*/						 
-		this->velocity_x = tan((2 / 3) * PI); break; //120 DEGREE
+		this->velocity_x = this->velocity_y * tan((2.0 / 3.0) * PI); break; //120 DEGREE
 	}
+
 }
 void MovableObject::RotateRight()
 {
-	SetDirection(direction++);
+	SetDirection(++direction);
 	//this->velocity_x = tan(atan(this->velocity_x) - (22 * PI / 180));
 }
 void MovableObject::RotateLeft() 
 {
-	SetDirection(direction--);
+	SetDirection(--direction);
 	//this->velocity_x = tan(atan(this->velocity_x) + (22 * PI / 180));
 }
 void MovableObject::ResetRotate() 
