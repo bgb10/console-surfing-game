@@ -16,7 +16,7 @@ void ObjectGenerator::Generate(ObjectManager& objectManager)
 	};
 
 	for (int i = 0; i < boost_count; i++)
-		objectManager.AddImmovable(new Boost(boost_coords[i][0], boost_coords[i][2]));
+		objectManager.AddImmovable(new Boost(boost_coords[i][0], boost_coords[i][1]));
 }
 
 void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& sceneManager)
@@ -117,6 +117,9 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 						object_gen_x + sceneManager.GetWidth() * (rand() % 1000 / 1000.0) * 1.5,
 						object_gen_y
 					);
+					break;
+				default:
+					object = new Boost(0, 0);
 					break;
 				}
 
