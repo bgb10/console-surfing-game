@@ -393,7 +393,6 @@ void SceneManager::GameOver(ObjectManager& manager) {
 	Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
 	
 	// Print UI
-	std::string t;
 	extern int life_count;
 	extern int score;
 	extern int boost_count;
