@@ -29,6 +29,12 @@ int InputManager::GetInput()
 		return m_input;
 }
 
+void InputManager::Clear()
+{
+	m_input = 0;
+	m_input_special = 0;
+}
+
 bool InputManager::IsInputSpace()
 {
 	if (this->m_input == 32)
