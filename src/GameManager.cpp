@@ -20,13 +20,13 @@ void GameManager::Ready()
 	while (1)
 	{
 		m_SceneManager.Ready();
-		m_InputManager.ListenInput();
+		//m_InputManager.ListenInput();
 
 		if (m_InputManager.IsInputSpace())
 		{
 			m_ObjectManager.GetPlayer().SetVeloctiyY(1.0);
 			
-			m_InputManager.Clear();
+			//m_InputManager.Clear();
 			return;
 		}
 	}
@@ -79,7 +79,7 @@ void GameManager::Play()
 		}
 
 		/* 2. Listen for inputs in the next frame */
-		m_InputManager.ListenInput();
+		//m_InputManager.ListenInput();
 
 		/* 3. Calculate and render frame */
 

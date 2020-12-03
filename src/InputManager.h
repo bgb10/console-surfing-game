@@ -13,11 +13,19 @@ class InputManager {
 private:
 	int m_input;
 	int m_input_special;
+	bool is_up_pushed = false;
+	bool is_down_pushed = false;
+	bool is_left_pushed = false;
+	bool is_right_pushed = false;
+	bool is_space_pushed = false;
+	bool is_f_pushed = false;
+	bool is_esc_pushed = false;
+
+	void Clear();
 public:
 	InputManager();
 	void ListenInput();
 	int GetInput();
-	void Clear();
 	bool IsInputSpace();
 	bool IsInputUp();
 	bool IsInputDown();
@@ -26,6 +34,5 @@ public:
 	bool IsInputBoost();
 	bool IsInputExit();
 };
-
 
 #endif

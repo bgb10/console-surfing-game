@@ -8,6 +8,7 @@ InputManager::InputManager()
 
 void InputManager::ListenInput()
 {
+	/*
 	if (_kbhit()) { // 1. 키보드 입력이 감지되면
 		int pressedKey = _getch(); // 2. 아스키 코드 값을 가져오고
 		this->m_input = pressedKey;
@@ -17,102 +18,78 @@ void InputManager::ListenInput()
 	}
 	else
 		this->m_input = -1;
+	*/
 }
 
 int InputManager::GetInput()
 {
+	/*
 	if (this->m_input == 0 || this->m_input == 224)
 	{
 		return m_input_special;
 	}
 	else
 		return m_input;
+	*/
+
+	return 0;
 }
 
 void InputManager::Clear()
 {
-	m_input = 0;
-	m_input_special = 0;
+	is_up_pushed = false;
+	is_down_pushed = false;
+	is_left_pushed = false;
+	is_right_pushed = false;
+	is_space_pushed = false;
+	is_f_pushed = false;
+	is_esc_pushed = false;
 }
+
+//key가 계속 눌리고 있는 상태라면, 다른 입력이 들어올 때까지 눌리지 않은 걸로 간주
 
 bool InputManager::IsInputSpace()
 {
-	if (this->m_input == 32)
+	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
+	{
+		Sleep(500);
 		return 1;
-	else
-		return 0;
+	}
+	else return 0;
 }
 
 bool InputManager::IsInputUp()
 {
 	if (GetAsyncKeyState(VK_UP) & 0x8000) return 1;
 	else return 0;
-	int input = this->m_input;
-	if (input == 119 || input == 87)
-		return 1;
-	else
-		if ((input == 0 || input == 224) && (this->m_input_special == 72))
-			return 1;
-		else
-			return 0;
 }
 
 bool InputManager::IsInputDown()
 {
 	if (GetAsyncKeyState(VK_DOWN) & 0x8000) return 1;
 	else return 0;
-	int input = this->m_input;
-	if (input == 115 || input == 83)
-		return 1;
-	else
-		if ((input == 0 || input == 224) && (this->m_input_special == 80))
-			return 1;
-		else
-			return 0;
 }
 
 bool InputManager::IsInputLeft()
 {
 	if (GetAsyncKeyState(VK_LEFT) & 0x8000) return 1;
 	else return 0;
-	int input = this->m_input;
-	if (input == 97 || input == 65)
-		return 1;
-	else
-		if ((input == 0 || input == 224) && (this->m_input_special == 75))
-			return 1;
-		else
-			return 0;
 }
 
 bool InputManager::IsInputRight() // 77 (100, 68)
 {
 	if (GetAsyncKeyState(VK_RIGHT) & 0x8000) return 1;
 	else return 0;
-	int input = this->m_input;
-	if (input == 100 || input == 68)
-		return 1;
-	else
-		if ((input == 0 || input == 224) && (this->m_input_special == 77))
-			return 1;
-		else
-			return 0;
 }
 
 bool InputManager::IsInputBoost() // 102, 70
 {
-	int input = this->m_input;
-	if (input == 102 || input == 70)
-		return 1;
-	else
-		return 0;
+	if (GetAsyncKeyState(0x46) & 0x8000) return 1;
+	else return 0;
 }
 
 bool InputManager::IsInputExit()
 {
-	int input = this->m_input;
-	if (input == 27)
-		return 1;
-	else
-		return 0;
+	if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) return 1;
+	else return 0;
 }

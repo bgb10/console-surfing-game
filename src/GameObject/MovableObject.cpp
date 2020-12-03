@@ -2,7 +2,7 @@
 #include <cmath>
 
 const double PI = 3.14159265;
-const float ratio = 0.1;
+const float ratio = 5;
 
 short direction = 0;
 

@@ -15,8 +15,6 @@
 #include <string>
 #include <chrono>
 
-#define ratio 0.1
-
 using namespace std;
 using namespace chrono;
 
