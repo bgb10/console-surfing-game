@@ -1,7 +1,7 @@
 #ifndef BUOY_H
 #define BUOY_H
 
-#include "Obstacle.h"
+#include "../Obstacle.h"
 
 class Buoy : public Obstacle {
 	

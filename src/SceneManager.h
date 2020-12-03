@@ -1,6 +1,8 @@
 #ifndef SCENEMANAGER_H
 #define SCENEMANAGER_H
 
+#include "ObjectManager.h"
+
 #include <iostream>
 #include <windows.h>
 #include <string>

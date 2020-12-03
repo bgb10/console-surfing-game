@@ -1,6 +1,4 @@
-#include "GameObject.h"
-
-#include "../GameManager.h"
+#include "Buoy.h"
 
 bool GameObject::operator == (const GameObject& o) 
 {

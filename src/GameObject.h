@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include "GameObject/MovableObject.h"
+
 class GameObject 
 {
 private:

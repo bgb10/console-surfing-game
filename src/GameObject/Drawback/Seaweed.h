@@ -1,7 +1,7 @@
 #ifndef SEAWEED_H
 #define SEAWEED_H
 
-#include "Drawback.h"
+#include "../Drawback.h"
 
 class Seaweed : public Drawback {
 
