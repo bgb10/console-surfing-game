@@ -1,6 +1,7 @@
 #include "GameManager.h"
 
 extern int score;
+extern int life_count;
 extern int boost_count;
 
 void GameManager::Ready()
@@ -8,10 +9,11 @@ void GameManager::Ready()
 	// Generate default obstacles
 	m_ObjectGenerator.Generate(m_ObjectManager);
 
+	// Display ready scene
+	m_SceneManager.Ready();
+
 	while (1)
 	{
-		m_SceneManager.Ready();
-
 		if (m_InputManager.IsInputSpace())
 		{
 			m_ObjectManager.GetPlayer().SetVelocityY(1.0);
@@ -37,6 +39,9 @@ void GameManager::Play()
 		else if (m_InputManager.IsInputDown())
 		{
 			player.ResetRotate(); // rotate to direct down
+
+			if (player.GetVelocityY() == 0 && life_count > 0)
+				player.SetVelocityY(1.0f); // resume player when stopped
 		}
 		else if (m_InputManager.IsInputLeft())
 		{
