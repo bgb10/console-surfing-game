@@ -5,6 +5,7 @@ extern int boost_count;
 
 void GameManager::Init()
 {
+	m_SceneManager.Init();
 	while (1)
 		Ready();
 
