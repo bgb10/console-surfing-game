@@ -101,6 +101,8 @@ void GameManager::Pause()
 			break;
 		}
 	}
+
+	prev = system_clock::now();
 }
 
 void GameManager::Update()
