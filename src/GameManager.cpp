@@ -25,6 +25,8 @@ void GameManager::Ready()
 		if (m_InputManager.IsInputSpace())
 		{
 			m_ObjectManager.GetPlayer().SetVeloctiyY(1.0);
+			
+			m_InputManager.Clear();
 			return;
 		}
 	}
@@ -95,14 +97,21 @@ void GameManager::Play()
 
 void GameManager::Update()
 {
+	duration<double> elapsed;
 	double delta;
 
-	time(&curr);
+	curr = system_clock::now();
 
-	if (prev == -1)
+	if (is_start == false)
+	{
+		is_start = true;
 		delta = 0;
+	}
 	else
-		delta = difftime(curr, prev);
+	{
+		elapsed = curr - prev;
+		delta = elapsed.count();
+	}
 
 	vector<MovableObject*>& vec_movable = m_ObjectManager.GetMovable();
 	vector<GameObject*>& vec_immovable = m_ObjectManager.GetImmovable();

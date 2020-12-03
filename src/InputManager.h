@@ -17,6 +17,7 @@ public:
 	InputManager();
 	void ListenInput();
 	int GetInput();
+	void Clear();
 	bool IsInputSpace();
 	bool IsInputUp();
 	bool IsInputDown();

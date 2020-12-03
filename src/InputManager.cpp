@@ -29,6 +29,12 @@ int InputManager::GetInput()
 		return m_input;
 }
 
+void InputManager::Clear()
+{
+	m_input = 0;
+	m_input_special = 0;
+}
+
 bool InputManager::IsInputSpace()
 {
 	if (this->m_input == 32)
@@ -39,6 +45,8 @@ bool InputManager::IsInputSpace()
 
 bool InputManager::IsInputUp()
 {
+	if (GetAsyncKeyState(VK_UP) & 0x8000) return 1;
+	else return 0;
 	int input = this->m_input;
 	if (input == 119 || input == 87)
 		return 1;
@@ -51,6 +59,8 @@ bool InputManager::IsInputUp()
 
 bool InputManager::IsInputDown()
 {
+	if (GetAsyncKeyState(VK_DOWN) & 0x8000) return 1;
+	else return 0;
 	int input = this->m_input;
 	if (input == 115 || input == 83)
 		return 1;
@@ -63,6 +73,8 @@ bool InputManager::IsInputDown()
 
 bool InputManager::IsInputLeft()
 {
+	if (GetAsyncKeyState(VK_LEFT) & 0x8000) return 1;
+	else return 0;
 	int input = this->m_input;
 	if (input == 97 || input == 65)
 		return 1;
@@ -75,6 +87,8 @@ bool InputManager::IsInputLeft()
 
 bool InputManager::IsInputRight() // 77 (100, 68)
 {
+	if (GetAsyncKeyState(VK_RIGHT) & 0x8000) return 1;
+	else return 0;
 	int input = this->m_input;
 	if (input == 100 || input == 68)
 		return 1;

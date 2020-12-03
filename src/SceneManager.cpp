@@ -127,26 +127,19 @@ void SceneManager::Ready() {
 
 	// Print UI
 	std::string t;
-	int health = 2;
-	int high_score = 100;
-	int boost = 3;
+	extern int score;
 	t = "┌─────────────────────────────────────────┐";
 	WriteBuffer(size_x / 2 - 22, 0, t);
 	t = "│";
 	WriteBuffer(size_x / 2 - 22, 1, t);
+	t = "♥";
 	for (int i = 0; i < 3; i++) {
-		if (i < health) {
-			t = "♥";
-		}
-		else {
-			t = "♡";
-		}
 		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
 	}
-	t = "High score : " + std::to_string(high_score) + "m";
+	t = "High score : " + std::to_string(score) + "m";
 	WriteBuffer(size_x / 2 - 8, 1, t);
 	t = "ⓔ";
-	for (int i = 0; i < boost; i++) {
+	for (int i = 0; i < 3; i++) {
 		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
 	}
 	t = "│";
@@ -154,9 +147,47 @@ void SceneManager::Ready() {
 	t = "└─────────────────────────────────────────┘";
 	WriteBuffer(size_x / 2 - 22, 2, t);
 
-	// Print player
-	Player player = Player();
-	Draw(size_x / 2, size_y / 2, player.GetWidth(), player.GetHeight(), player.GetTexture());
+	// Print description
+	t = "서핑을 시작하려면 space bar를 누르세요.";
+	WriteBuffer(size_x / 2 - 19, size_y / 5, t);
+	t = "▒";
+	WriteBuffer(size_x * 3 / 11, size_y / 2, t);
+	t = "해류";
+	WriteBuffer(size_x * 3 / 11 - 1, size_y / 2 + 2, t);
+	t = "ψ";
+	WriteBuffer(size_x * 4 / 11, size_y / 2, t);
+	t = "해초";
+	WriteBuffer(size_x * 4 / 11 - 1, size_y / 2 + 2, t);
+	t = "♥";
+	WriteBuffer(size_x * 5 / 11, size_y / 2, t);
+	t = "체력";
+	WriteBuffer(size_x * 5 / 11 - 1, size_y / 2 + 2, t);
+	t = "ⓔ";
+	WriteBuffer(size_x * 6 / 11, size_y / 2, t);
+	t = "부스트";
+	WriteBuffer(size_x * 6 / 11 - 2, size_y / 2 + 2, t);
+	t = "▨▨";
+	WriteBuffer(size_x * 7 / 11, size_y / 2 - 1, t);
+	t = "|  |";
+	WriteBuffer(size_x * 7 / 11, size_y / 2, t);
+	t = "갑판";
+	WriteBuffer(size_x * 7 / 11, size_y / 2 + 2, t);
+	t = " ▶ ";
+	WriteBuffer(size_x * 8 / 11, size_y / 2 - 1, t);
+	t = "≡≡";
+	WriteBuffer(size_x * 8 / 11, size_y / 2, t);
+	t = "부표";
+	WriteBuffer(size_x * 8 / 11, size_y / 2 + 2, t);
+
+	t = "∫∬";
+	t = " /\\/\\ ";
+	WriteBuffer(size_x * 4 / 11, size_y / 2 + 8, t);
+	t = "< \\/ >";
+	WriteBuffer(size_x * 4 / 11, size_y / 2 + 9, t);
+	t = "< \\/ >";
+	WriteBuffer(size_x * 4 / 11, size_y / 2 + 10, t);
+	t = " \\/\\/ ";
+	WriteBuffer(size_x * 4 / 11, size_y / 2 + 11, t);
 
 	// Flip buffer
 	FlipBuffer();
@@ -166,40 +197,12 @@ void SceneManager::Render(ObjectManager& manager) {
 	// Clear buffer
 	ClearBuffer();
 
-	// Print UI
-	std::string t;
-	int health = 2;
-	int score = 80;
-	int boost = 3;
-	t = "┌─────────────────────────────────────────┐";
-	WriteBuffer(size_x / 2 - 22, 0, t);
-	t = "│";
-	WriteBuffer(size_x / 2 - 22, 1, t);
-	for (int i = 0; i < 3; i++) {
-		if (i < health) {
-			t = "♥";
-		}
-		else {
-			t = "♡";
-		}
-		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
-	}
-	t = "Score : " + std::to_string(score) + "m";
-	WriteBuffer(size_x / 2 - 6, 1, t);
-	t = "ⓔ";
-	for (int i = 0; i < boost; i++) {
-		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
-	}
-	t = "│";
-	WriteBuffer(size_x / 2 + 20, 1, t);
-	t = "└─────────────────────────────────────────┘";
-	WriteBuffer(size_x / 2 - 22, 2, t);
-
 	// Get object from manager
-	Player player = manager.GetPlayer();
+	Player& player = manager.GetPlayer();
 	std::vector<MovableObject*> movable_obj = manager.GetMovable();
 	std::vector<GameObject*> immovable_obj = manager.GetImmovable();
 
+	std::string t; // temp string
 	float dx, dy; // variables for coordinate calculation
 	float x, y; // centerX, centerY
 	int w, h; // width, height
@@ -227,10 +230,40 @@ void SceneManager::Render(ObjectManager& manager) {
 		Draw(x, y, w, h, t);
 	}
 
+	t = "tt";
+	Draw(dx + 10, dy + 10, 1, 1, t);
+
 	// Print player
 	Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
-	
-	
+
+	// Print UI
+	extern int life_count;
+	extern int score;
+	extern int boost_count;
+	t = "┌─────────────────────────────────────────┐";
+	WriteBuffer(size_x / 2 - 22, 0, t);
+	t = "│";
+	WriteBuffer(size_x / 2 - 22, 1, t);
+	for (int i = 0; i < 3; i++) {
+		if (i < life_count) {
+			t = "♥";
+		}
+		else {
+			t = "♡";
+		}
+		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
+	}
+	t = "Score : " + std::to_string(score) + "m";
+	WriteBuffer(size_x / 2 - 6, 1, t);
+	t = "ⓔ";
+	for (int i = 0; i < boost_count; i++) {
+		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
+	}
+	t = "│";
+	WriteBuffer(size_x / 2 + 20, 1, t);
+	t = "└─────────────────────────────────────────┘";
+	WriteBuffer(size_x / 2 - 22, 2, t);
+
 	// Flip buffer
 	FlipBuffer();
 }
@@ -239,40 +272,12 @@ void SceneManager::Pause(ObjectManager& manager) {
 	// Clear buffer
 	ClearBuffer();
 
-	// Print UI
-	std::string t;
-	int health = 2;
-	int score = 80;
-	int boost = 3;
-	t = "┌─────────────────────────────────────────┐";
-	WriteBuffer(size_x / 2 - 22, 0, t);
-	t = "│";
-	WriteBuffer(size_x / 2 - 22, 1, t);
-	for (int i = 0; i < 3; i++) {
-		if (i < health) {
-			t = "♥";
-		}
-		else {
-			t = "♡";
-		}
-		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
-	}
-	t = "Score : " + std::to_string(score) + "m";
-	WriteBuffer(size_x / 2 - 6, 1, t);
-	t = "ⓔ";
-	for (int i = 0; i < boost; i++) {
-		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
-	}
-	t = "│";
-	WriteBuffer(size_x / 2 + 20, 1, t);
-	t = "└─────────────────────────────────────────┘";
-	WriteBuffer(size_x / 2 - 22, 2, t);
-
 	// Get object from manager
 	Player player = manager.GetPlayer();
 	std::vector<MovableObject*> movable_obj = manager.GetMovable();
 	std::vector<GameObject*> immovable_obj = manager.GetImmovable();
 
+	std::string t; // temp string
 	float dx, dy; // variables for coordinate calculation
 	float x, y; // centerX, centerY
 	int w, h; // width, height
@@ -303,6 +308,34 @@ void SceneManager::Pause(ObjectManager& manager) {
 	// Print player
 	Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
 	
+	// Print UI
+	extern int life_count;
+	extern int score;
+	extern int boost_count;
+	t = "┌─────────────────────────────────────────┐";
+	WriteBuffer(size_x / 2 - 22, 0, t);
+	t = "│";
+	WriteBuffer(size_x / 2 - 22, 1, t);
+	for (int i = 0; i < 3; i++) {
+		if (i < life_count) {
+			t = "♥";
+		}
+		else {
+			t = "♡";
+		}
+		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
+	}
+	t = "Score : " + std::to_string(score) + "m";
+	WriteBuffer(size_x / 2 - 6, 1, t);
+	t = "ⓔ";
+	for (int i = 0; i < boost_count; i++) {
+		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
+	}
+	t = "│";
+	WriteBuffer(size_x / 2 + 20, 1, t);
+	t = "└─────────────────────────────────────────┘";
+	WriteBuffer(size_x / 2 - 22, 2, t);
+
 	// Print pause message
 	t = "┌─────────────────────────┐";
 	WriteBuffer(size_x / 2 - 14, size_y / 4, t);
@@ -323,40 +356,12 @@ void SceneManager::GameOver(ObjectManager& manager) {
 	// Clear buffer
 	ClearBuffer();
 
-	// Print UI
-	std::string t;
-	int health = 0;
-	int score = 80;
-	int boost = 2;
-	t = "┌─────────────────────────────────────────┐";
-	WriteBuffer(size_x / 2 - 22, 0, t);
-	t = "│";
-	WriteBuffer(size_x / 2 - 22, 1, t);
-	for (int i = 0; i < 3; i++) {
-		if (i < health) {
-			t = "♥";
-		}
-		else {
-			t = "♡";
-		}
-		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
-	}
-	t = "Score : " + std::to_string(score) + "m";
-	WriteBuffer(size_x / 2 - 8, 1, t);
-	t = "ⓔ";
-	for (int i = 0; i < boost; i++) {
-		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
-	}
-	t = "│";
-	WriteBuffer(size_x / 2 + 20, 1, t);
-	t = "└─────────────────────────────────────────┘";
-	WriteBuffer(size_x / 2 - 22, 2, t);
-
 	// Get object from manager
 	Player player = manager.GetPlayer();
 	std::vector<MovableObject*> movable_obj = manager.GetMovable();
 	std::vector<GameObject*> immovable_obj = manager.GetImmovable();
 
+	std::string t; // temp string
 	float dx, dy; // variables for coordinate calculation
 	float x, y; // centerX, centerY
 	int w, h; // width, height
@@ -387,6 +392,34 @@ void SceneManager::GameOver(ObjectManager& manager) {
 	// Print player
 	Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
 	
+	// Print UI
+	extern int life_count;
+	extern int score;
+	extern int boost_count;
+	t = "┌─────────────────────────────────────────┐";
+	WriteBuffer(size_x / 2 - 22, 0, t);
+	t = "│";
+	WriteBuffer(size_x / 2 - 22, 1, t);
+	for (int i = 0; i < 3; i++) {
+		if (i < life_count) {
+			t = "♥";
+		}
+		else {
+			t = "♡";
+		}
+		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
+	}
+	t = "Score : " + std::to_string(score) + "m";
+	WriteBuffer(size_x / 2 - 8, 1, t);
+	t = "ⓔ";
+	for (int i = 0; i < boost_count; i++) {
+		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
+	}
+	t = "│";
+	WriteBuffer(size_x / 2 + 20, 1, t);
+	t = "└─────────────────────────────────────────┘";
+	WriteBuffer(size_x / 2 - 22, 2, t);
+
 	// Print pause message
 	t = "┌─────────────────────────┐";
 	WriteBuffer(size_x / 2 - 14, size_y / 4, t);
