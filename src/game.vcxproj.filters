@@ -11,23 +11,38 @@
     <Filter Include="Header Files">
       <UniqueIdentifier>{fbb8a9d6-0eb7-4320-8802-aeac48de4a40}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameObject">
+      <UniqueIdentifier>{a6e8237d-11fc-41a1-9a2e-1bbcf8af4bea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObject\Drawback">
+      <UniqueIdentifier>{fc58265f-4240-4ae3-a95e-2d286fca3ba7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObject\Item">
+      <UniqueIdentifier>{30c47c53-cfd8-42e8-b8e2-c34dddee8a3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObject\MovableObject">
+      <UniqueIdentifier>{38e54a15-9bca-4fd7-951f-b2b9983525aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObject\Obstacle">
+      <UniqueIdentifier>{f44ecf86-50ee-4952-9e74-c47641176c61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObject">
+      <UniqueIdentifier>{24ecdda4-7061-4e75-a8a6-2be4e3c0065a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObject\Drawback">
+      <UniqueIdentifier>{ec0b2b37-550a-4861-993f-f191ef78ca57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObject\Item">
+      <UniqueIdentifier>{cf339da6-61b3-4da5-947c-b06ee35820ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObject\MovableObject">
+      <UniqueIdentifier>{6ab7b14d-22d9-494f-94ad-e9b584b6d862}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObject\Obstacle">
+      <UniqueIdentifier>{ff9dda0d-09d6-44d3-9a9a-34fcb80e2246}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameObject\Item\Health.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\MovableObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Item\Boost.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Item.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Drawback.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -43,41 +58,50 @@
     <ClInclude Include="ObjectManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject\MovableObject\Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SceneManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject\Obstacle\Deck.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="GameObject\Drawback.h">
+      <Filter>Header Files\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject\Obstacle\Buoy.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="GameObject\Item.h">
+      <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\MovableObject.h">
+      <Filter>Header Files\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="GameObject\Obstacle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\MovableObject\Surfer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Drawback\Seaweed.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="GameObject\Drawback\Current.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\GameObject\Drawback</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Drawback\Seaweed.h">
+      <Filter>Header Files\GameObject\Drawback</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Item\Boost.h">
+      <Filter>Header Files\GameObject\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Item\Health.h">
+      <Filter>Header Files\GameObject\Item</Filter>
     </ClInclude>
     <ClInclude Include="GameObject\MovableObject\Kraken.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\GameObject\MovableObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\MovableObject\Player.h">
+      <Filter>Header Files\GameObject\MovableObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\MovableObject\Surfer.h">
+      <Filter>Header Files\GameObject\MovableObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Obstacle\Buoy.h">
+      <Filter>Header Files\GameObject\Obstacle</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Obstacle\Deck.h">
+      <Filter>Header Files\GameObject\Obstacle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameObject\MovableObject\Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\MovableObject\Surfer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="InputManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -93,44 +117,50 @@
     <ClCompile Include="ObjectManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject\Obstacle\Buoy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Drawback\Current.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Obstacle\Deck.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Drawback\Seaweed.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\MovableObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Obstacle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\MovableObject\Kraken.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Item\Health.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Item\Boost.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Item.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Drawback.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ObjectGenerator.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Drawback.cpp">
+      <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Item.cpp">
+      <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\MovableObject.cpp">
+      <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Obstacle.cpp">
+      <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Drawback\Current.cpp">
+      <Filter>Source Files\GameObject\Drawback</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Drawback\Seaweed.cpp">
+      <Filter>Source Files\GameObject\Drawback</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Item\Boost.cpp">
+      <Filter>Source Files\GameObject\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Item\Health.cpp">
+      <Filter>Source Files\GameObject\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\MovableObject\Kraken.cpp">
+      <Filter>Source Files\GameObject\MovableObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\MovableObject\Player.cpp">
+      <Filter>Source Files\GameObject\MovableObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\MovableObject\Surfer.cpp">
+      <Filter>Source Files\GameObject\MovableObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Obstacle\Buoy.cpp">
+      <Filter>Source Files\GameObject\Obstacle</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Obstacle\Deck.cpp">
+      <Filter>Source Files\GameObject\Obstacle</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

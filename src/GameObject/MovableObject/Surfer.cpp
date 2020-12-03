@@ -1,6 +1,4 @@
-#include "GameObject.h"
-
-#include "../GameManager.h"
+#include "Surfer.h"
 
 Surfer::Surfer()
 {

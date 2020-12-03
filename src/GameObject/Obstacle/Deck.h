@@ -1,7 +1,7 @@
 #ifndef DECK_H
 #define DECK_H
 
-#include "Obstacle.h"
+#include "../Obstacle.h"
 
 class Deck : public Obstacle {
 	

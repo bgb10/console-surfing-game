@@ -1,7 +1,7 @@
 #ifndef SURFER_H
 #define SURFER_H
 
-#include "MovableObject.h"
+#include "../MovableObject.h"
 
 class Surfer : public MovableObject {
 

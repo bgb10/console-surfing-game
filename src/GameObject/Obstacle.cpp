@@ -1,4 +1,4 @@
-#include "GameObject.h"
+#include "Obstacle.h"
 
 bool GameObject::operator == (const GameObject& o) 
 {
