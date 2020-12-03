@@ -10,7 +10,7 @@ Surfer::Surfer(float x, float y) : MovableObject(x, y)
 {
 	SetWidth(1);
 	SetHeight(2);
-	SetTexture("¡û¡ú");
+	SetTexture("/\\\\/");
 }
 
 void Surfer::HitBy(MovableObject& object)
@@ -38,12 +38,34 @@ void Surfer::Move(double delta_time)
 	srand(GetTickCount());
 	int random = rand() % 100;
 
+	// 20% chance to rotate left
+	// 20% chance to rotate right
+	// 20% chance to reset rotate
+	// 40% chance to stay as where it goes
 	if (random < 20)
 		RotateLeft();
-	else if (random > 80)
+	else if (60 < random && random < 80)
 		RotateRight();
-	else
+	else if (80 < random)
 		ResetRotate();
+
+	random = rand() % 100;
+
+	// 20% chance to stop
+	// 20% chance to accelerate
+	// 20% chance to decelerate
+	// 40% chance to stay as it goes
+	if (random < 20)
+		Stop();
+	else if (60 < random && random < 80)
+		SetVelocityY(GetVelocityY() + 0.5f);
+	else if (80 < random)
+	{
+		if (GetVelocityY() < 0.2f)
+			Stop();
+		else
+			SetVelocityY(GetVelocityY() - 0.2f);
+	}
 
 	MovableObject::Move(delta_time);
 }
