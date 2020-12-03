@@ -137,7 +137,7 @@ void GameManager::DistanceToScore()
 
 	// suggestion, multiply by factor to change the ratio between
 	// in-game distance and user-visible distance
-	score = floor(player_distance);
+	score = (int)floor(player_distance);
 
 	// update high score with new record
 	if (high_score < score)
