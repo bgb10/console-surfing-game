@@ -67,7 +67,7 @@ void GameManager::Play()
 		}
 		else if (m_InputManager.IsInputSpace())
 		{
-			is_paused = !is_paused; // invert the pause state
+			Pause();
 		}
 		else if (m_InputManager.IsInputExit())
 		{
@@ -86,12 +86,20 @@ void GameManager::Play()
 		// Generate entities
 		m_ObjectGenerator.Generate(m_ObjectManager, m_SceneManager);
 		
-		// Pause screen if pause state is true
-		if (is_paused)
-			m_SceneManager.Pause(m_ObjectManager);
-		else
-			Update();
+		Update();
+	}
+}
 
+void GameManager::Pause()
+{
+	while (1)
+	{
+		m_SceneManager.Pause(m_ObjectManager);
+
+		if (m_InputManager.IsInputSpace())
+		{
+			break;
+		}
 	}
 }
 
