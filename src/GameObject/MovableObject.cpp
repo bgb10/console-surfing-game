@@ -70,7 +70,7 @@ void MovableObject::RotateRight()
 void MovableObject::RotateLeft() 
 {
 	SetDirection(direction--);
-	this->velocity_x = tan(atan(this->velocity_x) + (22 * PI / 180));
+	//this->velocity_x = tan(atan(this->velocity_x) + (22 * PI / 180));
 }
 void MovableObject::ResetRotate() 
 { 
