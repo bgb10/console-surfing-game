@@ -1,6 +1,7 @@
 #include "ObjectGenerator.h"
 
 #include "GameObject/Item/Boost.h"
+#include <cstdlib>
 
 ObjectGenerator::ObjectGenerator() {}
 
@@ -26,10 +27,14 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 	vector<MovableObject*> generated_movable;
 	vector<GameObject*> generated_immovable;
 
-	srand(time(nullptr));
+	std::random_device rd;  //Will be used to obtain a seed for the random number engine
+	std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
+	std::uniform_int_distribution<> distrib(1, 10000);
+
+	int chance = distrib(gen);
 
 	// generate Kraken
-	if (rand() % 10000 < chance_map[GetLevel()][0] * 10000)
+	if (chance < chance_map[GetLevel()][0] * 10000)
 	{
 		// Left top x-position of boundary
 		float kraken_gen_x = objectManager.GetPlayer().GetCenterX() - sceneManager.GetWidth() * 0.5;
@@ -52,7 +57,7 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 	float object_gen_y = objectManager.GetPlayer().GetCenterY() + sceneManager.GetHeight() * 0.75;
 
 	// generate Surfer
-	if (rand() % 10000 < chance_map[GetLevel()][1] * 10000)
+	if (chance < chance_map[GetLevel()][1] * 10000)
 	{
 		Surfer* surfer;
 
@@ -87,7 +92,7 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 	// generate Obstacle, Item, Drawback
 	for (int i = 2; i < 4; i++)
 	{
-		if (rand() % 10000 < chance_map[GetLevel()][i] * 10000)
+		if (chance < chance_map[GetLevel()][i] * 10000)
 		{
 			GameObject* object;
 
