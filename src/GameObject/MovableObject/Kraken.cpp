@@ -2,7 +2,7 @@
 
 extern int life_count;
 
-Player& m_player;
+Player m_player;
 
 //Constructors
 Kraken::Kraken(Player& player) : Kraken(0, 0, player) { }

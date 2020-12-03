@@ -21,11 +21,11 @@ class ObjectManager{
         vector<MovableObject>& GetMovable();
         vector<GameObject>& GetImmovable();
         //Setters
-        void AddMovable(MovableObject object);
-        void AddImmovable(GameObject object);
+        void AddMovable(MovableObject& object);
+        void AddImmovable(GameObject& object);
         void ResetPlayer();
-        void RemoveMovable(MovableObject object);
-        void RemoveImmovable(GameObject object);
+        void RemoveMovable(MovableObject& object);
+        void RemoveImmovable(GameObject& object);
         void RemoveAllMovables();
         void RemoveAllImmovables();
         void Clear();

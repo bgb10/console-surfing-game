@@ -1,4 +1,5 @@
 ﻿#include "SceneManager.h"
+#include "ObjectManager.h"
 
 // Instantiates the SceneManager object
 SceneManager::SceneManager() {

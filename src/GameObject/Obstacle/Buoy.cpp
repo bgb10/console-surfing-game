@@ -1,4 +1,5 @@
 ﻿#include "Buoy.h"
+#include "../MovableObject/Player.h"
 
 // Constructors
 Buoy::Buoy() : Buoy(0, 0) {}
