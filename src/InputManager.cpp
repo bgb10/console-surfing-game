@@ -50,11 +50,7 @@ void InputManager::Clear()
 
 bool InputManager::IsInputSpace()
 {
-	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
-	{
-		Sleep(500);
-		return 1;
-	}
+	if (GetAsyncKeyState(VK_SPACE) & 0x8000) return 1;
 	else return 0;
 }
 
