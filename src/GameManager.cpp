@@ -6,8 +6,8 @@ extern int boost_count;
 void GameManager::Init()
 {
 	m_SceneManager.Init();
-	while (1)
-		Ready();
+
+	Ready();
 
 	Play();
 }
@@ -17,7 +17,15 @@ void GameManager::Ready()
 	// Generate default obstacles
 	m_ObjectGenerator.Generate(m_ObjectManager);
 
-	m_SceneManager.Ready();
+	while (1)
+	{
+		m_SceneManager.Ready();
+
+		if (m_InputManager.IsInputSpace())
+		{
+			return;
+		}
+	}
 }
 
 void GameManager::Play()
