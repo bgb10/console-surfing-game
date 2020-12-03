@@ -7,8 +7,8 @@ Surfer::Surfer() : Surfer(0, 0) {}
 Surfer::Surfer(float x, float y) : MovableObject(x, y)
 {
 	SetWidth(1);
-	SetHeight(1);
-	SetTexture("||"); // TODO: change texture
+	SetHeight(2);
+	SetTexture("¡û¡ú");
 }
 
 void Surfer::HitBy(MovableObject& object)

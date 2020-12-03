@@ -5,8 +5,8 @@ Player::Player() : Player(0, 0) {}
 Player::Player(float x, float y) : MovableObject(x, y)
 {
 	SetWidth(1);
-	SetHeight(1);
-	SetTexture("[]"); // TODO: change texture
+	SetHeight(2);
+	SetTexture("¡û¡ú");
 }
 
 void Player::Move(double delta_time)

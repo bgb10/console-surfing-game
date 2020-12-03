@@ -197,7 +197,9 @@ void SceneManager::Ready() {
 	WriteBuffer(size_x * 4 / 11 - 2, size_y / 2 + 11, t);
 	t = "크라켄";
 	WriteBuffer(size_x * 4 / 11 - 2, size_y / 2 + 13, t);
-	t = "[]";
+	t = "∩";
+	WriteBuffer(size_x * 5 / 11, size_y / 2 + 10, t);
+	t = "∪";
 	WriteBuffer(size_x * 5 / 11, size_y / 2 + 11, t);
 	t = "서퍼";
 	WriteBuffer(size_x * 5 / 11 - 1, size_y / 2 + 13, t);
