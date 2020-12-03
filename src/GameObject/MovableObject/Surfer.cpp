@@ -1,5 +1,7 @@
 #include "Surfer.h"
 
+#include <windows.h>
+
 extern int life_count;
 
 Surfer::Surfer() : Surfer(0, 0) {}
@@ -33,15 +35,15 @@ void Surfer::HitBy(Player& player)
 
 void Surfer::Move(double delta_time)
 {
-	srand(time(0));
+	srand(GetTickCount());
 	int random = rand() % 100;
 
 	if (random < 20)
-		MovableObject::RotateLeft();
+		RotateLeft();
 	else if (random > 80)
-		MovableObject::RotateRight();
+		RotateRight();
 	else
-		MovableObject::ResetRotate();
+		ResetRotate();
 
 	MovableObject::Move(delta_time);
 }
