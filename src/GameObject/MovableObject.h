@@ -14,6 +14,7 @@ public:
 	MovableObject(float x, float y);
 
 public:
+	void Move(double delta_time);
 	float GetVelocityX();
 	float GetVelocityY();
 	float GetSpeed();

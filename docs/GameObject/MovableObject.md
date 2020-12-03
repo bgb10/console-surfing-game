@@ -78,6 +78,23 @@ Initializes a movable object with given position.
 [`HitBy`](../GameObject.md#HitBy), 
 [`HasIntersected`](../GameObject.md#HasIntersected)
 
+### Move
+
+```cpp
+public void Move(double delta_time)
+```
+
+Updates the position of the object according to delta time. The following code is updating `Player` object on frame update.
+
+```cpp
+SetCenter(
+	center_x + delta_time * ratio * velocity_x,
+	center_y + delta_time * ratio * velocity_y,
+);
+```
+
+> The variable `ratio` is used to control the speed of the gameplay. The default value suggested is `0.1`, but it can be increased or decreased according to more natural gameplay.
+
 ### HitBy
 
 ```cpp

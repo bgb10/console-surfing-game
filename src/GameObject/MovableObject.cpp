@@ -2,10 +2,20 @@
 #include <cmath>
 
 const double PI = 3.14159265;
+const float ratio = 0.1;
 
 //Constructors
 MovableObject::MovableObject() : GameObject() {}
 MovableObject::MovableObject(float x, float y) : GameObject(x, y) {}
+
+
+void MovableObject::Move(double delta_time)
+{
+	SetCenter(
+		GetCenterX() + delta_time * ratio * velocity_x,
+		GetCenterY() + delta_time * ratio * velocity_y
+	);
+}
 
 void MovableObject::Stop() 
 {
