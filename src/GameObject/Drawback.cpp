@@ -11,7 +11,7 @@ Drawback* Drawback::Generate(float x, float y)
 {
 	Drawback* object;
 
-	srand(time(0));
+	srand(GetTickCount());
 
 	if (rand() % 100 > 50)
 		object = new Current(x, y);

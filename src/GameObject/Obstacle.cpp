@@ -11,7 +11,7 @@ Obstacle* Obstacle::Generate(float x, float y)
 {
 	Obstacle* object;
 
-	srand(time(0));
+	srand(GetTickCount());
 
 	if (rand() % 100 > 50)
 		object = new Buoy(x, y);

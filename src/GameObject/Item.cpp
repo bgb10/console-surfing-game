@@ -11,7 +11,7 @@ Item* Item::Generate(float x, float y)
 {
 	Item* object;
 
-	srand(time(0));
+	srand(GetTickCount());
 
 	if (rand() % 100 > 50)
 		object = new Health(x, y);
