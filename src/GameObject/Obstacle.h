@@ -4,6 +4,9 @@
 #include "../GameObject.h"
 #include "MovableObject.h"
 
+#include <random> // Random
+#include <ctime>
+
 class Obstacle : public GameObject {
 	
 public:
@@ -11,6 +14,7 @@ public:
 	Obstacle(float x, float y);
 	virtual void HitBy(MovableObject& object) = 0;
 	virtual void HitBy(Player& player) = 0;
+	static Obstacle* Generate(float x, float y);
 };
 
 #endif

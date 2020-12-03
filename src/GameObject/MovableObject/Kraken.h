@@ -6,11 +6,15 @@
 
 class Kraken : public MovableObject {
 
-public:
-	Kraken(Player& player);
-	Kraken(float x, float y, Player& player);
+private:
+	Player* player;
 
 public:
+	// Constructor
+	Kraken(Player* player);
+	Kraken(float x, float y, Player* player);
+
+	// Member functions
 	void HitBy(MovableObject& object);
 	void HitBy(Player& player);
 	void Move(double delta_time);
