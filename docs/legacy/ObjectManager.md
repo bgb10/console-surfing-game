@@ -2,8 +2,8 @@
 #### object ( [MovingObject](MovingObject.md), [NonMovingObject](NonmovingObject.md), [Item](Item.md) )를 관리하는 객체
 
 ### private
-> #### vector<MovingObject> movingObjects : MovingObject를 담는 배열
-> #### vector<NonMovingObject> nonMoningObjcets : NonMovingObject를 담는 배열
+> #### vector<MovingObject*> movingObjects : MovingObject를 담는 배열
+> #### vector<NonMovingObject*> nonMoningObjcets : NonMovingObject를 담는 배열
 > #### int movingObjectNum : MovingObject의 개수를 담는 변수
 > #### int nonMovingObjectNum : NonMovingObject의 개수를 담는 변수
 

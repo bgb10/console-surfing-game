@@ -11,21 +11,21 @@ using namespace std;
 class ObjectManager{
     private:
         Player m_player;
-        vector<MovableObject> m_vector_movable;
-        vector<GameObject> m_vector_immovable;
+        vector<MovableObject*> m_vector_movable;
+        vector<GameObject*> m_vector_immovable;
     public:
         //Constructor
         ObjectManager();
         //Getters
         Player& GetPlayer();
-        vector<MovableObject>& GetMovable();
-        vector<GameObject>& GetImmovable();
+        vector<MovableObject*>& GetMovable();
+        vector<GameObject*>& GetImmovable();
         //Setters
-        void AddMovable(MovableObject& object);
-        void AddImmovable(GameObject& object);
+        void AddMovable(MovableObject* object);
+        void AddImmovable(GameObject* object);
         void ResetPlayer();
-        void RemoveMovable(MovableObject& object);
-        void RemoveImmovable(GameObject& object);
+        void RemoveMovable(MovableObject* object);
+        void RemoveImmovable(GameObject* object);
         void RemoveAllMovables();
         void RemoveAllImmovables();
         void Clear();

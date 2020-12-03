@@ -197,8 +197,8 @@ void SceneManager::Render(ObjectManager& manager) {
 
 	// Get object from manager
 	Player player = manager.GetPlayer();
-	std::vector<MovableObject> movable_obj = manager.GetMovable();
-	std::vector<GameObject> immovable_obj = manager.GetImmovable();
+	std::vector<MovableObject*> movable_obj = manager.GetMovable();
+	std::vector<GameObject*> immovable_obj = manager.GetImmovable();
 
 	float dx, dy; // variables for coordinate calculation
 	float x, y; // centerX, centerY
@@ -209,21 +209,21 @@ void SceneManager::Render(ObjectManager& manager) {
 
 	// Print immovable object
 	for (int i = 0; i < immovable_obj.size(); i++) {
-		x = immovable_obj[i].GetCenterX() + dx;
-		y = immovable_obj[i].GetCenterY() + dy;
-		w = immovable_obj[i].GetWidth();
-		h = immovable_obj[i].GetHeight();
-		t = immovable_obj[i].GetTexture();
+		x = immovable_obj[i]->GetCenterX() + dx;
+		y = immovable_obj[i]->GetCenterY() + dy;
+		w = immovable_obj[i]->GetWidth();
+		h = immovable_obj[i]->GetHeight();
+		t = immovable_obj[i]->GetTexture();
 		Draw(x, y, w, h, t);
 	}
 
 	// Print movable object
 	for (int i = 0; i < movable_obj.size(); i++) {
-		x = movable_obj[i].GetCenterX() + dx;
-		y = movable_obj[i].GetCenterY() + dy;
-		w = movable_obj[i].GetWidth();
-		h = movable_obj[i].GetHeight();
-		t = movable_obj[i].GetTexture();
+		x = movable_obj[i]->GetCenterX() + dx;
+		y = movable_obj[i]->GetCenterY() + dy;
+		w = movable_obj[i]->GetWidth();
+		h = movable_obj[i]->GetHeight();
+		t = movable_obj[i]->GetTexture();
 		Draw(x, y, w, h, t);
 	}
 
@@ -270,8 +270,8 @@ void SceneManager::Pause(ObjectManager& manager) {
 
 	// Get object from manager
 	Player player = manager.GetPlayer();
-	std::vector<MovableObject> movable_obj = manager.GetMovable();
-	std::vector<GameObject> immovable_obj = manager.GetImmovable();
+	std::vector<MovableObject*> movable_obj = manager.GetMovable();
+	std::vector<GameObject*> immovable_obj = manager.GetImmovable();
 
 	float dx, dy; // variables for coordinate calculation
 	float x, y; // centerX, centerY
@@ -282,21 +282,21 @@ void SceneManager::Pause(ObjectManager& manager) {
 
 	// Print immovable object
 	for (int i = 0; i < immovable_obj.size(); i++) {
-		x = immovable_obj[i].GetCenterX() + dx;
-		y = immovable_obj[i].GetCenterY() + dy;
-		w = immovable_obj[i].GetWidth();
-		h = immovable_obj[i].GetHeight();
-		t = immovable_obj[i].GetTexture();
+		x = immovable_obj[i]->GetCenterX() + dx;
+		y = immovable_obj[i]->GetCenterY() + dy;
+		w = immovable_obj[i]->GetWidth();
+		h = immovable_obj[i]->GetHeight();
+		t = immovable_obj[i]->GetTexture();
 		Draw(x, y, w, h, t);
 	}
 
 	// Print movable object
 	for (int i = 0; i < movable_obj.size(); i++) {
-		x = movable_obj[i].GetCenterX() + dx;
-		y = movable_obj[i].GetCenterY() + dy;
-		w = movable_obj[i].GetWidth();
-		h = movable_obj[i].GetHeight();
-		t = movable_obj[i].GetTexture();
+		x = movable_obj[i]->GetCenterX() + dx;
+		y = movable_obj[i]->GetCenterY() + dy;
+		w = movable_obj[i]->GetWidth();
+		h = movable_obj[i]->GetHeight();
+		t = movable_obj[i]->GetTexture();
 		Draw(x, y, w, h, t);
 	}
 
@@ -354,8 +354,8 @@ void SceneManager::GameOver(ObjectManager& manager) {
 
 	// Get object from manager
 	Player player = manager.GetPlayer();
-	std::vector<MovableObject> movable_obj = manager.GetMovable();
-	std::vector<GameObject> immovable_obj = manager.GetImmovable();
+	std::vector<MovableObject*> movable_obj = manager.GetMovable();
+	std::vector<GameObject*> immovable_obj = manager.GetImmovable();
 
 	float dx, dy; // variables for coordinate calculation
 	float x, y; // centerX, centerY
@@ -366,21 +366,21 @@ void SceneManager::GameOver(ObjectManager& manager) {
 
 	// Print immovable object
 	for (int i = 0; i < immovable_obj.size(); i++) {
-		x = immovable_obj[i].GetCenterX() + dx;
-		y = immovable_obj[i].GetCenterY() + dy;
-		w = immovable_obj[i].GetWidth();
-		h = immovable_obj[i].GetHeight();
-		t = immovable_obj[i].GetTexture();
+		x = immovable_obj[i]->GetCenterX() + dx;
+		y = immovable_obj[i]->GetCenterY() + dy;
+		w = immovable_obj[i]->GetWidth();
+		h = immovable_obj[i]->GetHeight();
+		t = immovable_obj[i]->GetTexture();
 		Draw(x, y, w, h, t);
 	}
 
 	// Print movable object
 	for (int i = 0; i < movable_obj.size(); i++) {
-		x = movable_obj[i].GetCenterX() + dx;
-		y = movable_obj[i].GetCenterY() + dy;
-		w = movable_obj[i].GetWidth();
-		h = movable_obj[i].GetHeight();
-		t = movable_obj[i].GetTexture();
+		x = movable_obj[i]->GetCenterX() + dx;
+		y = movable_obj[i]->GetCenterY() + dy;
+		w = movable_obj[i]->GetWidth();
+		h = movable_obj[i]->GetHeight();
+		t = movable_obj[i]->GetTexture();
 		Draw(x, y, w, h, t);
 	}
 

@@ -25,7 +25,7 @@ The player object that user controls. Gets collision checked with `m_vector_mova
 ### m_vector_movable
 
 ```cpp
-private vector<MovableObject> m_vector_movable;
+private vector<MovableObject*> m_vector_movable;
 ```
 
 A vector of movable objects. Contains `Kraken` and `Surfer` objects. Gets collision checked with `m_vector_movable` and `m_player`.
@@ -33,7 +33,7 @@ A vector of movable objects. Contains `Kraken` and `Surfer` objects. Gets collis
 ### m_vector_immovable
 
 ```cpp
-private vector<GameObject> m_vector_immovable;
+private vector<GameObject*> m_vector_immovable;
 ```
 
 A vector of immovable objects. Contains `Obstacle` and `Drawback` objects.
@@ -67,7 +67,7 @@ Returns the player object.
 ### GetMovable
 
 ```cpp
-public vector<MovableObject> GetMovable()
+public vector<MovableObject*> GetMovable()
 ```
 
 Returns all available movable game objects.
@@ -79,7 +79,7 @@ Returns all available movable game objects.
 ### GetImmovable
 
 ```cpp
-public vector<GameObject> GetImmovable()
+public vector<GameObject*> GetImmovable()
 ```
 
 Returns all available immovable game objects.

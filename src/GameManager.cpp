@@ -92,26 +92,26 @@ void GameManager::Update()
 	else
 		delta = difftime(curr, prev);
 
-	vector<MovableObject>& vec_movable = m_ObjectManager.GetMovable();
-	vector<GameObject>& vec_immovable = m_ObjectManager.GetImmovable();
+	vector<MovableObject*>& vec_movable = m_ObjectManager.GetMovable();
+	vector<GameObject*>& vec_immovable = m_ObjectManager.GetImmovable();
 	Player& player = m_ObjectManager.GetPlayer();
 
 	// move movable objects
 	for (int id = 0; id < vec_movable.size(); id++)
 	{
-		vec_movable[id].Move(delta);
+		vec_movable[id]->Move(delta);
 	}
 
 	// check collision between movable and player
 	for (int id = 1; id < vec_movable.size(); id++)
 	{
-		vec_movable[id].HitBy(player);
+		vec_movable[id]->HitBy(player);
 	}
 
 	// check collision between immovable and player
 	for (int id = 0; id < vec_immovable.size(); id++)
 	{
-		vec_immovable[id].HitBy(player);
+		vec_immovable[id]->HitBy(player);
 	}
 
 	DistanceToScore();
