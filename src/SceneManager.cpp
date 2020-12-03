@@ -71,8 +71,8 @@ void SceneManager::DeleteBuffer() {
 }
 // Draw texture
 void SceneManager::Draw(float center_x, float center_y, int width, int height, std::string texture) {
-	int x = round(center_x - (float)(width));
-	int y = round(center_y - (float)(height / 2));
+	int x = (int)(round(center_x - (float)(width)));
+	int y = (int)(round(center_y - (float)(height / 2)));
 	for (int i = 0; i < height; i++) {
 		if (y + i < 0 || y + i >= size_y) continue;
 		else if (x < 0) {
