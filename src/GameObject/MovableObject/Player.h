@@ -19,6 +19,10 @@ public:
 	void HitBy(MovableObject& object);
 	void HitBy(Player& player);
 	void SetInvincibleDistance(float distance);
+	void SetDirection(int direction);
+	void RotateRight();
+	void RotateLeft();
+	void ResetRotate();
 };
 
 #endif
