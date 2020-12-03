@@ -1,12 +1,20 @@
-#include "Boost.h"
+﻿#include "Boost.h"
 
 extern int boost_count;
 
-//Constructors
-Boost::Boost() : Item() {}
-Boost::Boost(float x, float y) : Item(x, y){}
+// Constructors
+Boost::Boost() : Boost(0, 0) {}
 
-void Boost::HitBy(MovableObject& object) 
+Boost::Boost(float x, float y) : Item(x, y) 
 {
-	boost_count++;
+	SetWidth(1);
+	SetHeight(1);
+	SetTexture("ⓔ");
+}
+
+void Boost::HitBy(MovableObject& object)
+{
+	// maximum boost count is 3
+	if (boost_count < 3)
+		boost_count++;
 }

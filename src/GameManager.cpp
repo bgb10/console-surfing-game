@@ -12,6 +12,7 @@ void GameManager::Init()
 
 void GameManager::Ready()
 {
+	// Generate default obstacles
 	m_ObjectGenerator.Generate(m_ObjectManager);
 
 	m_SceneManager.Ready();
@@ -25,7 +26,7 @@ void GameManager::Play()
 
 	while (1)
 	{
-		// 1. Update objects and states according to input (from previous frame)
+		/* 1. Update objects and states according to input (from previous frame) */
 		if (m_InputManager.IsInputUp())
 		{
 			player.Stop(); // stop the player character
@@ -63,10 +64,10 @@ void GameManager::Play()
 			//exception
 		}
 
-		// 2. Listen for inputs in the next frame
+		/* 2. Listen for inputs in the next frame */
 		m_InputManager.ListenInput();
 
-		// 3. Calculate and render frame
+		/* 3. Calculate and render frame */
 
 		// Generate entities
 		m_ObjectGenerator.Generate(m_ObjectManager, m_SceneManager);
@@ -98,7 +99,7 @@ void GameManager::Update()
 	// move movable objects
 	for (int id = 0; id < vec_movable.size(); id++)
 	{
-		vec_movable[id].Move();
+		vec_movable[id].Move(delta);
 	}
 
 	// check collision between movable and player
@@ -122,18 +123,15 @@ void GameManager::DistanceToScore()
 {
 	Player& player = m_ObjectManager.GetPlayer();
 
-	float player_x = player.GetCenterX();
-	float player_y = player.GetCenterY();
+	float player_distance = sqrt(pow(player.GetCenterX(), 2) + pow(player.GetCenterY(), 2));
 
-	float player_distance = sqrt(player_x * player_x + player_y * player_y);
-
-	// suggestion
+	// suggestion, multiply by factor to change the ratio between
+	// in-game distance and user-visible distance
 	score = floor(player_distance);
 
+	// update high score with new record
 	if (high_score < score)
-	{
 		high_score = score;
-	}
 }
 
 int GameManager::LoadHighScore()
@@ -168,10 +166,13 @@ void GameManager::SaveHighScore()
 
 GameManager::GameManager()
 {
-	m_ObjectManager = ObjectManager();
-	m_ObjectGenerator = ObjectGenerator();
-	m_InputManager = InputManager();
-	m_SceneManager = SceneManager();
+	// C++ doesn't need explicit instantiation
 
+	// m_ObjectManager = ObjectManager();
+	// m_ObjectGenerator = ObjectGenerator();
+	// m_InputManager = InputManager();
+	// m_SceneManager = SceneManager();
+
+	// TODO: Merge Init() and GameManager() if they do the same thing
 	Init();
 }

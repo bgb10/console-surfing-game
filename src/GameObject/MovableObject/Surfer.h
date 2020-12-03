@@ -11,7 +11,7 @@ public:
 
 public:
 	void HitBy(MovableObject& object);
-	void Move();
+	void Move(double delta_time);
 };
 
 #endif

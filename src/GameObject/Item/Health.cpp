@@ -1,12 +1,20 @@
-#include "Health.h"
+﻿#include "Health.h"
 
 extern int life_count;
 
-//Constructors
-Health::Health() : Item(){}
-Health::Health(float x, float y) : Item(x, y){}
+// Constructors
+Health::Health() : Health(0, 0) {}
 
-void Health::HitBy(MovableObject& object) 
+Health::Health(float x, float y) : Item(x, y) 
 {
-	life_count++;
+	SetWidth(1);
+	SetHeight(1);
+	SetTexture("♥");
+}
+
+void Health::HitBy(MovableObject& object)
+{
+	// maximum life count is 3
+	if (life_count < 3)
+		life_count++;
 }

@@ -15,7 +15,7 @@ public:
 	Player(float x, float y);
 
 public:
-	void Move();
+	void Move(double delta_time);
 	bool HasIntersected(GameObject& object);
 	void HitBy(MovableObject& object);
 	void SetInvincibleDistance(float distance);
