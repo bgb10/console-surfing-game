@@ -14,6 +14,12 @@ Boost::Boost(float x, float y) : Item(x, y)
 
 void Boost::HitBy(MovableObject& object)
 {
+	// do nothing if other entities hit boost item
+}
+
+void Boost::HitBy(Player& player)
+{
+	// increase boost count
 	// maximum boost count is 3
 	if (boost_count < 3)
 		boost_count++;

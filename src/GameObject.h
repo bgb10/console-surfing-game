@@ -4,6 +4,7 @@
 #include <string>
 
 #include "GameObject/MovableObject.h"
+#include "GameObject/MovableObject/Player.h"
 
 class GameObject 
 {
@@ -39,6 +40,7 @@ public:
 	
 	bool HasIntersected(GameObject& object);
 	virtual void HitBy(MovableObject& object) = 0;
+	virtual void HitBy(Player& player) = 0;
 };
 
 #endif

@@ -8,7 +8,6 @@ class Obstacle : public GameObject {
 public:
 	Obstacle();
 	Obstacle(float x, float y);
-
 };
 
 #endif

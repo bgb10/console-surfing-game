@@ -14,8 +14,17 @@ Kraken::Kraken(float x, float y, Player& player) : MovableObject(x, y)
 
 void Kraken::HitBy(MovableObject& object)
 {
+	// stop object on collision
+	object.Stop();
+}
+
+void Kraken::HitBy(Player& player)
+{
 	// Gameover
 	life_count = 0;
+
+	// stop player on collision, stop playing
+	player.Stop();
 }
 
 void Kraken::Move(double delta_time)

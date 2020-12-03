@@ -3,7 +3,7 @@
 
 #include "../GameObject.h"
 
-class MovableObject : public GameObject{
+class MovableObject : public GameObject {
 
 private:
 	float velocity_x;

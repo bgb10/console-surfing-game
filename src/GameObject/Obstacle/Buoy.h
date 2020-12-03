@@ -11,6 +11,7 @@ public:
 
 public:
 	void HitBy(MovableObject& object);
+	void HitBy(Player& player);
 };
 
 #endif

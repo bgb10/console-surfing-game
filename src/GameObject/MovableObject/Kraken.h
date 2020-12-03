@@ -12,6 +12,7 @@ public:
 
 public:
 	void HitBy(MovableObject& object);
+	void HitBy(Player& player);
 	void Move(double delta_time);
 };
 

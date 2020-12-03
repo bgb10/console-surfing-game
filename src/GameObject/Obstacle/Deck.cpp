@@ -14,6 +14,20 @@ Deck::Deck(float x, float y) : Obstacle(x, y)
 
 void Deck::HitBy(MovableObject& object)
 {
+	// Actions on collision between Player and Movable are different
+	// stop the object on collision
+	object.Stop();
+}
+
+void Deck::HitBy(Player& player)
+{
+	// decrease life count
 	if (life_count > 0)
 		life_count--;
+
+	// stop player on collision, resume playing by pressing down arrow
+	player.Stop();
+
+	// make player invincible for 5 in-game unit distances
+	player.SetInvincibleDistance(5.0);
 }

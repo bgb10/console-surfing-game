@@ -3,6 +3,9 @@
 
 #include "../MovableObject.h"
 
+#include <random> // Random
+#include <ctime>
+
 class Surfer : public MovableObject {
 
 public:
@@ -11,6 +14,7 @@ public:
 
 public:
 	void HitBy(MovableObject& object);
+	void HitBy(Player& player);
 	void Move(double delta_time);
 };
 

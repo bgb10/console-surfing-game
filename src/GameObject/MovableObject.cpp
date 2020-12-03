@@ -25,7 +25,7 @@ void MovableObject::Stop()
 // Getters
 float MovableObject::GetVelocityX() { return this->velocity_x; }
 float MovableObject::GetVelocityY() { return this->velocity_y; }
-float  MovableObject::GetSpeed()
+float MovableObject::GetSpeed()
 {
 	return sqrt(pow(this->velocity_x, 2) + pow(this->velocity_y, 2));
 }

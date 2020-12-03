@@ -3,7 +3,7 @@
 
 #include "../MovableObject.h"
 
-class Player : public MovableObject{
+class Player : public MovableObject {
 	
 private:
 	float invincible_start_x;
@@ -18,6 +18,7 @@ public:
 	void Move(double delta_time);
 	bool HasIntersected(GameObject& object);
 	void HitBy(MovableObject& object);
+	void HitBy(Player& player);
 	void SetInvincibleDistance(float distance);
 };
 
