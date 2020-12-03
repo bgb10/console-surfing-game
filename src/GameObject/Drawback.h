@@ -2,6 +2,7 @@
 #define DRAWBACK_H
 
 #include "../GameObject.h"
+#include "MovableObject.h"
 
 class Drawback : public GameObject {
 	

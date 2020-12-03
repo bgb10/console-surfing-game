@@ -2,6 +2,7 @@
 #define SURFER_H
 
 #include "../MovableObject.h"
+#include "Player.h"
 
 #include <random> // Random
 #include <ctime>

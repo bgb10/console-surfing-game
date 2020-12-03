@@ -13,7 +13,7 @@ void ObjectGenerator::Generate(ObjectManager &objectManager, SceneManager &scene
 {
 	Deck deck;
 	Buoy buoy;
-	Kraken kraken;
+	Kraken kraken(objectManager.GetPlayer());
 
 	Boost boost;
 	Health health;

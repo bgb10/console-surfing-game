@@ -2,6 +2,7 @@
 #define DECK_H
 
 #include "../Obstacle.h"
+#include "../MovableObject/Player.h"
 
 class Deck : public Obstacle {
 	
