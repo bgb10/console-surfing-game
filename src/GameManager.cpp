@@ -20,9 +20,11 @@ void GameManager::Ready()
 	while (1)
 	{
 		m_SceneManager.Ready();
+		m_InputManager.ListenInput();
 
 		if (m_InputManager.IsInputSpace())
 		{
+			m_ObjectManager.GetPlayer().SetVeloctiyY(1.0);
 			return;
 		}
 	}
