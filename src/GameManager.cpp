@@ -127,12 +127,12 @@ void GameManager::Update()
 	}
 
 	// check collision between movable and immovable
-	for (int j = 0; j < vec_immovable.size(); j++)
+	for (int i = 0; i < vec_immovable.size(); i++)
 	{
-		for (int id = 0; id < vec_movable.size(); id++)
+		for (int j = 0; j < vec_movable.size(); j++)
 		{
-			if (vec_immovable[id]->HasIntersected(*vec_movable[j]))
-				vec_immovable[id]->HitBy(*vec_movable[j]);
+			if (vec_immovable[i]->HasIntersected(*vec_movable[j]))
+				vec_immovable[i]->HitBy(*vec_movable[j]);
 		}
 	}
 

@@ -19,9 +19,9 @@ class ObjectGenerator{
     private:
         int level = 0;
         const float chance_map[3][5] = {
-            {0.001f, 0.002f,  0.001f,  0.002f,  0.002f},
-            {0.002f, 0.0025f, 0.002f,  0.002f,  0.0025f},
-            {0.003f, 0.003f,  0.0025f, 0.0015f, 0.003f},
+            {0.001f, 0.02f,  0.01f,  0.02f,  0.02f},
+            {0.002f, 0.025f, 0.02f,  0.02f,  0.025f},
+            {0.003f, 0.03f,  0.025f, 0.015f, 0.03f},
         };
     public:
         ObjectGenerator();
