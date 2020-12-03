@@ -14,7 +14,7 @@ void GameManager::Ready()
 
 		if (m_InputManager.IsInputSpace())
 		{
-			m_ObjectManager.GetPlayer().SetVeloctiyY(1.0);
+			m_ObjectManager.GetPlayer().SetVelocityY(1.0);
 			
 			return;
 		}

@@ -11,6 +11,7 @@ Kraken::Kraken(float x, float y, Player* player) : MovableObject(x, y)
 	SetWidth(3);
 	SetHeight(4);
 	SetTexture(" /\\/\\ < \\/ >< /\\ > \\/\\/ ");
+	SetVelocityY(player->GetVelocityY() * 1.25);
 }
 
 void Kraken::HitBy(MovableObject& object)

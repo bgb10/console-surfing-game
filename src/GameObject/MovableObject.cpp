@@ -34,7 +34,7 @@ float MovableObject::GetSpeed()
 
 // Setters
 void MovableObject::SetVelocityX(float velocity_x) { this->velocity_x = velocity_x; }
-void MovableObject::SetVeloctiyY(float velocity_y) { this->velocity_y = velocity_y; }
+void MovableObject::SetVelocityY(float velocity_y) { this->velocity_y = velocity_y; }
 void MovableObject::SetSpeedByFactor(float factor)
 {
 	this->velocity_x = this->velocity_x * factor;
