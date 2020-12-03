@@ -11,6 +11,7 @@ void ObjectGenerator::Generate(ObjectManager &objectManager)
 
 void ObjectGenerator::Generate(ObjectManager &objectManager, SceneManager &sceneManager)
 {
+	/*
 	Deck deck;
 	Buoy buoy;
 	Kraken kraken(objectManager.GetPlayer());
@@ -36,11 +37,9 @@ void ObjectGenerator::Generate(ObjectManager &objectManager, SceneManager &scene
 		else
 			buoy.SetCenter(obstacle_x_pos, -24);
 	}
-	/*
-	After the hasintersected test,
-	If it is hasintersected, use 'goto' to setcenter again.
-	*/
-	//Create Kraken to Match chance_map Probability
+	// After the hasintersected test,
+	// If it is hasintersected, use 'goto' to setcenter again.
+	// Create Kraken to Match chance_map Probability
 	if (rand() % 100 < chance_map[GetLevel() - 1][0] * 100)
 	{
 	K:
@@ -94,6 +93,7 @@ void ObjectGenerator::Generate(ObjectManager &objectManager, SceneManager &scene
 			}
 		}
 	}
+	*/
 }
 
 // Getter

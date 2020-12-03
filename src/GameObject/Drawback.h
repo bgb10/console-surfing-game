@@ -3,6 +3,7 @@
 
 #include "../GameObject.h"
 #include "MovableObject.h"
+#include "MovableObject/Player.h"
 
 class Drawback : public GameObject {
 	

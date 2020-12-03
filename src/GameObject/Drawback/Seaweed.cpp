@@ -14,3 +14,8 @@ void Seaweed::HitBy(MovableObject& object)
 {
 	object.SetSpeedByFactor(0.6f);
 }
+
+void Seaweed::HitBy(Player& player)
+{
+	player.SetSpeedByFactor(0.6f);
+}

@@ -5,7 +5,8 @@ extern int boost_count;
 
 void GameManager::Init()
 {
-	Ready();
+	while (1)
+		Ready();
 
 	Play();
 }

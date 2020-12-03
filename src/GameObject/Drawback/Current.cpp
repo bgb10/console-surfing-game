@@ -14,3 +14,8 @@ void Current::HitBy(MovableObject& object)
 {
 	object.SetSpeedByFactor(0.8f);
 }
+
+void Current::HitBy(Player& player)
+{
+	player.SetSpeedByFactor(0.8f);
+}
