@@ -5,10 +5,10 @@
 #include "ObjectManager.h"
 #include "GameObject.h"
 #include "GameObject/MovableObject/Kraken.h"
-#include "GameObject/Obstacle/Buoy.h"
-#include "GameObject/Obstacle/Deck.h"
-#include "GameObject/Item/Boost.h"
-#include "GameObject/Item/Health.h"
+#include "GameObject/MovableObject/Surfer.h"
+#include "GameObject/Drawback.h"
+#include "GameObject/Item.h"
+#include "GameObject/Obstacle.h"
 
 #include <random> //random
 #include <ctime>
@@ -19,9 +19,9 @@ class ObjectGenerator{
     private:
         int level = 0;
         const float chance_map[3][5] = {
-            {0.0f, 0.2f,  0.1f,  0.2f,  0.2f},
-            {0.1f, 0.25f, 0.2f,  0.2f,  0.25f},
-            {0.2f, 0.3f,  0.25f, 0.15f, 0.3f},
+            {0.00f, 0.02f,  0.01f,  0.02f,  0.02f},
+            {0.01f, 0.025f, 0.02f,  0.02f,  0.025f},
+            {0.02f, 0.03f,  0.025f, 0.015f, 0.03f},
         };
     public:
         ObjectGenerator();
