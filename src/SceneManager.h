@@ -29,8 +29,8 @@ public:
 	void Init(); // Initialize scene manager
 	void Ready(); // Print ready scene at console screen
 	void Render(ObjectManager& manager); // Print game scene at console screen
-	void Pause(); // Print pause scene at console screen
-	void GameOver(); // Called when life_count is 0
+	void Pause(ObjectManager& manager); // Print pause scene at console screen
+	void GameOver(ObjectManager& manager); // Called when life_count is 0
 	void Release(); // Release buffers
 	void SetColor(unsigned char bg_color, unsigned char txt_color); // Set background, texture color
 	int GetWidth(); // Get width of the console

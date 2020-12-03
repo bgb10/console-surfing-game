@@ -74,7 +74,7 @@ void GameManager::Play()
 		
 		// Pause screen if pause state is true
 		if (is_paused)
-			m_SceneManager.Pause();
+			m_SceneManager.Pause(m_ObjectManager);
 		else
 			Update();
 

@@ -10,6 +10,9 @@ Kraken::Kraken(Player& player) : Kraken(0, 0, player) { }
 Kraken::Kraken(float x, float y, Player& player) : MovableObject(x, y) 
 {
 	m_player = player;
+	SetWidth(3);
+	SetHeight(4);
+	SetTexture(" /\\/\\ < \\/ >< /\\ > \\/\\/ ");
 }
 
 void Kraken::HitBy(MovableObject& object)

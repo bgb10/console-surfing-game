@@ -108,7 +108,7 @@ void SceneManager::Init() {
 	system(setText);
 
 	// Set console_title
-	SetConsoleTitle("Console surfing game");
+	//SetConsoleTitle("Console surfing game");
 
 	// Set cursor unvisible
 	CONSOLE_CURSOR_INFO curInfo;
@@ -234,7 +234,7 @@ void SceneManager::Render(ObjectManager& manager) {
 	FlipBuffer();
 }
 // Print pause scene at console screen
-void SceneManager::Pause() {
+void SceneManager::Pause(ObjectManager& manager) {
 	// Clear buffer
 	ClearBuffer();
 
@@ -318,7 +318,7 @@ void SceneManager::Pause() {
 	FlipBuffer();
 }
 // Called when life_count is 0
-void SceneManager::GameOver() {
+void SceneManager::GameOver(ObjectManager& manager) {
 	// Clear buffer
 	ClearBuffer();
 
