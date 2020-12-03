@@ -13,8 +13,8 @@ private:
 	int object_id;
 	float center_x;
 	float center_y;
-	float width;
-	float height;
+	int width;
+	int height;
 	std::string texture;
 
 public:
@@ -29,13 +29,13 @@ public:
 	int GetID() const;
 	float GetCenterX() const;
 	float GetCenterY() const;
-	float GetWidth() const;
-	float GetHeight() const;
+	int GetWidth() const;
+	int GetHeight() const;
 	std::string GetTexture() const;
 
 	void SetCenter(float px, float py);
-	void SetWidth(float width);
-	void SetHeight(float height);
+	void SetWidth(int width);
+	void SetHeight(int height);
 	void SetTexture(std::string texture);
 	
 	bool HasIntersected(GameObject& object);
