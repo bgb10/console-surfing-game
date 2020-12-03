@@ -50,7 +50,9 @@ void InputManager::Clear()
 
 bool InputManager::IsInputSpace()
 {
-	if (GetAsyncKeyState(VK_SPACE) & 0x8000) return 1;
+	bool key_down = false;
+	while (GetAsyncKeyState(VK_SPACE) & 0x8000) key_down = true;
+	if (key_down == true) return 1;
 	else return 0;
 }
 
