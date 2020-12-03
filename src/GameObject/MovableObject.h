@@ -16,7 +16,7 @@ public:
 	virtual void HitBy(Player& player) = 0;
 
 public:
-	void Move(double delta_time);
+	virtual void Move(double delta_time);
 	float GetVelocityX();
 	float GetVelocityY();
 	float GetSpeed();
