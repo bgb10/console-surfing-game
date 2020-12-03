@@ -13,9 +13,12 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include <ctime>
+#include <chrono>
 
 #define ratio 0.1
+
+using namespace std;
+using namespace chrono;
 
 class GameManager {
 
@@ -27,8 +30,10 @@ private:
 
 	int high_score = 0;
 	bool is_paused;
+	bool is_start = false;
 
-	time_t curr, prev = -1;
+	system_clock::time_point curr;
+	system_clock::time_point prev;
 
 	void Init();
 	void Ready();
