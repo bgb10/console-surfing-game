@@ -150,6 +150,15 @@ void SceneManager::Ready() {
 	// Print description
 	t = "서핑을 시작하려면 space bar를 누르세요.";
 	WriteBuffer(size_x / 2 - 19, size_y / 5, t);
+	t = "┌────────────────────────────────────────────────────────────────────────────────────────────┐";
+	WriteBuffer(size_x / 2 - 46, size_y / 2 - 4, t);
+	t = "│";
+	for (int i = 0; i < 20; i++) {
+		WriteBuffer(size_x / 2 - 46, size_y / 2 - 3 + i, t);
+		WriteBuffer(size_x / 2 + 47, size_y / 2 - 3 + i, t);
+	}
+	t = "└────────────────────────────────────────────────────────────────────────────────────────────┘";
+	WriteBuffer(size_x / 2 - 46, size_y / 2 + 17, t);
 	t = "▒";
 	WriteBuffer(size_x * 3 / 11, size_y / 2, t);
 	t = "해류";
@@ -165,7 +174,7 @@ void SceneManager::Ready() {
 	t = "ⓔ";
 	WriteBuffer(size_x * 6 / 11, size_y / 2, t);
 	t = "부스트";
-	WriteBuffer(size_x * 6 / 11 - 2, size_y / 2 + 2, t);
+	WriteBuffer(size_x * 6 / 11 - 1, size_y / 2 + 2, t);
 	t = "▨▨";
 	WriteBuffer(size_x * 7 / 11, size_y / 2 - 1, t);
 	t = "|  |";
@@ -179,19 +188,25 @@ void SceneManager::Ready() {
 	t = "부표";
 	WriteBuffer(size_x * 8 / 11, size_y / 2 + 2, t);
 	t = " /\\/\\ ";
-	WriteBuffer(size_x * 5 / 11, size_y / 2 + 8, t);
+	WriteBuffer(size_x * 4 / 11 - 2, size_y / 2 + 8, t);
 	t = "< \\/ >";
-	WriteBuffer(size_x * 5 / 11, size_y / 2 + 9, t);
+	WriteBuffer(size_x * 4 / 11 - 2, size_y / 2 + 9, t);
 	t = "< \\/ >";
-	WriteBuffer(size_x * 5 / 11, size_y / 2 + 10, t);
+	WriteBuffer(size_x * 4 / 11 - 2, size_y / 2 + 10, t);
 	t = " \\/\\/ ";
-	WriteBuffer(size_x * 5 / 11, size_y / 2 + 11, t);
+	WriteBuffer(size_x * 4 / 11 - 2, size_y / 2 + 11, t);
 	t = "크라켄";
-	WriteBuffer(size_x * 5 / 11, size_y / 2 + 13, t);
+	WriteBuffer(size_x * 4 / 11 - 2, size_y / 2 + 13, t);
 	t = "[]";
-	WriteBuffer(size_x * 6 / 11, size_y / 2 + 11, t);
+	WriteBuffer(size_x * 5 / 11, size_y / 2 + 11, t);
 	t = "서퍼";
-	WriteBuffer(size_x * 6 / 11 - 1, size_y / 2 + 13, t);
+	WriteBuffer(size_x * 5 / 11 - 1, size_y / 2 + 13, t);
+	t = "게임 조작 : 방향키, F (부스터)";
+	WriteBuffer(size_x * 6 / 11, size_y / 2 + 9, t);
+	t = "일시 정지 : SPACE BAR";
+	WriteBuffer(size_x * 6 / 11, size_y / 2 + 11, t);
+	t = "게임 종료 : ESC";
+	WriteBuffer(size_x * 6 / 11, size_y / 2 + 13, t);
 
 	// Flip buffer
 	FlipBuffer();
