@@ -82,7 +82,9 @@ bool InputManager::IsInputRight() // 77 (100, 68)
 
 bool InputManager::IsInputBoost() // 102, 70
 {
-	if (GetAsyncKeyState(0x46) & 0x8000) return 1;
+	bool key_down = false;
+	while (GetAsyncKeyState(0x46) & 0x8000) key_down = true;
+	if (key_down == true) return 1;
 	else return 0;
 }
 
