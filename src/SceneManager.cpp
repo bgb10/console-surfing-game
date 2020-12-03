@@ -251,9 +251,6 @@ void SceneManager::Render(ObjectManager& manager) {
 		Draw(x, y, w, h, t);
 	}
 
-	t = "tt";
-	Draw(dx + 10, dy + 10, 1, 1, t);
-
 	// Print player
 	Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
 
@@ -263,6 +260,8 @@ void SceneManager::Render(ObjectManager& manager) {
 	extern int boost_count;
 	t = "┌─────────────────────────────────────────┐";
 	WriteBuffer(size_x / 2 - 22, 0, t);
+	t = "                                           ";
+	WriteBuffer(size_x / 2 - 22, 1, t);
 	t = "│";
 	WriteBuffer(size_x / 2 - 22, 1, t);
 	for (int i = 0; i < 3; i++) {
@@ -335,6 +334,8 @@ void SceneManager::Pause(ObjectManager& manager) {
 	extern int boost_count;
 	t = "┌─────────────────────────────────────────┐";
 	WriteBuffer(size_x / 2 - 22, 0, t);
+	t = "                                           ";
+	WriteBuffer(size_x / 2 - 22, 1, t);
 	t = "│";
 	WriteBuffer(size_x / 2 - 22, 1, t);
 	for (int i = 0; i < 3; i++) {
@@ -419,6 +420,8 @@ void SceneManager::GameOver(ObjectManager& manager) {
 	extern int boost_count;
 	t = "┌─────────────────────────────────────────┐";
 	WriteBuffer(size_x / 2 - 22, 0, t);
+	t = "                                           ";
+	WriteBuffer(size_x / 2 - 22, 1, t);
 	t = "│";
 	WriteBuffer(size_x / 2 - 22, 1, t);
 	for (int i = 0; i < 3; i++) {
