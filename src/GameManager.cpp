@@ -51,18 +51,18 @@ void GameManager::Play()
 		}
 		else if (m_InputManager.IsInputLeft())
 		{
-			player.RotateLeft();
+			player.RotateRight();
 		}
 		else if (m_InputManager.IsInputRight())
 		{
-			player.RotateRight();
+			player.RotateLeft();
 		}
 		else if (m_InputManager.IsInputBoost())
 		{
 			if (boost_count > 0)
 			{
-				player.SetSpeedByFactor(1.5f); // 150% speed boost on use
 				boost_count--;
+				player.SetSpeedByFactor(1.5f); // 150% speed boost on use
 			}
 		}
 		else if (m_InputManager.IsInputSpace())
@@ -136,13 +136,15 @@ void GameManager::Update()
 	// check collision between movable and player
 	for (int id = 1; id < vec_movable.size(); id++)
 	{
-		vec_movable[id]->HitBy(player);
+		if (vec_movable[id]->HasIntersected(player))
+			vec_movable[id]->HitBy(player);
 	}
 
 	// check collision between immovable and player
 	for (int id = 0; id < vec_immovable.size(); id++)
 	{
-		vec_immovable[id]->HitBy(player);
+		if (vec_immovable[id]->HasIntersected(player))
+			vec_immovable[id]->HitBy(player);
 	}
 
 	DistanceToScore();

@@ -12,7 +12,7 @@ void ObjectGenerator::Generate(ObjectManager& objectManager)
 
 	const int boost_count = 5;
 	const float boost_coords[boost_count][2] = {
-		{-8, 4}, {-4, 4}, {0, 4}, {4, 4}, {8, 4}
+		{-8, 8}, {-4, 8}, {0, 8}, {4, 8}, {8, 8}
 	};
 
 	for (int i = 0; i < boost_count; i++)
