@@ -1,6 +1,10 @@
 ﻿#include "SceneManager.h"
 #include "ObjectManager.h"
 
+extern int life_count;
+extern int score;
+extern int boost_count;
+
 // Instantiates the SceneManager object
 SceneManager::SceneManager() {
 	size_x = 160;
@@ -255,9 +259,6 @@ void SceneManager::Render(ObjectManager& manager) {
 	Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
 
 	// Print UI
-	extern int life_count;
-	extern int score;
-	extern int boost_count;
 	t = "┌─────────────────────────────────────────┐";
 	WriteBuffer(size_x / 2 - 22, 0, t);
 	t = "                                           ";
@@ -329,9 +330,6 @@ void SceneManager::Pause(ObjectManager& manager) {
 	Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
 	
 	// Print UI
-	extern int life_count;
-	extern int score;
-	extern int boost_count;
 	t = "┌─────────────────────────────────────────┐";
 	WriteBuffer(size_x / 2 - 22, 0, t);
 	t = "                                           ";
@@ -415,9 +413,6 @@ void SceneManager::GameOver(ObjectManager& manager) {
 	Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
 	
 	// Print UI
-	extern int life_count;
-	extern int score;
-	extern int boost_count;
 	t = "┌─────────────────────────────────────────┐";
 	WriteBuffer(size_x / 2 - 22, 0, t);
 	t = "                                           ";

@@ -10,12 +10,12 @@ void ObjectGenerator::Generate(ObjectManager& objectManager)
 	// objectManager.AddImmovable(Boost::Boost(0.0f, 2.0f));
 	// ... add more here
 
-	const int boost_count = 5;
-	const float boost_coords[boost_count][2] = {
+	const int boost_object_count = 5;
+	const float boost_coords[boost_object_count][2] = {
 		{-8, 8}, {-4, 8}, {0, 8}, {4, 8}, {8, 8}
 	};
 
-	for (int i = 0; i < boost_count; i++)
+	for (int i = 0; i < boost_object_count; i++)
 		objectManager.AddImmovable(new Boost(boost_coords[i][0], boost_coords[i][1]));
 }
 
@@ -26,8 +26,9 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 	vector<MovableObject*> generated_movable;
 	vector<GameObject*> generated_immovable;
 
+	srand(time(nullptr));
+
 	// generate Kraken
-	srand(time(0));
 	if (rand() % 10000 < chance_map[GetLevel()][0] * 10000)
 	{
 		// Left top x-position of boundary
@@ -35,7 +36,6 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 		// Left top y-position of boundary (out of frame)
 		float kraken_gen_y = objectManager.GetPlayer().GetCenterY() - sceneManager.GetHeight() * 0.75;
 
-		srand(time(0));
 		generated_movable.push_back(
 			new Kraken(
 				// random position between boundary
@@ -52,14 +52,12 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 	float object_gen_y = objectManager.GetPlayer().GetCenterY() + sceneManager.GetHeight() * 0.75;
 
 	// generate Surfer
-	srand(time(0));
 	if (rand() % 10000 < chance_map[GetLevel()][1] * 10000)
 	{
 		Surfer* surfer;
 
 		while (1) // repeat until object is generated without colliding to another
 		{
-			srand(time(0));
 			surfer = new Surfer(
 				object_gen_x + sceneManager.GetWidth() * (rand() % 1000 / 1000.0) * 1.5,
 				object_gen_y
@@ -89,15 +87,12 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 	// generate Obstacle, Item, Drawback
 	for (int i = 2; i < 4; i++)
 	{
-		srand(time(0));
 		if (rand() % 10000 < chance_map[GetLevel()][i] * 10000)
 		{
 			GameObject* object;
 
 			while (1) // repeat until object is generated without colliding to another
 			{
-				srand(time(0));
-
 				switch (i)
 				{
 				case 2: // generate Obstacle
