@@ -2,6 +2,7 @@
 #define GAMEOBJECT_H
 
 #include <string>
+#include <windows.h>
 
 // #include "GameObject/MovableObject.h"
 // #include "GameObject/MovableObject/Player.h"
