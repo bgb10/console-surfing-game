@@ -26,7 +26,7 @@ private:
 	InputManager m_InputManager;
 	SceneManager m_SceneManager;
 
-	bool is_paused;
+	bool exit = false;
 	bool is_start = false;
 
 	system_clock::time_point curr;

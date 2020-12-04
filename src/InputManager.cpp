@@ -46,50 +46,46 @@ void InputManager::Clear()
 	is_esc_pushed = false;
 }
 
-//key가 계속 눌리고 있는 상태라면, 다른 입력이 들어올 때까지 눌리지 않은 걸로 간주
-
 bool InputManager::IsInputSpace()
 {
-	bool key_down = false;
-	while (GetAsyncKeyState(VK_SPACE) & 0x8000) key_down = true;
-	if (key_down == true) return 1;
+	if (GetAsyncKeyState(VK_SPACE) & (0x8001 == 0x8001)) return 1;
 	else return 0;
 }
 
 bool InputManager::IsInputUp()
 {
-	if (GetAsyncKeyState(VK_UP) & 0x8000) return 1;
+	if (GetAsyncKeyState(VK_UP) & (0x8001 == 0x8001)) return 1;
 	else return 0;
 }
 
 bool InputManager::IsInputDown()
 {
-	if (GetAsyncKeyState(VK_DOWN) & 0x8000) return 1;
+	if (GetAsyncKeyState(VK_DOWN) & (0x8001 == 0x8001)) return 1;
 	else return 0;
 }
 
 bool InputManager::IsInputLeft()
 {
-	if (GetAsyncKeyState(VK_LEFT) & 0x8000) return 1;
+	if (GetAsyncKeyState(VK_LEFT) & (0x8001 == 0x8001)) return 1;
 	else return 0;
 }
 
 bool InputManager::IsInputRight() // 77 (100, 68)
 {
-	if (GetAsyncKeyState(VK_RIGHT) & 0x8000) return 1;
+	if (GetAsyncKeyState(VK_RIGHT) & (0x8001 == 0x8001)) return 1;
 	else return 0;
 }
 
 bool InputManager::IsInputBoost() // 102, 70
 {
 	bool key_down = false;
-	while (GetAsyncKeyState(0x46) & 0x8000) key_down = true;
+	while (GetAsyncKeyState(0x46) & (0x8001 == 0x8001)) key_down = true;
 	if (key_down == true) return 1;
 	else return 0;
 }
 
 bool InputManager::IsInputExit()
 {
-	if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) return 1;
+	if (GetAsyncKeyState(VK_ESCAPE) & (0x8001 == 0x8001)) return 1;
 	else return 0;
 }
