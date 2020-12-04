@@ -75,7 +75,7 @@ Instantiates the `Seaweed` object. Initializes with given position.
 ### HitBy
 
 ```cpp
-public void HitBy(MovableObject& object)
+public void HitBy(MovableObject* object)
 ```
 
 Reduces speed of given `object` by **60%**. Uses [`MovableObject::SetSpeedByFactor`](MovableObject.md#SetSpeedByFactor).

@@ -15,8 +15,8 @@ private:
 public:
 	MovableObject();
 	MovableObject(float x, float y);
-	virtual void HitBy(MovableObject& object) = 0;
-	virtual void HitBy(Player& player) = 0;
+	virtual void HitBy(MovableObject* object) = 0;
+	virtual void HitBy(Player* player) = 0;
 
 public:
 	virtual void Move(double delta_time);

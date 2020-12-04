@@ -10,12 +10,12 @@ Seaweed::Seaweed(float x, float y) : Drawback(x, y)
 	SetTexture("ψ");
 }
 
-void Seaweed::HitBy(MovableObject& object)
+void Seaweed::HitBy(MovableObject* object)
 {
-	object.SetSpeedByFactor(0.6f);
+	object->SetSpeedByFactor(0.6f);
 }
 
-void Seaweed::HitBy(Player& player)
+void Seaweed::HitBy(Player* player)
 {
-	player.SetSpeedByFactor(0.6f);
+	player->SetSpeedByFactor(0.6f);
 }

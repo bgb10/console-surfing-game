@@ -289,7 +289,7 @@ void SceneManager::Render(ObjectManager& manager) {
 
 	// Draw immovable object
 	for (int i = 0; i < immovable_obj.size(); i++) {
-		if (immovable_obj[i]->IsVisible() == false)
+		if (immovable_obj[i]->GameObject::IsVisible() == false)
 			continue; // don't render objects flagged as invisible
 
 		x = immovable_obj[i]->GetCenterX() + dx;
@@ -302,7 +302,7 @@ void SceneManager::Render(ObjectManager& manager) {
 
 	// Draw movable object
 	for (int i = 0; i < movable_obj.size(); i++) {
-		if (movable_obj[i]->IsVisible() == false)
+		if (movable_obj[i]->GameObject::IsVisible() == false)
 			continue; // don't render objects flagged as invisible
 
 		x = movable_obj[i]->GetCenterX() + dx;

@@ -63,7 +63,7 @@ Randomly instantiates a subclass of `Obstacle`, between `Buoy` and `Deck`. Initi
 ### HitBy
 
 ```cpp
-public void HitBy(MovableObject& object)
+public void HitBy(MovableObject* object)
 ```
 
 Specification of [`GameObject::HitBy`](../GameObject.md#HitBy). **Reduces velocity** of given `object` with a specific factor using [`MovableObject::SetSpeedByFactor`](MovableObject.md#SetSpeedByFactor).

@@ -12,18 +12,18 @@ Health::Health(float x, float y) : Item(x, y)
 	SetTexture("♥");
 }
 
-void Health::HitBy(MovableObject& object)
+void Health::HitBy(MovableObject* object)
 {
 	// do nothing if other entities hit boost item
 }
 
-void Health::HitBy(Player& player)
+void Health::HitBy(Player* player)
 {
 	// increase life count
 	// maximum life count is 3
-	if (life_count < 3 && IsVisible())
+	if (life_count < 3 && this->GameObject::IsVisible())
 	{
-		SetVisible(false);
+		this->GameObject::SetVisible(false);
 		life_count++;
 		SetTexture("  "); // hide item
 	}

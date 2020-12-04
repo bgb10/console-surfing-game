@@ -76,7 +76,7 @@ Instantiates the `Buoy` object. Initializes with given position.
 ### HitBy
 
 ```cpp
-public void HitBy(MovableObject& object)
+public void HitBy(MovableObject* object)
 ```
 
 Inverts the direction by inverting the `velocity_x` of given `object`.

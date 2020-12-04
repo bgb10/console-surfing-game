@@ -12,18 +12,18 @@ Boost::Boost(float x, float y) : Item(x, y)
 	SetTexture("ⓔ");
 }
 
-void Boost::HitBy(MovableObject& object)
+void Boost::HitBy(MovableObject* object)
 {
 	// do nothing if other entities hit boost item
 }
 
-void Boost::HitBy(Player& player)
+void Boost::HitBy(Player* player)
 {
 	// increase boost count
 	// maximum boost count is 3
-	if (boost_count < 3 && IsVisible())
+	if (boost_count < 3 && this->GameObject::IsVisible())
 	{
-		SetVisible(false);
+		this->GameObject::SetVisible(false);
 		boost_count++;
 		SetTexture("  "); // hide item
 	}

@@ -148,7 +148,7 @@ Checks whether two `GameObject` objects has collided. Returns `true` if the two 
 ### HitBy
 
 ```cpp
-public void HitBy(MovableObject& object) = 0;
+public void HitBy(MovableObject* object) = 0;
 ```
 
 Performs corresponding actions to perform on collsion.

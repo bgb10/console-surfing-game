@@ -98,7 +98,7 @@ SetCenter(
 ### HitBy
 
 ```cpp
-public void HitBy(MovableObject& object)
+public void HitBy(MovableObject* object)
 ```
 
 Specification of [`GameObject::HitBy`](../GameObject.md#HitBy).

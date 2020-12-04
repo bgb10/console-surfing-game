@@ -13,24 +13,29 @@ Surfer::Surfer(float x, float y) : MovableObject(x, y)
 	SetTexture("/\\\\/");
 }
 
-void Surfer::HitBy(MovableObject& object)
+void Surfer::HitBy(MovableObject* object)
 {
 	// called only when Surfer collides with Kraken
-	// Surfer will stop on collision, this is handled in Kraken::HitBy(MovableObject& object)
+	// Surfer will stop on collision, this is handled in Kraken::HitBy(MovableObject* object)
 	// do nothing
 }
 
-void Surfer::HitBy(Player& player)
+void Surfer::HitBy(Player* player)
 {
 	// decrease life count
-	if (life_count > 0)
+	if (life_count > 0 && this->GameObject::IsVisible())
+	{
+		this->GameObject::SetVisible(false);
 		life_count--;
+		SetTexture("    "); // hide object
+		Stop(); // stop object
+	}
 
 	// stop player on collision, resume playing by pressing down arrow
-	player.Stop();
+	player->Stop();
 
 	// make player invincible for 5 in-game unit distances
-	player.SetInvincibleDistance(5.0);
+	player->SetInvincibleDistance(5.0);
 }
 
 void Surfer::Move(double delta_time)

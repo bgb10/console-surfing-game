@@ -144,10 +144,15 @@ void GameManager::Update()
 	}
 
 	// check collision between movable and player
-	for (int id = 0; id < vec_movable.size(); id++)
+	for (int i = 0; i < vec_movable.size(); i++)
 	{
-		if (vec_movable[id]->IsVisible() && vec_movable[id]->HasIntersected(player))
-			vec_movable[id]->HitBy(player);
+		if (vec_movable[i]->GameObject::IsVisible())
+		{
+			if (vec_movable[i]->HasIntersected(player))
+				vec_movable[i]->HitBy(&player);
+		}
+		else
+			m_ObjectManager.RemoveMovable(vec_movable[i]);
 	}
 
 	// check collision between movable and immovable
@@ -155,16 +160,26 @@ void GameManager::Update()
 	{
 		for (int j = 0; j < vec_movable.size(); j++)
 		{
-			if (vec_immovable[i]->IsVisible() && vec_immovable[i]->HasIntersected(*vec_movable[j]))
-				vec_immovable[i]->HitBy(*vec_movable[j]);
+			if (vec_immovable[i]->GameObject::IsVisible())
+			{
+				if (vec_immovable[i]->HasIntersected(*vec_movable[j]))
+					vec_immovable[i]->HitBy(vec_movable[j]);
+			}
+			else
+				m_ObjectManager.RemoveImmovable(vec_movable[j]);
 		}
 	}
 
 	// check collision between immovable and player
-	for (int id = 0; id < vec_immovable.size(); id++)
+	for (int i = 0; i < vec_immovable.size(); i++)
 	{
-		if (vec_immovable[id]->IsVisible() && vec_immovable[id]->HasIntersected(player))
-			vec_immovable[id]->HitBy(player);
+		if (vec_immovable[i]->GameObject::IsVisible())
+		{
+			if (vec_immovable[i]->HasIntersected(player))
+				vec_immovable[i]->HitBy(&player);
+		}
+		else
+			m_ObjectManager.RemoveImmovable(vec_immovable[i]);
 	}
 
 	DistanceToScore();

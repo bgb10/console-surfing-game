@@ -10,8 +10,8 @@ public:
 	Boost(float x, float y);
 
 public:
-	void HitBy(MovableObject& object);
-	void HitBy(Player& player);
+	void HitBy(MovableObject* object);
+	void HitBy(Player* player);
 };
 
 #endif

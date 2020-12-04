@@ -15,8 +15,8 @@ public:
 	Kraken(float x, float y, Player* player);
 
 	// Member functions
-	void HitBy(MovableObject& object);
-	void HitBy(Player& player);
+	void HitBy(MovableObject* object);
+	void HitBy(Player* player);
 	void Move(double delta_time);
 };
 

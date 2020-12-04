@@ -14,8 +14,8 @@ public:
 	Surfer(float x, float y);
 
 public:
-	void HitBy(MovableObject& object);
-	void HitBy(Player& player);
+	void HitBy(MovableObject* object);
+	void HitBy(Player* player);
 	void Move(double delta_time);
 };
 

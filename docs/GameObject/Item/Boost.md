@@ -77,7 +77,7 @@ Instantiates the `Boost` object. Initializes with given position.
 ### HitBy
 
 ```cpp
-public void HitBy(MovableObject& object)
+public void HitBy(MovableObject* object)
 ```
 
 Increases `boost_count` by 1.

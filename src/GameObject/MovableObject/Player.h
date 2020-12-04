@@ -16,8 +16,8 @@ public:
 
 public:
 	void Move(double delta_time);
-	void HitBy(MovableObject& object);
-	void HitBy(Player& player);
+	void HitBy(MovableObject* object);
+	void HitBy(Player* player);
 	void SetInvincibleDistance(float distance);
 	void SetDirection(int direction);
 	void RotateRight();

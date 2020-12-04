@@ -13,38 +13,38 @@ Buoy::Buoy(float x, float y) : Obstacle(x, y)
 	SetTexture(" ▶ ≡≡");
 }
 
-void Buoy::HitBy(MovableObject& object)
+void Buoy::HitBy(MovableObject* object)
 {
 	// Invert the moving direction
-	if (object.GetVelocityX() == 0.0)
+	if (object->GetVelocityX() == 0.0)
 	{
 		srand(GetTickCount());
 
 		if (rand() % 100 > 50)
-			object.RotateLeft();
+			object->RotateLeft();
 		else
-			object.RotateRight();
+			object->RotateRight();
 	}
 	else
 	{
-		if (object.GetVelocityX() > 0)
+		if (object->GetVelocityX() > 0)
 		{
 			// object was going right
-			object.RotateLeft();
-			object.RotateLeft();
+			object->RotateLeft();
+			object->RotateLeft();
 		}
 		else
 		{
 			// object was going left
-			object.RotateRight();
-			object.RotateRight();
+			object->RotateRight();
+			object->RotateRight();
 		}
 	}
 }
 
-void Buoy::HitBy(Player& player)
+void Buoy::HitBy(Player* player)
 {
 	// Actions on collision between Player and Movable are the same
-	// call Buoy::HitBy(MovableObject& object)
-	Buoy::HitBy(dynamic_cast<MovableObject&>(player));
+	// call Buoy::HitBy(MovableObject* object)
+	Buoy::HitBy(dynamic_cast<MovableObject*>(player));
 }

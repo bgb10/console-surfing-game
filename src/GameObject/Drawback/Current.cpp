@@ -10,12 +10,16 @@ Current::Current(float x, float y) : Drawback(x, y)
 	SetTexture("▒");
 }
 
-void Current::HitBy(MovableObject& object)
+void Current::HitBy(MovableObject* object)
 {
-	object.SetSpeedByFactor(0.8f);
+	object->SetSpeedByFactor(0.8f);
 }
 
-void Current::HitBy(Player& player)
+void Current::HitBy(Player* player)
 {
-	player.SetSpeedByFactor(0.8f);
+	if (is_collidable)
+	{
+		is_collidable = false;
+		player->SetSpeedByFactor(0.8f);
+	}
 }

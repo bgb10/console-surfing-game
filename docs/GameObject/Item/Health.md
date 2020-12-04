@@ -75,7 +75,7 @@ Instantiates the `Health` object. Initializes with given position.
 ### HitBy
 
 ```cpp
-public void HitBy(MovableObject& object)
+public void HitBy(MovableObject* object)
 ```
 
 Increases `life_count` by 1.

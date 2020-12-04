@@ -37,7 +37,7 @@ void GameObject::SetCenter(float px, float py) { this->center_x = px; this->cent
 void GameObject::SetWidth(int width) { this->width = width; }
 void GameObject::SetHeight(int height) { this->height = height; }
 void GameObject::SetTexture(std::string texture) { this->texture = texture; }
-void GameObject::SetVisible(bool is_visible) { this->is_visible = is_visible;  }
+void GameObject::SetVisible(bool is_visible) { this->is_visible = is_visible; }
 
 GameObject::GameObject() 
 {

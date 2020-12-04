@@ -14,13 +14,13 @@ void Player::Move(double delta_time)
 	MovableObject::Move(delta_time);
 }
 	
-void Player::HitBy(MovableObject& object)
+void Player::HitBy(MovableObject* object)
 {
 	// this will not be called
 	// do nothing
 }
 
-void Player::HitBy(Player& player)
+void Player::HitBy(Player* player)
 {
 	// this will not be called
 	// do nothing
