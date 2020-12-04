@@ -6,6 +6,10 @@ extern int boost_count;
 
 void GameManager::Ready()
 {
+	// Initialize
+	m_ObjectManager.Clear();
+	m_ObjectManager.GetPlayer().SetCenter(0, 0);
+
 	// Generate default obstacles
 	m_ObjectGenerator.Generate(m_ObjectManager);
 
@@ -31,51 +35,62 @@ void GameManager::Play()
 
 	while (1)
 	{
-		/* 1. Update objects and states according to input (from previous frame) */
-		if (m_InputManager.IsInputUp())
+		if (life_count > 0)
 		{
-			player.Stop(); // stop the player character
-		}
-		else if (m_InputManager.IsInputDown())
-		{
-			player.ResetRotate(); // rotate to direct down
-
-			if (player.GetVelocityY() == 0 && life_count > 0)
-				player.SetVelocityY(1.0f); // resume player when stopped
-		}
-		else if (m_InputManager.IsInputLeft())
-		{
-			player.RotateRight();
-		}
-		else if (m_InputManager.IsInputRight())
-		{
-			player.RotateLeft();
-		}
-		else if (m_InputManager.IsInputBoost())
-		{
-			if (boost_count > 0)
+			/* 1. Update objects and states according to input (from previous frame) */
+			if (m_InputManager.IsInputUp())
 			{
-				boost_count--;
-				player.SetSpeedByFactor(1.5f); // 150% speed boost on use
+				player.Stop(); // stop the player character
 			}
-		}
-		else if (m_InputManager.IsInputSpace())
-		{
-			Pause();
-		}
-		else if (m_InputManager.IsInputExit())
-		{
-			return; // exit game
+			if (m_InputManager.IsInputDown())
+			{
+				player.ResetRotate(); // rotate to direct down
+
+				if (player.GetVelocityY() == 0 && life_count > 0)
+					player.SetVelocityY(1.0f); // resume player when stopped
+			}
+			if (m_InputManager.IsInputLeft())
+			{
+				player.RotateRight();
+			}
+			if (m_InputManager.IsInputRight())
+			{
+				player.RotateLeft();
+			}
+			if (m_InputManager.IsInputBoost())
+			{
+				if (boost_count > 0)
+				{
+					boost_count--;
+					player.SetSpeedByFactor(1.5f); // 150% speed boost on use
+				}
+			}
+			if (m_InputManager.IsInputSpace())
+			{
+				Pause();
+			}
+			if (m_InputManager.IsInputExit())
+			{
+				return; // exit game
+			}
+
+			// Generate entities
+			m_ObjectGenerator.Generate(m_ObjectManager, m_SceneManager);
+
+			Update();
 		}
 		else
 		{
-			//exception
+			if (m_InputManager.IsInputSpace())
+			{
+				life_count = 3;
+				boost_count = 0;
+				score = 0;
+				is_start = false;
+				break;
+			}
+			m_SceneManager.GameOver(m_ObjectManager);
 		}
-
-		// Generate entities
-		m_ObjectGenerator.Generate(m_ObjectManager, m_SceneManager);
-		
-		Update();
 	}
 }
 
@@ -202,7 +217,10 @@ GameManager::GameManager()
 {
 	m_SceneManager.Init();
 
-	Ready();
+	while (1)
+	{
+		Ready();
 
-	Play();
+		Play();
+	}
 }
