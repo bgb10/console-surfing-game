@@ -74,6 +74,6 @@ void MovableObject::RotateLeft()
 void MovableObject::ResetRotate() 
 { 
 	SetDirection(0);
-	//this->velocity_y = 1.0f; 
+	//this->velocity_y = 1.0f;
 }
 
