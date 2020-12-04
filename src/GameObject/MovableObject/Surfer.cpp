@@ -26,6 +26,9 @@ void Surfer::HitBy(Player& player)
 	if (life_count > 0)
 		life_count--;
 
+	// makes invincible
+	this->is_visible = false;
+
 	// stop player on collision, resume playing by pressing down arrow
 	player.Stop();
 
