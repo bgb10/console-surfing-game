@@ -83,7 +83,10 @@ void SceneManager::Draw(float center_x, float center_y, int width, int height, s
 		else if (x < 0) {
 			for (int j = 0; j < 2 * width; j++) {
 				if (x + j >= 0) {
-					WriteBuffer(2 * (x + j), y + i, texture.substr(i * 2 * width + j, 2 * width - j));
+					for (int k = 0; k < 2 * width - j; k++) {
+						map[y + i][k + 2 * (x + j)] = texture[i * 2 * width + j + k];
+					}
+					//WriteBuffer(2 * (x + j), y + i, texture.substr(i * 2 * width + j, 2 * width - j));
 					break;
 				}
 			}
@@ -97,10 +100,16 @@ void SceneManager::Draw(float center_x, float center_y, int width, int height, s
 				}
 			}
 			if (check == -1) {
-				WriteBuffer(2 * x, y + i, texture.substr(i * 2 * width, 2 * width));
+				for (int k = 0; k < 2 * width; k++) {
+					map[y + i][k + 2 * x] = texture[i * 2 * width + k];
+				}
+				//WriteBuffer(2 * x, y + i, texture.substr(i * 2 * width, 2 * width));
 			}
 			else {
-				WriteBuffer(2 * x, y + i, texture.substr(i * 2 * width, check));
+				for (int k = 0; k < check; k++) {
+					map[y + i][k + 2 * x] = texture[i * 2 * width + k];
+				}
+				//WriteBuffer(2 * x, y + i, texture.substr(i * 2 * width, check));
 			}
 		}
 	}
@@ -235,7 +244,16 @@ void SceneManager::Render(ObjectManager& manager) {
 	dx = size_x / 4 - player.GetCenterX();
 	dy = size_y * 2 / 5 - player.GetCenterY();
 
-	// Print immovable object
+	// Initialize map
+	map[0] = "";
+	for (int i = 0; i < size_x; i++) {
+		map[0] += " ";
+	}
+	for (int i = 0; i < size_y; i++) {
+		map[i + 1] = map[i];
+	}
+
+	// Draw immovable object
 	for (int i = 0; i < immovable_obj.size(); i++) {
 		x = immovable_obj[i]->GetCenterX() + dx;
 		y = immovable_obj[i]->GetCenterY() + dy;
@@ -245,7 +263,7 @@ void SceneManager::Render(ObjectManager& manager) {
 		Draw(x, y, w, h, t);
 	}
 
-	// Print movable object
+	// Draw movable object
 	for (int i = 0; i < movable_obj.size(); i++) {
 		x = movable_obj[i]->GetCenterX() + dx;
 		y = movable_obj[i]->GetCenterY() + dy;
@@ -255,8 +273,13 @@ void SceneManager::Render(ObjectManager& manager) {
 		Draw(x, y, w, h, t);
 	}
 
-	// Print player
+	// Draw player
 	Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
+
+	// Print map
+	for (int i = 0; i < size_y; i++) {
+		WriteBuffer(0, i, map[i]);
+	}
 
 	// Print UI
 	t = "┌─────────────────────────────────────────┐";
@@ -306,7 +329,16 @@ void SceneManager::Pause(ObjectManager& manager) {
 	dx = size_x / 4 - player.GetCenterX();
 	dy = size_y * 2 / 5 - player.GetCenterY();
 
-	// Print immovable object
+	// Initialize map
+	map[0] = "";
+	for (int i = 0; i < size_x; i++) {
+		map[0] += " ";
+	}
+	for (int i = 0; i < size_y; i++) {
+		map[i + 1] = map[i];
+	}
+
+	// Draw immovable object
 	for (int i = 0; i < immovable_obj.size(); i++) {
 		x = immovable_obj[i]->GetCenterX() + dx;
 		y = immovable_obj[i]->GetCenterY() + dy;
@@ -316,7 +348,7 @@ void SceneManager::Pause(ObjectManager& manager) {
 		Draw(x, y, w, h, t);
 	}
 
-	// Print movable object
+	// Draw movable object
 	for (int i = 0; i < movable_obj.size(); i++) {
 		x = movable_obj[i]->GetCenterX() + dx;
 		y = movable_obj[i]->GetCenterY() + dy;
@@ -326,8 +358,13 @@ void SceneManager::Pause(ObjectManager& manager) {
 		Draw(x, y, w, h, t);
 	}
 
-	// Print player
+	// Draw player
 	Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
+
+	// Print map
+	for (int i = 0; i < size_y; i++) {
+		WriteBuffer(0, i, map[i]);
+	}
 	
 	// Print UI
 	t = "┌─────────────────────────────────────────┐";
@@ -389,7 +426,16 @@ void SceneManager::GameOver(ObjectManager& manager) {
 	dx = size_x / 4 - player.GetCenterX();
 	dy = size_y * 2 / 5 - player.GetCenterY();
 
-	// Print immovable object
+	// Initialize map
+	map[0] = "";
+	for (int i = 0; i < size_x; i++) {
+		map[0] += " ";
+	}
+	for (int i = 0; i < size_y; i++) {
+		map[i + 1] = map[i];
+	}
+
+	// Draw immovable object
 	for (int i = 0; i < immovable_obj.size(); i++) {
 		x = immovable_obj[i]->GetCenterX() + dx;
 		y = immovable_obj[i]->GetCenterY() + dy;
@@ -399,7 +445,7 @@ void SceneManager::GameOver(ObjectManager& manager) {
 		Draw(x, y, w, h, t);
 	}
 
-	// Print movable object
+	// Draw movable object
 	for (int i = 0; i < movable_obj.size(); i++) {
 		x = movable_obj[i]->GetCenterX() + dx;
 		y = movable_obj[i]->GetCenterY() + dy;
@@ -409,8 +455,13 @@ void SceneManager::GameOver(ObjectManager& manager) {
 		Draw(x, y, w, h, t);
 	}
 
-	// Print player
+	// Draw player
 	Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
+
+	// Print map
+	for (int i = 0; i < size_y; i++) {
+		WriteBuffer(0, i, map[i]);
+	}
 	
 	// Print UI
 	t = "┌─────────────────────────────────────────┐";
