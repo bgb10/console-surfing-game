@@ -183,16 +183,14 @@ void GameManager::CleanGameObject()
 	for (int id = 0; id < vec_movable.size(); id++)
 	{
 		if (vec_movable[id]->GetCenterY() <= top_visible_y)
-			// vec_movable[id]-> !! need object destruction
-			vec_movable.erase(vec_movable.begin() + id);
+			m_ObjectManager.RemoveMovable(vec_movable[id]);
 	}
 
 	// check immovable objects out of sight
 	for (int id = 0; id < vec_immovable.size(); id++)
 	{
 		if (vec_immovable[id]->GetCenterY() <= top_visible_y)
-			// vec_immovable[id]-> !! need object destruction
-			vec_immovable.erase(vec_immovable.begin() + id);
+			m_ObjectManager.RemoveImmovable(vec_immovable[id]);
 	}
 }
 
