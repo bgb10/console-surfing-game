@@ -21,8 +21,9 @@ void Boost::HitBy(Player& player)
 {
 	// increase boost count
 	// maximum boost count is 3
-	if (boost_count < 3)
+	if (boost_count < 3 && IsVisible())
 	{
+		SetVisible(false);
 		boost_count++;
 		SetTexture("  "); // hide item
 	}

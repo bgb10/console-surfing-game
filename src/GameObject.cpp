@@ -29,6 +29,7 @@ float GameObject::GetCenterX() const { return this->center_x; }
 float GameObject::GetCenterY() const { return this->center_y; }
 int GameObject::GetWidth() const { return this->width; }
 int GameObject::GetHeight() const { return this->height; }
+bool GameObject::IsVisible() { return this->is_visible; }
 std::string GameObject::GetTexture() const { return this->texture; }
 
 /*Setters*/
@@ -36,6 +37,7 @@ void GameObject::SetCenter(float px, float py) { this->center_x = px; this->cent
 void GameObject::SetWidth(int width) { this->width = width; }
 void GameObject::SetHeight(int height) { this->height = height; }
 void GameObject::SetTexture(std::string texture) { this->texture = texture; }
+void GameObject::SetVisible(bool is_visible) { this->is_visible = is_visible;  }
 
 GameObject::GameObject() 
 {

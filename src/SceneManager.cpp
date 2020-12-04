@@ -272,6 +272,9 @@ void SceneManager::Render(ObjectManager& manager) {
 
 	// Draw immovable object
 	for (int i = 0; i < immovable_obj.size(); i++) {
+		if (immovable_obj[i]->IsVisible() == false)
+			continue; // don't render objects flagged as invisible
+
 		x = immovable_obj[i]->GetCenterX() + dx;
 		y = immovable_obj[i]->GetCenterY() + dy;
 		w = immovable_obj[i]->GetWidth();
@@ -282,6 +285,9 @@ void SceneManager::Render(ObjectManager& manager) {
 
 	// Draw movable object
 	for (int i = 0; i < movable_obj.size(); i++) {
+		if (movable_obj[i]->IsVisible() == false)
+			continue; // don't render objects flagged as invisible
+
 		x = movable_obj[i]->GetCenterX() + dx;
 		y = movable_obj[i]->GetCenterY() + dy;
 		w = movable_obj[i]->GetWidth();
@@ -388,7 +394,7 @@ void SceneManager::Pause(ObjectManager& manager) {
 	for (int i = 0; i < size_y; i++) {
 		WriteBuffer(0, i, map[i]);
 	}
-	
+
 	// Print UI
 	t = "┌─────────────────────────────────────────┐";
 	WriteBuffer(size_x / 2 - 22, 0, t);
@@ -491,7 +497,7 @@ void SceneManager::GameOver(ObjectManager& manager) {
 	for (int i = 0; i < size_y; i++) {
 		WriteBuffer(0, i, map[i]);
 	}
-	
+
 	// Print UI
 	t = "┌─────────────────────────────────────────┐";
 	WriteBuffer(size_x / 2 - 22, 0, t);

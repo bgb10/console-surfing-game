@@ -21,8 +21,9 @@ void Health::HitBy(Player& player)
 {
 	// increase life count
 	// maximum life count is 3
-	if (life_count < 3)
+	if (life_count < 3 && IsVisible())
 	{
+		SetVisible(false);
 		life_count++;
 		SetTexture("  "); // hide item
 	}

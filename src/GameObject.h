@@ -20,6 +20,7 @@ private:
 	int width;
 	int height;
 	std::string texture;
+	bool is_visible = true;
 
 public:
 	GameObject();
@@ -35,12 +36,14 @@ public:
 	float GetCenterY() const;
 	int GetWidth() const;
 	int GetHeight() const;
+	bool IsVisible();
 	std::string GetTexture() const;
 
 	void SetCenter(float px, float py);
 	void SetWidth(int width);
 	void SetHeight(int height);
 	void SetTexture(std::string texture);
+	void SetVisible(bool is_visible);
 	
 	bool HasIntersected(GameObject& object);
 	virtual void HitBy(MovableObject& object) = 0;

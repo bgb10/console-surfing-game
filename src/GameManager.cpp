@@ -146,7 +146,7 @@ void GameManager::Update()
 	// check collision between movable and player
 	for (int id = 0; id < vec_movable.size(); id++)
 	{
-		if (vec_movable[id]->HasIntersected(player))
+		if (vec_movable[id]->IsVisible() && vec_movable[id]->HasIntersected(player))
 			vec_movable[id]->HitBy(player);
 	}
 
@@ -155,7 +155,7 @@ void GameManager::Update()
 	{
 		for (int j = 0; j < vec_movable.size(); j++)
 		{
-			if (vec_immovable[i]->HasIntersected(*vec_movable[j]))
+			if (vec_immovable[i]->IsVisible() && vec_immovable[i]->HasIntersected(*vec_movable[j]))
 				vec_immovable[i]->HitBy(*vec_movable[j]);
 		}
 	}
@@ -163,7 +163,7 @@ void GameManager::Update()
 	// check collision between immovable and player
 	for (int id = 0; id < vec_immovable.size(); id++)
 	{
-		if (vec_immovable[id]->HasIntersected(player))
+		if (vec_immovable[id]->IsVisible() && vec_immovable[id]->HasIntersected(player))
 			vec_immovable[id]->HitBy(player);
 	}
 
