@@ -153,14 +153,6 @@ public void Release()
 
 Release buffers. Called when there is no need to print something at console screen.
 
-### SetColor
-
-```cpp
-public void SetColor(unsigned char bg_color, unsigned char txt_color)
-```
-
-Set the background to `bg_color`, and texture color to `txt_color`.
-
 ### Getters
 
 ### GetWidth

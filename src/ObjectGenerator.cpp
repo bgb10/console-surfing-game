@@ -86,7 +86,7 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 	}
 
 	// generate Obstacle, Item, Drawback
-	for (int i = 2; i < 4; i++)
+	for (int i = 2; i < 5; i++)
 	{
 		if (rand() % 10000 < chance_map[GetLevel()][i] * 10000)
 		{

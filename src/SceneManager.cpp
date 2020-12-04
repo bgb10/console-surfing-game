@@ -4,6 +4,7 @@
 extern int life_count;
 extern int score;
 extern int boost_count;
+extern int high_score;
 
 // Instantiates the SceneManager object
 SceneManager::SceneManager() {
@@ -138,23 +139,37 @@ void SceneManager::Ready() {
 	// Clear buffer
 	ClearBuffer();
 
+	SetColor(1, 15);
+
 	// Print UI
 	std::string t;
+	t = "";
+	for (int i = 0; i < size_x; i++) {
+		t += " ";
+	}
+	for (int i = 0; i < size_y; i++) {
+		WriteBuffer(0, i, t);
+	}
+
 	extern int score;
 	t = "┌─────────────────────────────────────────┐";
 	WriteBuffer(size_x / 2 - 22, 0, t);
 	t = "│";
 	WriteBuffer(size_x / 2 - 22, 1, t);
 	t = "♥";
+	SetColor(1, 12);
 	for (int i = 0; i < 3; i++) {
 		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
 	}
-	t = "High score : " + std::to_string(score) + "m";
+	SetColor(1, 15);
+	t = "High score : " + std::to_string(high_score) + "m";
 	WriteBuffer(size_x / 2 - 8, 1, t);
-	t = "ⓔ";
+	t = "ⓑ";
+	SetColor(1, 10);
 	for (int i = 0; i < 3; i++) {
 		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
 	}
+	SetColor(1, 15);
 	t = "│";
 	WriteBuffer(size_x / 2 + 20, 1, t);
 	t = "└─────────────────────────────────────────┘";
@@ -184,7 +199,7 @@ void SceneManager::Ready() {
 	WriteBuffer(size_x * 5 / 11, size_y / 2, t);
 	t = "체력";
 	WriteBuffer(size_x * 5 / 11 - 1, size_y / 2 + 2, t);
-	t = "ⓔ";
+	t = "ⓑ";
 	WriteBuffer(size_x * 6 / 11, size_y / 2, t);
 	t = "부스트";
 	WriteBuffer(size_x * 6 / 11 - 1, size_y / 2 + 2, t);
@@ -210,9 +225,9 @@ void SceneManager::Ready() {
 	WriteBuffer(size_x * 4 / 11 - 2, size_y / 2 + 11, t);
 	t = "크라켄";
 	WriteBuffer(size_x * 4 / 11 - 2, size_y / 2 + 13, t);
-	t = "∩";
+	t = "/\\";
 	WriteBuffer(size_x * 5 / 11, size_y / 2 + 10, t);
-	t = "∪";
+	t = "\\/";
 	WriteBuffer(size_x * 5 / 11, size_y / 2 + 11, t);
 	t = "서퍼";
 	WriteBuffer(size_x * 5 / 11 - 1, size_y / 2 + 13, t);
@@ -230,6 +245,8 @@ void SceneManager::Ready() {
 void SceneManager::Render(ObjectManager& manager) {
 	// Clear buffer
 	ClearBuffer();
+
+	SetColor(1, 15);
 
 	// Get object from manager
 	Player& player = manager.GetPlayer();
@@ -288,6 +305,7 @@ void SceneManager::Render(ObjectManager& manager) {
 	WriteBuffer(size_x / 2 - 22, 1, t);
 	t = "│";
 	WriteBuffer(size_x / 2 - 22, 1, t);
+	SetColor(1, 12);
 	for (int i = 0; i < 3; i++) {
 		if (i < life_count) {
 			t = "♥";
@@ -297,12 +315,15 @@ void SceneManager::Render(ObjectManager& manager) {
 		}
 		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
 	}
+	SetColor(1, 15);
 	t = "Score : " + std::to_string(score) + "m";
 	WriteBuffer(size_x / 2 - 6, 1, t);
-	t = "ⓔ";
+	t = "ⓑ";
+	SetColor(1, 10);
 	for (int i = 0; i < boost_count; i++) {
 		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
 	}
+	SetColor(1, 15);
 	t = "│";
 	WriteBuffer(size_x / 2 + 20, 1, t);
 	t = "└─────────────────────────────────────────┘";
@@ -316,6 +337,8 @@ void SceneManager::Pause(ObjectManager& manager) {
 	// Clear buffer
 	ClearBuffer();
 
+	SetColor(1, 15);
+
 	// Get object from manager
 	Player player = manager.GetPlayer();
 	std::vector<MovableObject*> movable_obj = manager.GetMovable();
@@ -373,6 +396,7 @@ void SceneManager::Pause(ObjectManager& manager) {
 	WriteBuffer(size_x / 2 - 22, 1, t);
 	t = "│";
 	WriteBuffer(size_x / 2 - 22, 1, t);
+	SetColor(1, 12);
 	for (int i = 0; i < 3; i++) {
 		if (i < life_count) {
 			t = "♥";
@@ -382,12 +406,15 @@ void SceneManager::Pause(ObjectManager& manager) {
 		}
 		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
 	}
+	SetColor(1, 15);
 	t = "Score : " + std::to_string(score) + "m";
 	WriteBuffer(size_x / 2 - 6, 1, t);
-	t = "ⓔ";
+	t = "ⓑ";
+	SetColor(1, 10);
 	for (int i = 0; i < boost_count; i++) {
 		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
 	}
+	SetColor(1, 15);
 	t = "│";
 	WriteBuffer(size_x / 2 + 20, 1, t);
 	t = "└─────────────────────────────────────────┘";
@@ -395,15 +422,15 @@ void SceneManager::Pause(ObjectManager& manager) {
 
 	// Print pause message
 	t = "┌─────────────────────────┐";
-	WriteBuffer(size_x / 2 - 14, size_y / 4, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 5, t);
 	t = "│    게임이 일시 중지됨   │";
-	WriteBuffer(size_x / 2 - 14, size_y / 4 + 1, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 5 + 1, t);
 	t = "│                         │";
-	WriteBuffer(size_x / 2 - 14, size_y / 4 + 2, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 5 + 2, t);
 	t = "│   다시 시작하려면 space │";
-	WriteBuffer(size_x / 2 - 14, size_y / 4 + 3, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 5 + 3, t);
 	t = "└─────────────────────────┘";
-	WriteBuffer(size_x / 2 - 14, size_y / 4 + 4, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 5 + 4, t);
 
 	// Flip buffer
 	FlipBuffer();
@@ -413,6 +440,8 @@ void SceneManager::GameOver(ObjectManager& manager) {
 	// Clear buffer
 	ClearBuffer();
 
+	SetColor(1, 15);
+
 	// Get object from manager
 	Player player = manager.GetPlayer();
 	std::vector<MovableObject*> movable_obj = manager.GetMovable();
@@ -470,6 +499,7 @@ void SceneManager::GameOver(ObjectManager& manager) {
 	WriteBuffer(size_x / 2 - 22, 1, t);
 	t = "│";
 	WriteBuffer(size_x / 2 - 22, 1, t);
+	SetColor(1, 12);
 	for (int i = 0; i < 3; i++) {
 		if (i < life_count) {
 			t = "♥";
@@ -479,12 +509,15 @@ void SceneManager::GameOver(ObjectManager& manager) {
 		}
 		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
 	}
+	SetColor(1, 15);
 	t = "Score : " + std::to_string(score) + "m";
-	WriteBuffer(size_x / 2 - 8, 1, t);
-	t = "ⓔ";
+	WriteBuffer(size_x / 2 - 6, 1, t);
+	t = "ⓑ";
+	SetColor(1, 10);
 	for (int i = 0; i < boost_count; i++) {
 		WriteBuffer(size_x / 2 + 14 + 2 * i, 1, t);
 	}
+	SetColor(1, 15);
 	t = "│";
 	WriteBuffer(size_x / 2 + 20, 1, t);
 	t = "└─────────────────────────────────────────┘";
@@ -492,15 +525,15 @@ void SceneManager::GameOver(ObjectManager& manager) {
 
 	// Print pause message
 	t = "┌─────────────────────────┐";
-	WriteBuffer(size_x / 2 - 14, size_y / 4, t);
-	t = "│      게임이  종료됨     │";
-	WriteBuffer(size_x / 2 - 14, size_y / 4 + 1, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 5, t);
+	t = "│        Game  Over       │";
+	WriteBuffer(size_x / 2 - 14, size_y / 5 + 1, t);
 	t = "│                         │";
-	WriteBuffer(size_x / 2 - 14, size_y / 4 + 2, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 5 + 2, t);
 	t = "│   다시 시작하려면 space │";
-	WriteBuffer(size_x / 2 - 14, size_y / 4 + 3, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 5 + 3, t);
 	t = "└─────────────────────────┘";
-	WriteBuffer(size_x / 2 - 14, size_y / 4 + 4, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 5 + 4, t);
 
 	// Flip buffer
 	FlipBuffer();
