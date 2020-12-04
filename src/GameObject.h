@@ -20,6 +20,7 @@ private:
 	int width;
 	int height;
 	std::string texture;
+protected:
 	bool is_visible = true;
 
 public:

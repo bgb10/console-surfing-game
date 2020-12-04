@@ -31,6 +31,9 @@ void Surfer::HitBy(Player* player)
 		Stop(); // stop object
 	}
 
+	// makes invincible
+	this->is_visible = false;
+
 	// stop player on collision, resume playing by pressing down arrow
 	player->Stop();
 
