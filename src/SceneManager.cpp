@@ -422,15 +422,15 @@ void SceneManager::Pause(ObjectManager& manager) {
 
 	// Print pause message
 	t = "┌─────────────────────────┐";
-	WriteBuffer(size_x / 2 - 14, size_y / 4, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 5, t);
 	t = "│    게임이 일시 중지됨   │";
-	WriteBuffer(size_x / 2 - 14, size_y / 4 + 1, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 5 + 1, t);
 	t = "│                         │";
-	WriteBuffer(size_x / 2 - 14, size_y / 4 + 2, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 5 + 2, t);
 	t = "│   다시 시작하려면 space │";
-	WriteBuffer(size_x / 2 - 14, size_y / 4 + 3, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 5 + 3, t);
 	t = "└─────────────────────────┘";
-	WriteBuffer(size_x / 2 - 14, size_y / 4 + 4, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 5 + 4, t);
 
 	// Flip buffer
 	FlipBuffer();
@@ -511,7 +511,7 @@ void SceneManager::GameOver(ObjectManager& manager) {
 	}
 	SetColor(1, 15);
 	t = "Score : " + std::to_string(score) + "m";
-	WriteBuffer(size_x / 2 - 8, 1, t);
+	WriteBuffer(size_x / 2 - 6, 1, t);
 	t = "ⓑ";
 	SetColor(1, 10);
 	for (int i = 0; i < boost_count; i++) {
@@ -525,15 +525,15 @@ void SceneManager::GameOver(ObjectManager& manager) {
 
 	// Print pause message
 	t = "┌─────────────────────────┐";
-	WriteBuffer(size_x / 2 - 14, size_y / 4, t);
-	t = "│      게임이  종료됨     │";
-	WriteBuffer(size_x / 2 - 14, size_y / 4 + 1, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 5, t);
+	t = "│        Game  Over       │";
+	WriteBuffer(size_x / 2 - 14, size_y / 5 + 1, t);
 	t = "│                         │";
-	WriteBuffer(size_x / 2 - 14, size_y / 4 + 2, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 5 + 2, t);
 	t = "│   다시 시작하려면 space │";
-	WriteBuffer(size_x / 2 - 14, size_y / 4 + 3, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 5 + 3, t);
 	t = "└─────────────────────────┘";
-	WriteBuffer(size_x / 2 - 14, size_y / 4 + 4, t);
+	WriteBuffer(size_x / 2 - 14, size_y / 5 + 4, t);
 
 	// Flip buffer
 	FlipBuffer();
