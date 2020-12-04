@@ -40,6 +40,7 @@ void ObjectManager::RemoveMovable(MovableObject* object) {
 	vector <MovableObject*>::iterator it;
 	for (int i = 0; i < m_vector_movable.size(); i++) {
 		if (m_vector_movable[i] == object) {
+			delete object;
 			m_vector_movable.erase(m_vector_movable.begin() + i);
 		}
 	}
@@ -49,6 +50,7 @@ void ObjectManager::RemoveMovable(MovableObject* object) {
 void ObjectManager::RemoveImmovable(GameObject* object) {
 	for (int i = 0; i < m_vector_immovable.size(); i++) {
 		if (m_vector_immovable[i] == object) {
+			delete object;
 			m_vector_immovable.erase(m_vector_immovable.begin() + i);
 		}
 	}
