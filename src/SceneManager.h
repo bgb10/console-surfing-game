@@ -24,6 +24,7 @@ private:
 	void ClearBuffer(); // Clear buffer
 	void DeleteBuffer(); // Delete buffer
 	void Draw(float center_x, float center_y, int width, int height, std::string texture); // Draw texture at map[]
+	void SetColor(unsigned char bg_color, unsigned char txt_color); // Set background, texture color
 public:
 	SceneManager(); // Instantiates the SceneManager object
 	SceneManager(int x, int y); // Instantiates with given width and height
@@ -33,7 +34,6 @@ public:
 	void Pause(ObjectManager& manager); // Print pause scene at console screen
 	void GameOver(ObjectManager& manager); // Called when life_count is 0
 	void Release(); // Release buffers
-	void SetColor(unsigned char bg_color, unsigned char txt_color); // Set background, texture color
 	int GetWidth(); // Get width of the console
 	int GetHeight(); // Get height of the console
 };
