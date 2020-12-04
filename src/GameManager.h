@@ -26,7 +26,6 @@ private:
 	InputManager m_InputManager;
 	SceneManager m_SceneManager;
 
-	int high_score = 0;
 	bool is_paused;
 	bool is_start = false;
 

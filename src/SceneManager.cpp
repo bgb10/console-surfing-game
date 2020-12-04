@@ -4,6 +4,7 @@
 extern int life_count;
 extern int score;
 extern int boost_count;
+extern int high_score;
 
 // Instantiates the SceneManager object
 SceneManager::SceneManager() {
@@ -161,7 +162,7 @@ void SceneManager::Ready() {
 		WriteBuffer(size_x / 2 - 20 + 2 * i, 1, t);
 	}
 	SetColor(1, 15);
-	t = "High score : " + std::to_string(score) + "m";
+	t = "High score : " + std::to_string(high_score) + "m";
 	WriteBuffer(size_x / 2 - 8, 1, t);
 	t = "ⓑ";
 	SetColor(1, 10);

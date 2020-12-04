@@ -3,6 +3,7 @@
 extern int score;
 extern int life_count;
 extern int boost_count;
+extern int high_score;
 
 void GameManager::Ready()
 {
@@ -81,6 +82,7 @@ void GameManager::Play()
 		}
 		else
 		{
+			m_SceneManager.GameOver(m_ObjectManager);
 			if (m_InputManager.IsInputSpace())
 			{
 				life_count = 3;
@@ -89,7 +91,6 @@ void GameManager::Play()
 				is_start = false;
 				break;
 			}
-			m_SceneManager.GameOver(m_ObjectManager);
 		}
 	}
 }
@@ -219,8 +220,12 @@ GameManager::GameManager()
 
 	while (1)
 	{
+		LoadHighScore();
+
 		Ready();
 
 		Play();
+
+		SaveHighScore();
 	}
 }

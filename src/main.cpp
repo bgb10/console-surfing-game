@@ -4,6 +4,7 @@
 int score = 0;
 int boost_count = 0;
 int life_count = 3;
+int high_score = 0;
 
 int main()
 {
