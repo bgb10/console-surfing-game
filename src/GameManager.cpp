@@ -26,6 +26,7 @@ void GameManager::Ready()
 			return;
 		}
 		if (m_InputManager.IsInputExit()) {
+			exit = true;
 			return;
 		}
 	}
@@ -33,7 +34,6 @@ void GameManager::Ready()
 
 void GameManager::Play()
 {
-	is_paused = false;
 
 	Player& player = m_ObjectManager.GetPlayer();
 
@@ -75,7 +75,6 @@ void GameManager::Play()
 			}
 			if (m_InputManager.IsInputExit())
 			{
-				while (GetAsyncKeyState(VK_ESCAPE) & 0x8000);
 				return; // exit game
 			}
 
@@ -229,7 +228,7 @@ GameManager::GameManager()
 
 		Ready();
 
-		if (m_InputManager.IsInputExit()) {
+		if (exit) {
 			return;
 		}
 
