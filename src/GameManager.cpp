@@ -168,33 +168,9 @@ void GameManager::Update()
 	}
 
 	DistanceToScore();
-	
-	CleanGameObject();
 
 	m_SceneManager.Render(m_ObjectManager);
 	prev = curr;
-}
-
-void GameManager::CleanGameObject()
-{
-	float top_visible_y = m_ObjectManager.GetPlayer().GetCenterY() - m_SceneManager.GetHeight();
-
-	vector<MovableObject*>& vec_movable = m_ObjectManager.GetMovable();
-	vector<GameObject*>& vec_immovable = m_ObjectManager.GetImmovable();
-
-	// check movable objects out of sight
-	for (int id = 0; id < vec_movable.size(); id++)
-	{
-		if (vec_movable[id]->GetCenterY() <= top_visible_y)
-			m_ObjectManager.RemoveMovable(vec_movable[id]);
-	}
-
-	// check immovable objects out of sight
-	for (int id = 0; id < vec_immovable.size(); id++)
-	{
-		if (vec_immovable[id]->GetCenterY() <= top_visible_y)
-			m_ObjectManager.RemoveImmovable(vec_immovable[id]);
-	}
 }
 
 void GameManager::DistanceToScore()

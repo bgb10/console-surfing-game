@@ -250,8 +250,25 @@ void SceneManager::Render(ObjectManager& manager) {
 
 	// Get object from manager
 	Player& player = manager.GetPlayer();
-	std::vector<MovableObject*> movable_obj = manager.GetMovable();
-	std::vector<GameObject*> immovable_obj = manager.GetImmovable();
+	std::vector<MovableObject*>& movable_obj = manager.GetMovable();
+	std::vector<GameObject*>& immovable_obj = manager.GetImmovable();
+
+	// Remove out of sight objects
+	float top_visible_y = manager.GetPlayer().GetCenterY() - GetHeight();
+
+	// check movable objects out of sight
+	for (int id = 0; id < movable_obj.size(); id++)
+	{
+		if (movable_obj[id]->GetCenterY() <= top_visible_y)
+			manager.RemoveMovable(movable_obj[id]);
+	}
+
+	// check immovable objects out of sight
+	for (int id = 0; id < immovable_obj.size(); id++)
+	{
+		if (immovable_obj[id]->GetCenterY() <= top_visible_y)
+			manager.RemoveImmovable(immovable_obj[id]);
+	}
 
 	std::string t; // temp string
 	float dx, dy; // variables for coordinate calculation
