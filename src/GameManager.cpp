@@ -25,6 +25,9 @@ void GameManager::Ready()
 			
 			return;
 		}
+		if (m_InputManager.IsInputExit()) {
+			return;
+		}
 	}
 }
 
@@ -72,6 +75,7 @@ void GameManager::Play()
 			}
 			if (m_InputManager.IsInputExit())
 			{
+				while (GetAsyncKeyState(VK_ESCAPE) & 0x8000);
 				return; // exit game
 			}
 
@@ -248,6 +252,10 @@ GameManager::GameManager()
 		LoadHighScore();
 
 		Ready();
+
+		if (m_InputManager.IsInputExit()) {
+			return;
+		}
 
 		Play();
 
