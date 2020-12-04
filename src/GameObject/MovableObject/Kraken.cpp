@@ -8,9 +8,9 @@ Kraken::Kraken(Player* player) : Kraken(0, 0, player) { }
 Kraken::Kraken(float x, float y, Player* player) : MovableObject(x, y) 
 {
 	this->player = player;
-	SetWidth(3);
-	SetHeight(4);
-	SetTexture(" /\\/\\ < \\/ >< /\\ > \\/\\/ ");
+	SetWidth(5);
+	SetHeight(3);
+	SetTexture(" _ \\__/ _  /\\(--)/\\ ~oO0oO0Oo~");
 	SetVelocityY(player->GetVelocityY() * 1.25);
 }
 
