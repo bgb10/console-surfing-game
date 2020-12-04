@@ -36,6 +36,7 @@ private:
 	void Play();
 	void Pause();
 	void Update();
+	void CleanGameObject();
 	void DistanceToScore();
 	int LoadHighScore();
 	void SaveHighScore();
