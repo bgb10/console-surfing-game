@@ -30,7 +30,7 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 	srand(GetTickCount());
 
 	// generate Kraken
-	if (rand() % 10000 < chance_map[GetLevel()][0] * 10000)
+	if (rand() % 10000 < chance_map[GetLevel()][0] * 10000 && !objectManager.GetKraken())
 	{
 		// Left top x-position of boundary
 		float kraken_gen_x = objectManager.GetPlayer().GetCenterX() - sceneManager.GetWidth() * 0.5;
@@ -45,6 +45,7 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 				&objectManager.GetPlayer()
 			)
 		); // add to temporary vector
+		objectManager.SetKraken(true);
 	}
 
 	// Left bottom x-position of boundary (out of frame)

@@ -13,6 +13,7 @@ class ObjectManager{
         Player m_player;
         vector<MovableObject*> m_vector_movable;
         vector<GameObject*> m_vector_immovable;
+		bool kraken_exist;
     public:
         //Constructor
         ObjectManager();
@@ -29,6 +30,8 @@ class ObjectManager{
         void RemoveAllMovables();
         void RemoveAllImmovables();
         void Clear();
+		bool GetKraken();
+		void SetKraken(bool boolean);
 };
 
 #endif

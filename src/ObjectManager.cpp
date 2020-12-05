@@ -5,6 +5,7 @@
 
 ObjectManager::ObjectManager() {
 	m_player = Player();
+	kraken_exist = false;
 }
 
 // Getter
@@ -67,4 +68,12 @@ void ObjectManager::RemoveAllImmovables() {
 void ObjectManager::Clear() {
 	m_vector_movable.clear();
 	m_vector_immovable.clear();
+}
+
+bool ObjectManager::GetKraken() {
+	return kraken_exist;
+}
+
+void ObjectManager::SetKraken(bool boolean) {
+	kraken_exist = boolean;
 }
