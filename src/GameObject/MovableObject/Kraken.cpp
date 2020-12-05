@@ -11,7 +11,7 @@ Kraken::Kraken(float x, float y, Player* player) : MovableObject(x, y)
 	SetWidth(5);
 	SetHeight(3);
 	SetTexture(" _ \\__/ _  /\\(--)/\\ ~oO0oO0Oo~");
-	SetVelocityY(player->GetVelocityY() * 1.25);
+	SetVelocityY(1.0f);
 }
 
 void Kraken::HitBy(MovableObject* object)
@@ -36,7 +36,14 @@ void Kraken::Move(double delta_time)
 	this->SetVelocityY(player->GetCenterY() - this->GetCenterY());
 
 	// adjust speed relative to user speed
-	this->SetSpeedByFactor((player->GetSpeed() * 1.00001) / this->GetSpeed());
-
+	if (player->GetSpeed() > 0.5f)
+	{
+		this->SetSpeedByFactor((player->GetSpeed() * 1.00001) / this->GetSpeed());
+	}
+	else 
+	{
+		this->SetSpeedByFactor(1.0f / this->GetSpeed());
+	}
+	
 	MovableObject::Move(delta_time);
 }
