@@ -29,8 +29,10 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 
 	srand(GetTickCount());
 
+	float difficulty = log2(objectManager.GetPlayer().GetVelocityY());
+
 	// generate Kraken
-	if (rand() % 10000 < chance_map[GetLevel()][0] * 10000 && !objectManager.GetKraken())
+	if (rand() % 10000 < chance_map[GetLevel()][0] * 10000 * difficulty && !objectManager.GetKraken())
 	{
 		// Left top x-position of boundary
 		float kraken_gen_x = objectManager.GetPlayer().GetCenterX() - sceneManager.GetWidth() * 0.5;
@@ -54,7 +56,7 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 	float object_gen_y = objectManager.GetPlayer().GetCenterY() + sceneManager.GetHeight() * 0.75;
 
 	// generate Surfer
-	if (rand() % 10000 < chance_map[GetLevel()][1] * 10000)
+	if (rand() % 10000 < chance_map[GetLevel()][1] * 10000 * difficulty)
 	{
 		Surfer* surfer;
 
@@ -89,9 +91,11 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 	// generate Obstacle, Item, Drawback
 	for (int i = 2; i < 5; i++)
 	{
-		if (rand() % 10000 < chance_map[GetLevel()][i] * 10000)
+		if (rand() % 10000 < chance_map[GetLevel()][i] * 10000 * difficulty)
 		{
 			GameObject* object;
+
+			srand(i * GetTickCount() % 1000);
 
 			while (1) // repeat until object is generated without colliding to another
 			{
@@ -148,7 +152,9 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 					break;
 				}
 				else
+				{
 					delete object; // re-generate the object with random coords
+				}
 			}
 		}
 	}
