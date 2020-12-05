@@ -39,7 +39,42 @@ private int m_input_special;
 The secondary input from keyboard. Used when the value of the first input `m_input` is `0` or `224`.
 
 > Read [this](https://stackoverflow.com/a/10473315/4524257) to see how arrow keys are handled in C++ on Windows.
+### is_up_pushed
+```cpp
+private bool is_up_pushed = false
+```
+Check if the `UP` key is pressed. default is `false`
+### is_down_pushed
+```cpp
+private bool is_down_pushed = false
+```
+Check if the `DOWN` key is pressed. default is `false`
+### is_left_pushed
+```cpp
+private bool is_left_pushed = false
+```
 
+Check if the `LEFT` key is pressed. default is `false`
+### is_right_pushed
+```cpp
+private bool is_right_pushed = false
+```
+Check if the `RIGHT` key is pressed. default is `false`
+### is_space_pushed
+```cpp
+private bool is_space_pushed = false
+```
+Check if the `SPACE` key is pressed. default is `false`
+### is_f_pushed
+```cpp
+private bool is_f_pushed = false
+```
+Check if the `F` key is pressed. default is `false`
+### is_esc_pushed
+```cpp
+private bool is_esc_pushed = false
+```
+Check if the `ESC` key is pressed. default is `false`
 #### Input read/write timing
 
 Input for next frame (next `GameManager::Render()` function call) is saved in `m_input`. `ListenInput()` waits for user input and updates `m_input` when `getch()` returns a value, and `GetInput()` returns the saved `m_input` value.
