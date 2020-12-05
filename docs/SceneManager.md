@@ -70,7 +70,7 @@ Click [here](https://app.diagrams.net/#Hbgb10%2Fconsole-surfing-game%2Fmaster%2F
 private Handle h_buffer[2]
 ```
 
-handel the buffer.
+handle the buffer.
 
 ### std::string map[50]
 
@@ -116,7 +116,7 @@ Instantiates the `SceneManager` object with given width and height.
 private void CreateBuffer()
 ```
 
-create buffer.
+create the buffer.
 
 ### void WriteBuffer
 
@@ -132,7 +132,7 @@ write str at (x,y).
 private void FlipBuffer()
 ```
 
-Flip buffer.
+Flip the buffer.
 
 ### void ClearBuffer
 
@@ -140,7 +140,7 @@ Flip buffer.
 private void ClearBuffer()
 ```
 
-Clear Buffer.
+Clear the Buffer.
 
 ### void DeleteBuffer
 
@@ -148,7 +148,7 @@ Clear Buffer.
 void DeleteBuffer()
 ```
 
-Delete Buffer.
+Delete the Buffer.
 
 ### void Draw
 
@@ -156,7 +156,7 @@ Delete Buffer.
 void Draw(float center_x, float center_y, int width, int height, std::string texture)
 ```
 
-Draw texture at map[50].
+Draw texture at `map[50]`.
 
 ### void SetColor
 
