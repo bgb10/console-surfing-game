@@ -135,6 +135,7 @@ void GameManager::Update()
 	vector<GameObject*>& vec_immovable = m_ObjectManager.GetImmovable();
 	Player& player = m_ObjectManager.GetPlayer();
 
+	player.SetSpeed();
 	player.Move(delta);
 
 	// move movable objects

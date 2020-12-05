@@ -23,6 +23,7 @@ public:
 	void RotateRight();
 	void RotateLeft();
 	void ResetRotate();
+	void SetSpeed();
 };
 
 #endif

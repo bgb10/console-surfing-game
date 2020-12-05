@@ -9,6 +9,15 @@ Player::Player(float x, float y) : MovableObject(x, y)
 	SetDirection(0); // set default texture
 }
 
+void Player::SetSpeed()
+{
+	// If Player keep going, speed increases until speed <= 4.5f
+	if (this->GetSpeed() <= 4.5f)
+	{
+		this->SetSpeedByFactor(1.005f);
+	}
+}
+
 void Player::Move(double delta_time)
 {
 	MovableObject::Move(delta_time);

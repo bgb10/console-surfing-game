@@ -3,10 +3,13 @@
 
 #include "../GameObject.h"
 
+# define PI 3.14159265
+
 class MovableObject : public GameObject {
 
 protected:
 	short direction = 0;
+	float ratio = 5;
 
 private:
 	float velocity_x = 0;

@@ -1,9 +1,6 @@
 #include "MovableObject.h"
 #include <cmath>
 
-const double PI = 3.14159265;
-const float ratio = 5;
-
 // Constructors
 MovableObject::MovableObject() : GameObject() {}
 MovableObject::MovableObject(float x, float y) : GameObject(x, y) {}
