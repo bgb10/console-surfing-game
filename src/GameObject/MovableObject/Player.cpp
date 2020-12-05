@@ -7,7 +7,6 @@ Player::Player(float x, float y) : MovableObject(x, y)
 	SetWidth(2);
 	SetHeight(2);
 	SetDirection(0); // set default texture
-	invincible = false;
 }
 
 void Player::Move(double delta_time)
