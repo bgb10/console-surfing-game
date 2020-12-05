@@ -68,19 +68,26 @@ private SceneManager m_SceneManager;
 
 The `SceneManager` object to use.
 
-### high_score
+### private bool exit
+'''cpp
+private bool exit;
+'''
+True if the game should be exit, false otherwise.
 
-```cpp
-private int high_score;
-```
+### private bool is_exit
+'''cpp
+private bool is_exit;
+'''
+True if the game should be exit, false otherwise.
 
-The highest score in the previous gameplay, from `highscore.dat`. Loaded from `LoadHighScore()`.
-
-### is_paused
-
-```cpp
-private bool is_paused;
-```
+### system_clock::time_point curr
+'''cpp
+system_clock::time_point curr;
+'''
+### system_clock::time_point prev
+'''cpp
+system_clock::time_point prev;
+'''
 
 True if the user paused the game, false otherwise.
 
@@ -96,17 +103,14 @@ Instantiates the `GameManager` object. Initializes all member variables and show
 
 ## Member functions
 
-### Start
-
-```cpp
-private void Start()
-```
-
 ### Ready
 
 ```cpp
 private void Ready()
 ```
+
+Initialize Managers, Generate default obstacles, Display obstacles
+
 
 ### Play
 
@@ -160,15 +164,31 @@ void render()
 
 </details>
 
-### GameOver
+### Play
 
 ```cpp
-private void GameOver()
+private void Play()
 ```
 
-Handles the game over event. Called when `life_count` _(global variable)_ becomes 0.
+Handles the game input events, and game over events.
+- Loads input value and moves player, changes direction, change images.
+- Saves score to file if the current score is the higher than current `high_score`.
 
-Saves score to file if the current score is the higher than current `high_score`.
+### Pause
+
+```cpp
+private void Pause()
+```
+
+Pauses game when input value is SPACE.
+
+### Update
+
+```cpp
+private void Update()
+```
+Moves movable objects and checks collision between objects.
+(movable and player, movable and immovable, immovable and player)
 
 ### DistanceToScore
 
