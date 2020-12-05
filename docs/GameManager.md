@@ -69,25 +69,25 @@ private SceneManager m_SceneManager;
 The `SceneManager` object to use.
 
 ### private bool exit
-'''cpp
+```cpp
 private bool exit;
-'''
+```
 True if the game should be exit, false otherwise.
 
 ### private bool is_exit
-'''cpp
+```cpp
 private bool is_exit;
-'''
+```
 True if the game should be exit, false otherwise.
 
 ### system_clock::time_point curr
-'''cpp
+```cpp
 system_clock::time_point curr;
-'''
+```
 ### system_clock::time_point prev
-'''cpp
+```cpp
 system_clock::time_point prev;
-'''
+```
 
 True if the user paused the game, false otherwise.
 
