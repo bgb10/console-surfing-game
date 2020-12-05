@@ -18,6 +18,7 @@ private:
 	HANDLE hBuffer[2]; // buffer handle
 	std::string map[50]; // draw here
 	int nScreenIndex; // save current buffer
+	bool isinvincible;
 	void CreateBuffer(); // create buffer
 	void WriteBuffer(int x, int y, std::string str); // write str at (x,y)
 	void FlipBuffer(); // Flip buffer

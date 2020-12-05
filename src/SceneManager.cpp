@@ -131,6 +131,8 @@ void SceneManager::Init() {
 	curInfo.bVisible = false;
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &curInfo);
 
+	isinvincible = false;
+
 	// Create buffer
 	CreateBuffer();
 }
@@ -312,7 +314,18 @@ void SceneManager::Render(ObjectManager& manager) {
 	}
 
 	// Draw player
-	Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
+	if (player.CheckInvincible()) {
+		if (isinvincible) {
+			Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
+		}
+		else {
+			Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), "        ");
+		}
+		isinvincible = !isinvincible;
+	}
+	else {
+		Draw(size_x / 4, size_y * 2 / 5, player.GetWidth(), player.GetHeight(), player.GetTexture());
+	}
 
 	// Print map
 	for (int i = 0; i < size_y; i++) {
