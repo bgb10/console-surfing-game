@@ -131,8 +131,6 @@ void SceneManager::Init() {
 	curInfo.bVisible = false;
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &curInfo);
 
-	isinvincible = false;
-
 	// Create buffer
 	CreateBuffer();
 }
@@ -140,6 +138,8 @@ void SceneManager::Init() {
 void SceneManager::Ready() {
 	// Clear buffer
 	ClearBuffer();
+
+	isinvincible = false;
 
 	SetColor(1, 15);
 
