@@ -64,6 +64,30 @@ Click [here](https://app.diagrams.net/#Hbgb10%2Fconsole-surfing-game%2Fmaster%2F
 
 </details>
 
+### Handle hbuffer[2]
+
+```cpp
+private Handle h_buffer[2]
+```
+
+handle the buffer.
+
+### std::string map[50]
+
+```cpp
+private std:string map[50]
+```
+
+draw map in here.
+
+### int nScreenIndex
+
+```cpp
+private int nScreenIndex
+```
+
+save the current buffer.
+
 ## Constructor
 
 ### SceneManager
@@ -85,6 +109,62 @@ public SceneManager(int size_x, int size_y)
 Instantiates the `SceneManager` object with given width and height.
 
 ## Member functions
+
+### void CreateBuffer
+
+```cpp
+private void CreateBuffer()
+```
+
+create the buffer.
+
+### void WriteBuffer
+
+```cpp
+private void WriteBuffer(int x, int y, std::string str)
+```
+
+write str at (x,y).
+
+### void FlipBuffer
+
+```cpp
+private void FlipBuffer()
+```
+
+Flip the buffer.
+
+### void ClearBuffer
+
+```cpp
+private void ClearBuffer()
+```
+
+Clear the Buffer.
+
+### void DeleteBuffer
+
+```cpp
+void DeleteBuffer()
+```
+
+Delete the Buffer.
+
+### void Draw
+
+```cpp
+void Draw(float center_x, float center_y, int width, int height, std::string texture)
+```
+
+Draw texture at `map[50]`.
+
+### void SetColor
+
+```cpp
+void SetColor(unsigned char bg_color, unsigned char txt_color)
+```
+
+Set background and text color.
 
 ### Init
 

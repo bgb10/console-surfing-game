@@ -55,7 +55,7 @@ Instantiates the `ObjectManager` object. Initializes `m_player` with default pla
 ### GetPlayer
 
 ```cpp
-public Player GetPlayer()
+public Player& GetPlayer()
 ```
 
 Returns the player object.
@@ -67,7 +67,7 @@ Returns the player object.
 ### GetMovable
 
 ```cpp
-public vector<MovableObject*> GetMovable()
+public vector<MovableObject*>& GetMovable()
 ```
 
 Returns all available movable game objects.
@@ -79,7 +79,7 @@ Returns all available movable game objects.
 ### GetImmovable
 
 ```cpp
-public vector<GameObject*> GetImmovable()
+public vector<GameObject*>& GetImmovable()
 ```
 
 Returns all available immovable game objects.
@@ -92,7 +92,7 @@ Returns all available immovable game objects.
 ### AddMovable
 
 ```cpp
-public void AddMovable(MovableObject object)
+public void AddMovable(MovableObject* object)
 ```
 
 Adds `object` into the `m_vector_movable` vector. Will be called by `ObjectGenerator`.
@@ -100,7 +100,7 @@ Adds `object` into the `m_vector_movable` vector. Will be called by `ObjectGener
 ### AddImmovable
 
 ```cpp
-public void AddImmovable(GameObject object)
+public void AddImmovable(GameObject* object)
 ```
 
 Adds `object` into the `m_vector_immovable` vector. Will be called by `ObjectGenerator`.
@@ -116,7 +116,7 @@ Reinitializes the `m_player` variable.
 ### RemoveMovable
 
 ```cpp
-public void RemoveMovable(MovableObject object)
+public void RemoveMovable(MovableObject* object)
 ```
 
 Removes an element from `m_vector_movable` variable. Using `std::find_if`, search for an object in the vector which has the same `object_id` as the given argument.
@@ -128,7 +128,7 @@ Removes an element from `m_vector_movable` variable. Using `std::find_if`, searc
 ### RemoveImmovable
 
 ```cpp
-public void RemoveImmovable(GameObject object)
+public void RemoveImmovable(GameObject* object)
 ```
 
 Removes an element from `m_vector_immovable` variable. Using `std::find_if`, search for an object in the vector which has the same `object_id` as the given argument.
