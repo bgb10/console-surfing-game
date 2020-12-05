@@ -12,9 +12,9 @@ Player::Player(float x, float y) : MovableObject(x, y)
 void Player::SetSpeed()
 {
 	// If Player keep going, speed increases until speed <= 4.5f
-	if (this->GetSpeed() <= 4.5f)
+	if (this->GetSpeed() <= 4.0f)
 	{
-		this->SetSpeedByFactor(1.005f);
+		this->SetSpeedByFactor(1.002f);
 	}
 }
 

@@ -33,14 +33,14 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 	if (rand() % 10000 < chance_map[GetLevel()][0] * 10000 && !objectManager.GetKraken())
 	{
 		// Left top x-position of boundary
-		float kraken_gen_x = objectManager.GetPlayer().GetCenterX() - sceneManager.GetWidth() * 0.5;
+		float kraken_gen_x = objectManager.GetPlayer().GetCenterX() - sceneManager.GetWidth() * 0.5f;
 		// Left top y-position of boundary (out of frame)
-		float kraken_gen_y = objectManager.GetPlayer().GetCenterY() - sceneManager.GetHeight() * 0.75;
+		float kraken_gen_y = objectManager.GetPlayer().GetCenterY() - sceneManager.GetHeight() * 0.75f;
 
 		generated_movable.push_back(
 			new Kraken(
 				// random position between boundary
-				kraken_gen_x + sceneManager.GetWidth() * (rand() % 1000 / 1000.0),
+				kraken_gen_x + sceneManager.GetWidth() * (rand() % 1000 / 1000.0f),
 				kraken_gen_y,
 				&objectManager.GetPlayer()
 			)
@@ -49,9 +49,9 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 	}
 
 	// Left bottom x-position of boundary (out of frame)
-	float object_gen_x = objectManager.GetPlayer().GetCenterX() - sceneManager.GetWidth() * 0.75;
+	float object_gen_x = objectManager.GetPlayer().GetCenterX() - sceneManager.GetWidth() * 0.75f;
 	// Left bottom y-position of boundary (out of frame)
-	float object_gen_y = objectManager.GetPlayer().GetCenterY() + sceneManager.GetHeight() * 0.75;
+	float object_gen_y = objectManager.GetPlayer().GetCenterY() + sceneManager.GetHeight() * 0.75f;
 
 	// generate Surfer
 	if (rand() % 10000 < chance_map[GetLevel()][1] * 10000)
@@ -61,7 +61,7 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 		while (1) // repeat until object is generated without colliding to another
 		{
 			surfer = new Surfer(
-				object_gen_x + sceneManager.GetWidth() * (rand() % 1000 / 1000.0) * 1.5,
+				object_gen_x + sceneManager.GetWidth() * (rand() % 1000 / 1000.0f) * 1.5f,
 				object_gen_y
 			);
 
@@ -99,19 +99,19 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 				{
 				case 2: // generate Obstacle
 					object = Obstacle::Generate(
-						object_gen_x + sceneManager.GetWidth() * (rand() % 1000 / 1000.0) * 1.5,
+						object_gen_x + sceneManager.GetWidth() * (rand() % 1000 / 1000.0f) * 1.5f,
 						object_gen_y
 					);
 					break;
 				case 3: // generate Item
 					object = Item::Generate(
-						object_gen_x + sceneManager.GetWidth() * (rand() % 1000 / 1000.0) * 1.5,
+						object_gen_x + sceneManager.GetWidth() * (rand() % 1000 / 1000.0f) * 1.5f,
 						object_gen_y
 					);
 					break;
 				case 4: // generate Drawback
 					object = Drawback::Generate(
-						object_gen_x + sceneManager.GetWidth() * (rand() % 1000 / 1000.0) * 1.5,
+						object_gen_x + sceneManager.GetWidth() * (rand() % 1000 / 1000.0f) * 1.5f,
 						object_gen_y
 					);
 					break;
