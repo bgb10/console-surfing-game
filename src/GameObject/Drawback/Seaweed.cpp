@@ -13,7 +13,11 @@ Seaweed::Seaweed(float x, float y) : Drawback(x, y)
 
 void Seaweed::HitBy(MovableObject* object)
 {
-	object->SetSpeedByFactor(0.8f);
+	if (is_collidable)
+	{
+		is_collidable = false;
+		object->SetSpeedByFactor(0.8f);
+	}
 }
 
 void Seaweed::HitBy(Player* player)

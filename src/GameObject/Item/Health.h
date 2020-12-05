@@ -4,6 +4,8 @@
 #include "../Item.h"
 
 class Health : public Item {
+private:
+	bool is_collidable = true;
 
 public:
 	Health();

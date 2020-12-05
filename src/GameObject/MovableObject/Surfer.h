@@ -8,6 +8,8 @@
 #include <ctime>
 
 class Surfer : public MovableObject {
+private:
+	bool is_collidable = true;
 
 public:
 	Surfer();

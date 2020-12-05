@@ -5,7 +5,8 @@
 
 class Seaweed : public Drawback {
 private:
-	bool is_collidable;
+	bool is_collidable = true;
+
 public:
 	Seaweed();
 	Seaweed(float x, float y);

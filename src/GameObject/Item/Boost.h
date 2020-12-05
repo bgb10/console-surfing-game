@@ -4,7 +4,9 @@
 #include "../Item.h"
 
 class Boost : public Item {
-	
+private:
+	bool is_collidable = true;
+
 public:
 	Boost();
 	Boost(float x, float y);

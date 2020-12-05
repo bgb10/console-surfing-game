@@ -10,6 +10,7 @@ Boost::Boost(float x, float y) : Item(x, y)
 	SetWidth(1);
 	SetHeight(1);
 	SetTexture("ⓔ");
+	is_collidable = true;
 }
 
 void Boost::HitBy(MovableObject* object)
@@ -21,10 +22,11 @@ void Boost::HitBy(Player* player)
 {
 	// increase boost count
 	// maximum boost count is 3
-	if (boost_count < 3 && this->GameObject::IsVisible())
+	if (boost_count < 3 && is_collidable)
 	{
-		this->GameObject::SetVisible(false);
+		is_collidable = false;
 		boost_count++;
 		SetTexture("  "); // hide item
+		SetCenter(0, -100.0f);
 	}
 }

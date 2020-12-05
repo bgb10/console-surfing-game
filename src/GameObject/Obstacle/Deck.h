@@ -5,6 +5,8 @@
 #include "../MovableObject/Player.h"
 
 class Deck : public Obstacle {
+private:
+	bool is_collidable = true;
 	
 public:
 	Deck();

@@ -4,6 +4,8 @@
 #include "../Obstacle.h"
 
 class Buoy : public Obstacle {
+private:
+	bool is_collidable = true;
 	
 public:
 	Buoy();

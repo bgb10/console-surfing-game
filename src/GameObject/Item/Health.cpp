@@ -10,6 +10,7 @@ Health::Health(float x, float y) : Item(x, y)
 	SetWidth(1);
 	SetHeight(1);
 	SetTexture("♥");
+	is_collidable = true;
 }
 
 void Health::HitBy(MovableObject* object)
@@ -21,9 +22,9 @@ void Health::HitBy(Player* player)
 {
 	// increase life count
 	// maximum life count is 3
-	if (life_count < 3 && this->GameObject::IsVisible())
+	if (life_count < 3 && is_collidable)
 	{
-		this->GameObject::SetVisible(false);
+		is_collidable = false;
 		life_count++;
 		SetTexture("  "); // hide item
 	}

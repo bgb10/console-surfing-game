@@ -13,7 +13,11 @@ Current::Current(float x, float y) : Drawback(x, y)
 
 void Current::HitBy(MovableObject* object)
 {
-	object->SetSpeedByFactor(0.8f);
+	if (is_collidable)
+	{
+		is_collidable = false;
+		object->SetSpeedByFactor(0.8f);
+	}
 }
 
 void Current::HitBy(Player* player)
