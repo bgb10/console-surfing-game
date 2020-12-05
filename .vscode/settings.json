@@ -1,0 +1,6 @@
+{
+    "doxdocgen.file.versionTag": "@version 1.0",
+    "doxdocgen.generic.useGitUserEmail": true,
+    "doxdocgen.generic.useGitUserName": true,
+    "doxdocgen.file.fileOrder": ["file","brief","empty","version","date"]
+}
