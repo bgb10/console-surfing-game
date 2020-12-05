@@ -76,6 +76,10 @@ void GameManager::Play()
 			}
 			if (m_InputManager.IsInputExit())
 			{
+				life_count = 3;
+				boost_count = 0;
+				score = 0;
+				is_start = false;
 				return; // exit game
 			}
 
