@@ -4,7 +4,8 @@
 #include "../Drawback.h"
 
 class Seaweed : public Drawback {
-
+private:
+	bool is_collidable;
 public:
 	Seaweed();
 	Seaweed(float x, float y);
