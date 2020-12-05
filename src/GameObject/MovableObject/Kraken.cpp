@@ -18,6 +18,8 @@ void Kraken::HitBy(MovableObject* object)
 {
 	// stop object on collision
 	object->Stop();
+
+	has_collision = true;
 }
 
 void Kraken::HitBy(Player* player)
@@ -31,6 +33,8 @@ void Kraken::HitBy(Player* player)
 
 void Kraken::Move(double delta_time)
 {
+	if (has_collision) return;
+
 	// kraken follows the player
 	this->SetVelocityX(player->GetCenterX() - this->GetCenterX());
 	this->SetVelocityY(player->GetCenterY() - this->GetCenterY());
@@ -40,10 +44,10 @@ void Kraken::Move(double delta_time)
 	{
 		this->SetSpeedByFactor((player->GetSpeed() * 1.00001) / this->GetSpeed());
 	}
-	else 
+	else
 	{
 		this->SetSpeedByFactor(1.0f / this->GetSpeed());
 	}
-	
+
 	MovableObject::Move(delta_time);
 }

@@ -8,6 +8,7 @@ class Kraken : public MovableObject {
 
 private:
 	Player* player;
+	bool has_collision = false;
 
 public:
 	// Constructor
