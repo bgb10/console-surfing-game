@@ -97,6 +97,12 @@ The following is the example of `Kraken` being rendered onto the console.
 
 > For texture rendering mechanism, check [this comment in issue #7](https://github.com/bgb10/console-surfing-game/issues/7#issuecomment-735667902).
 
+### is_visible
+
+```cpp
+protected bool is_visible;
+```
+
 ## Constructors
 
 ### GameObject
@@ -191,10 +197,10 @@ float GetCenterX()
 
 Returns `center_x`.
 
-### GetCenterX
+### GetCenterY
 
 ```cpp
-float GetCenterX()
+float GetCenterY()
 ```
 
 Returns `center_y`.
@@ -256,3 +262,11 @@ void SetTexture(string texture)
 ```
 
 Sets `texture`.
+
+### SetVisible
+
+```cpp
+void SetVisible(bool is_visible)
+```
+
+Sets 'is_visible'.
