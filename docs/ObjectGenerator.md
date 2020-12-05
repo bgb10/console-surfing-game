@@ -29,7 +29,7 @@ Default value is `0`.
 ### chance_map
 
 ```cpp
-private static float chance_map[][5];
+private const float chance_map[3][5];
 ```
 
 The chances of `GameObject` objects to appear in game. The following is the example of chance map.
@@ -69,6 +69,12 @@ Instantiates the `ObjectGenerator` object. Initializes `m_player` variable with 
 ### Generate
 
 ```cpp
+public void ObjectGenerator::Generate(ObjectManager& objectManager)
+```
+
+Generates object `boost` when it start.
+
+```cpp
 public void Generate(ObjectManager& objectManager, SceneManager& sceneManager)
 ```
 
@@ -104,4 +110,3 @@ public void LevelUp()
 
 Sets the level of the player. Should be incremented every unit distance traveled.
 
-> The amount of unit distance should be decided.
