@@ -8,6 +8,7 @@ Current::Current(float x, float y) : Drawback(x, y)
 	SetWidth(1);
 	SetHeight(1);
 	SetTexture("▒");
+	is_collidable = true;
 }
 
 void Current::HitBy(MovableObject* object)
