@@ -10,6 +10,7 @@ void GameManager::Ready()
 	// Initialize
 	m_ObjectManager.Clear();
 	m_ObjectManager.GetPlayer().SetCenter(0, 0);
+	m_ObjectManager.GetPlayer().SetInvincibleDistance(-1.0f);
 
 	// Generate default obstacles
 	m_ObjectGenerator.Generate(m_ObjectManager);
@@ -135,6 +136,7 @@ void GameManager::Update()
 	vector<GameObject*>& vec_immovable = m_ObjectManager.GetImmovable();
 	Player& player = m_ObjectManager.GetPlayer();
 
+	player.SetSpeed();
 	player.Move(delta);
 
 	// move movable objects
