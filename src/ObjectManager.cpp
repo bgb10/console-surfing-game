@@ -59,6 +59,7 @@ void ObjectManager::RemoveImmovable(GameObject* object) {
 
 void ObjectManager::RemoveAllMovables() {
 	m_vector_movable.clear();
+	kraken_exist = false;
 }
 
 void ObjectManager::RemoveAllImmovables() {
@@ -68,6 +69,7 @@ void ObjectManager::RemoveAllImmovables() {
 void ObjectManager::Clear() {
 	m_vector_movable.clear();
 	m_vector_immovable.clear();
+	kraken_exist = false;
 }
 
 bool ObjectManager::GetKraken() {

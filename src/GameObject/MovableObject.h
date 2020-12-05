@@ -16,6 +16,7 @@ private:
 	float velocity_y = 0;
 
 public:
+	bool has_collision = false;
 	MovableObject();
 	MovableObject(float x, float y);
 	virtual void HitBy(MovableObject* object) = 0;

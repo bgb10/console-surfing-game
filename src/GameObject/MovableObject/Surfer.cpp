@@ -41,6 +41,8 @@ void Surfer::HitBy(Player* player)
 
 void Surfer::Move(double delta_time)
 {
+	if (has_collision) return;
+
 	if (is_collidable)
 	{
 		srand(GetTickCount());

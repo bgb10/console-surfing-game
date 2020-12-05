@@ -21,7 +21,8 @@ void Deck::HitBy(MovableObject* object)
 
 		// Actions on collision between Player and Movable are different
 		// stop the object on collision
-		object->Stop();
+		//object->Stop();
+		object->has_collision = true;
 	}
 }
 
