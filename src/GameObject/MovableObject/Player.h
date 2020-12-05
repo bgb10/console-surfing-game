@@ -6,8 +6,7 @@
 class Player : public MovableObject {
 	
 private:
-	float invincible_start_x;
-	float invincible_start_y;
+	bool invincible;
 	float invincible_distance;
 
 public:
@@ -19,6 +18,7 @@ public:
 	void HitBy(MovableObject* object);
 	void HitBy(Player* player);
 	void SetInvincibleDistance(float distance);
+	bool CheckInvincible();
 	void SetDirection(int direction);
 	void RotateRight();
 	void RotateLeft();

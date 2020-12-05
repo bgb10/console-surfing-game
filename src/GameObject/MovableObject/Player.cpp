@@ -59,5 +59,19 @@ void Player::ResetRotate()
 
 void Player::SetInvincibleDistance(float distance)
 {
+	invincible_distance = distance + this->GetCenterY();
+	invincible = true;
+}
 
+bool Player::CheckInvincible()
+{
+	if (invincible)
+	{
+		if (this->GetCenterY() > invincible_distance)
+		{
+			invincible = false;
+		}
+		return invincible;
+	}
+	return invincible;
 }
