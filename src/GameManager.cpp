@@ -1,3 +1,11 @@
+/**
+ * @file GameManager.cpp
+ * @brief Implementation of the GameManager class.
+ * 
+ * @version 1.0
+ * @date 2020-12-06
+ */
+
 #include "GameManager.h"
 
 extern int score;
