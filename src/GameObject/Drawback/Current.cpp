@@ -16,7 +16,7 @@ void Current::HitBy(MovableObject* object)
 	if (is_collidable)
 	{
 		is_collidable = false;
-		object->SetSpeedByFactor(0.8f);
+		object->SetSpeedByFactor(0.7f);
 	}
 }
 
@@ -25,6 +25,6 @@ void Current::HitBy(Player* player)
 	if (is_collidable)
 	{
 		is_collidable = false;
-		player->SetSpeedByFactor(0.8f);
+		player->SetSpeedByFactor(0.7f);
 	}
 }
