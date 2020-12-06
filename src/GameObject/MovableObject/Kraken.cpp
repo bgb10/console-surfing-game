@@ -18,6 +18,7 @@ void Kraken::HitBy(MovableObject* object)
 {
 	// stop object on collision
 	object->Stop();
+	object->SetCenter(0, -100.0f);
 
 	has_collision = true;
 }

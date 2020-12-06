@@ -168,7 +168,10 @@ void GameManager::Update()
 					vec_movable[i]->HitBy(&player);
 			}
 			else
-				m_ObjectManager.RemoveMovable(vec_movable[i]);
+			{
+				m_ObjectManager.RemoveMovable(vec_movable[i--]);
+				continue;
+			}
 		}
 		if (vec_movable[i]->GameObject::IsVisible())
 		{
@@ -176,8 +179,11 @@ void GameManager::Update()
 			{
 				if (i != j && vec_movable[j]->GameObject::IsVisible())
 				{
-					if (vec_movable[i]->HasIntersected_(vec_movable[j]))
-						vec_movable[i]->HitBy(vec_movable[j]);
+					if (vec_movable[i]->GetCenterY() >= player.GetCenterY() - m_SceneManager.GetHeight() / 2)
+					{
+						if (vec_movable[i]->HasIntersected_(vec_movable[j]))
+							vec_movable[i]->HitBy(vec_movable[j]);
+					}
 				}
 			}
 		}
@@ -188,10 +194,14 @@ void GameManager::Update()
 	{
 		for (int j = 0; j < vec_movable.size(); j++)
 		{
-			if (vec_immovable[i]->GameObject::IsVisible() && vec_immovable[i]->GetCenterY() >= player.GetCenterY() - m_SceneManager.GetHeight())
+			if (vec_immovable[i]->GameObject::IsVisible())
 			{
-				if (vec_immovable[i]->HasIntersected(*vec_movable[j]))
-					vec_immovable[i]->HitBy(vec_movable[j]);
+				if (vec_immovable[i]->GetCenterY() >= player.GetCenterY() - m_SceneManager.GetHeight() / 2)
+				{
+					if (vec_immovable[i]->HasIntersected(*vec_movable[j]))
+						vec_immovable[i]->HitBy(vec_movable[j]);
+				}
+				
 			}
 			else
 				m_ObjectManager.RemoveImmovable(vec_movable[j]);

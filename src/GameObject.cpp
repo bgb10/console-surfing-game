@@ -18,7 +18,7 @@ bool GameObject::HasIntersected(GameObject& object)
 	int dh = this->GetHeight() + object.GetHeight();
 	if (dx < 0) dx *= -1;
 	if (dy < 0) dy *= -1;
-	if (dx <= dw && dy <= dh) return true;
+	if (dx < dw && dy < dh) return true;
 	else return false;
 }
 
