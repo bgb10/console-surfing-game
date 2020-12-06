@@ -56,8 +56,6 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 		); // add to temporary vector
 		objectManager.SetKraken(true);
 		kraken_score = score;
-		extern int life_count;
-		life_count--;
 	}
 
 	// Left bottom x-position of boundary (out of frame)
