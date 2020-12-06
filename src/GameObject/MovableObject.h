@@ -35,6 +35,7 @@ public:
 	virtual void ResetRotate();
 	void SetSpeedByFactor(float factor);
 	void Stop();
+	bool HasIntersected_(MovableObject* object);
 };
 
 #endif

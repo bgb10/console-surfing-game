@@ -170,6 +170,17 @@ void GameManager::Update()
 			else
 				m_ObjectManager.RemoveMovable(vec_movable[i]);
 		}
+		if (vec_movable[i]->GameObject::IsVisible())
+		{
+			for (int j = 0; j < vec_movable.size(); j++)
+			{
+				if (i != j && vec_movable[j]->GameObject::IsVisible())
+				{
+					if (vec_movable[i]->HasIntersected_(vec_movable[j]))
+						vec_movable[i]->HitBy(vec_movable[j]);
+				}
+			}
+		}
 	}
 
 	// check collision between movable and immovable

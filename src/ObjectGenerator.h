@@ -23,6 +23,7 @@ class ObjectGenerator{
             {0.002f, 0.025f, 0.02f,  0.02f,  0.025f},
             {0.003f, 0.03f,  0.025f, 0.015f, 0.03f},
         };
+		int kraken_score = 0;
     public:
         ObjectGenerator();
         void Generate(ObjectManager& objectManager);

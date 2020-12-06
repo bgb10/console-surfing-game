@@ -74,3 +74,15 @@ void MovableObject::ResetRotate()
 	//this->velocity_y = 1.0f;
 }
 
+bool MovableObject::HasIntersected_(MovableObject* object)
+{
+	// collision detected!
+	float dx = this->GetCenterX() - object->GetCenterX();
+	float dy = this->GetCenterY() - object->GetCenterY();
+	int dw = this->GetWidth() + object->GetWidth();
+	int dh = this->GetHeight() + object->GetHeight();
+	if (dx < 0) dx *= -1;
+	if (dy < 0) dy *= -1;
+	if (dx <= dw && dy <= dh) return true;
+	else return false;
+}
