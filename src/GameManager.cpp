@@ -177,7 +177,7 @@ void GameManager::Update()
 	{
 		for (int j = 0; j < vec_movable.size(); j++)
 		{
-			if (vec_immovable[i]->GameObject::IsVisible())
+			if (vec_immovable[i]->GameObject::IsVisible() && vec_immovable[i]->GetCenterY() >= player.GetCenterY() - m_SceneManager.GetHeight())
 			{
 				if (vec_immovable[i]->HasIntersected(*vec_movable[j]))
 					vec_immovable[i]->HitBy(vec_movable[j]);
