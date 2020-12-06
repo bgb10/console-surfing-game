@@ -16,8 +16,7 @@ void Current::HitBy(MovableObject* object)
 	if (is_collidable)
 	{
 		is_collidable = false;
-		//object->SetSpeedByFactor(0.7f);
-		object->has_collision = true;
+		object->SetSpeedByFactor(0.7f);
 	}
 }
 

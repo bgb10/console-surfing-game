@@ -12,14 +12,14 @@ bool GameObject::operator == (const GameObject& o)
 bool GameObject::HasIntersected(GameObject& object) 
 {
 	// collision detected!
-	return 
-		(
-			(this->center_x < object.GetCenterX() + object.GetWidth()) &&
-			(this->center_x + this->width > object.GetCenterX()) &&
-			(this->center_y < object.GetCenterY() + object.GetHeight()) &&
-			(this->center_y + this->height > object.GetCenterY())
-		) 
-		? true : false;
+	float dx = this->GetCenterX() - object.GetCenterX();
+	float dy = this->GetCenterY() - object.GetCenterY();
+	int dw = this->GetWidth() + object.GetWidth();
+	int dh = this->GetHeight() + object.GetHeight();
+	if (dx < 0) dx *= -1;
+	if (dy < 0) dy *= -1;
+	if (dx <= dw && dy <= dh) return true;
+	else return false;
 }
 
 
