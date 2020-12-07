@@ -92,7 +92,7 @@ void GameManager::Play()
 			}
 
 			// Generate entities
-			if(player.GetVelocityY() > 0.5f) m_ObjectGenerator.Generate(m_ObjectManager, m_SceneManager);
+			m_ObjectGenerator.Generate(m_ObjectManager, m_SceneManager);
 
 			Update();
 		}

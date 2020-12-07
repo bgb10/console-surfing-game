@@ -24,7 +24,7 @@ void ObjectGenerator::Generate(ObjectManager& objectManager, SceneManager& scene
 {
 	// Kraken check
 	extern int score;
-	if (kraken_score + 400 < score) {
+	if (kraken_score + 300 < score) {
 		kraken_score = 0;
 		objectManager.SetKraken(false);
 	}

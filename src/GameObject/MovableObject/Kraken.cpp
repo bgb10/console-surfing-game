@@ -43,7 +43,7 @@ void Kraken::Move(double delta_time)
 	// adjust speed relative to user speed
 	if (player->GetSpeed() > 0.5f)
 	{
-		this->SetSpeedByFactor((player->GetSpeed() * 1.00001) / this->GetSpeed());
+		this->SetSpeedByFactor((player->GetSpeed() * 1.1f) / this->GetSpeed());
 	}
 	else
 	{
