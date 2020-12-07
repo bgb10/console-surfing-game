@@ -12,16 +12,29 @@ bool GameObject::operator == (const GameObject& o)
 bool GameObject::HasIntersected(GameObject& object) 
 {
 	// collision detected!
-	float dx = this->GetCenterX() - object.GetCenterX();
-	float dy = this->GetCenterY() - object.GetCenterY();
-	int dw = this->GetWidth() + object.GetWidth();
-	int dh = this->GetHeight() + object.GetHeight();
-	if (dx < 0) dx *= -1;
-	if (dy < 0) dy *= -1;
-	if (dx < dw && dy < dh) return true;
-	else return false;
+	if (object.GetPlayer())
+	{
+		float dx = this->GetCenterX() - object.GetCenterX();
+		float dy = this->GetCenterY() - object.GetCenterY();
+		int dw = this->GetWidth() + 1;
+		int dh = this->GetHeight() + 2;
+		if (dx < 0) dx *= -1;
+		if (dy < 0) dy *= -1;
+		if (dx < dw && dy < dh) return true;
+		else return false;
+	}
+	else
+	{
+		float dx = this->GetCenterX() - object.GetCenterX();
+		float dy = this->GetCenterY() - object.GetCenterY();
+		int dw = this->GetWidth() + object.GetWidth();
+		int dh = this->GetHeight() + object.GetHeight();
+		if (dx < 0) dx *= -1;
+		if (dy < 0) dy *= -1;
+		if (dx < dw && dy < dh) return true;
+		else return false;
+	}
 }
-
 
 /*Getters*/
 int GameObject::GetID() const { return this->object_id; }
@@ -31,6 +44,7 @@ int GameObject::GetWidth() const { return this->width; }
 int GameObject::GetHeight() const { return this->height; }
 bool GameObject::IsVisible() { return this->is_visible; }
 std::string GameObject::GetTexture() const { return this->texture; }
+bool GameObject::GetPlayer() { return this->isplayer; }
 
 /*Setters*/
 void GameObject::SetCenter(float px, float py) { this->center_x = px; this->center_y = py; }
@@ -38,6 +52,7 @@ void GameObject::SetWidth(int width) { this->width = width; }
 void GameObject::SetHeight(int height) { this->height = height; }
 void GameObject::SetTexture(std::string texture) { this->texture = texture; }
 void GameObject::SetVisible(bool is_visible) { this->is_visible = is_visible; }
+void GameObject::SetPlayer(bool is_player) { this->isplayer = is_player; }
 
 GameObject::GameObject() 
 {

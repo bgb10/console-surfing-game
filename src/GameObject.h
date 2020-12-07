@@ -20,6 +20,7 @@ private:
 	int width;
 	int height;
 	std::string texture;
+	bool isplayer = false;
 protected:
 	bool is_visible = true;
 
@@ -45,7 +46,9 @@ public:
 	void SetHeight(int height);
 	void SetTexture(std::string texture);
 	void SetVisible(bool is_visible);
-	
+	void SetPlayer(bool is_player);
+	bool GetPlayer();
+
 	bool HasIntersected(GameObject& object);
 	virtual void HitBy(MovableObject* object) = 0;
 	virtual void HitBy(Player* player) = 0;
