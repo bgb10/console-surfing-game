@@ -16,8 +16,8 @@ bool GameObject::HasIntersected(GameObject& object)
 	{
 		float dx = this->GetCenterX() - object.GetCenterX();
 		float dy = this->GetCenterY() - object.GetCenterY();
-		int dw = this->GetWidth() + 1;
-		int dh = this->GetHeight() + 2;
+		int dw = this->GetWidth();
+		int dh = this->GetHeight() + 1;
 		if (dx < 0) dx *= -1;
 		if (dy < 0) dy *= -1;
 		if (dx < dw && dy < dh) return true;
