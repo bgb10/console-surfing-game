@@ -22,10 +22,10 @@ void Health::HitBy(Player* player)
 {
 	// increase life count
 	// maximum life count is 3
-	if (life_count < 3 && is_collidable)
+	if (is_collidable)
 	{
 		is_collidable = false;
-		life_count++;
 		SetTexture("  "); // hide item
+		if (life_count < 3) life_count++;
 	}
 }

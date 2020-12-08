@@ -22,11 +22,11 @@ void Boost::HitBy(Player* player)
 {
 	// increase boost count
 	// maximum boost count is 3
-	if (boost_count < 3 && is_collidable)
+	if (is_collidable)
 	{
 		is_collidable = false;
-		boost_count++;
 		SetTexture("  "); // hide item
 		SetCenter(0, -100.0f);
+		if (boost_count < 3) boost_count++;
 	}
 }

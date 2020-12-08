@@ -54,8 +54,6 @@ void Buoy::HitBy(Player* player)
 {
 	if (is_collidable)
 	{
-		is_collidable = false;
-
 		// Actions on collision between Player and Movable are the same
 		// call Buoy::HitBy(MovableObject* object)
 		Buoy::HitBy(dynamic_cast<MovableObject*>(player));
