@@ -4,6 +4,8 @@
 
 // #pragma execution_character_set("utf-8")
 
+// Release v1.0
+
 // global variables
 int score = 0;
 int boost_count = 0;
