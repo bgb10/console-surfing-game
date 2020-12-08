@@ -34,6 +34,7 @@ void Kraken::HitBy(Player* player)
 
 void Kraken::Move(double delta_time)
 {
+	if (player->CheckInvincible()) return;
 	if (has_collision) return;
 
 	// kraken follows the player

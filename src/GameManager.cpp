@@ -211,13 +211,15 @@ void GameManager::Update()
 	// check collision between immovable and player
 	for (int i = 0; i < vec_immovable.size(); i++)
 	{
-		if (vec_immovable[i]->GameObject::IsVisible())
-		{
-			if (vec_immovable[i]->HasIntersected(player))
-				vec_immovable[i]->HitBy(&player);
+		if (!player.CheckInvincible()) {
+			if (vec_immovable[i]->GameObject::IsVisible())
+			{
+				if (vec_immovable[i]->HasIntersected(player))
+					vec_immovable[i]->HitBy(&player);
+			}
+			else
+				m_ObjectManager.RemoveImmovable(vec_immovable[i]);
 		}
-		else
-			m_ObjectManager.RemoveImmovable(vec_immovable[i]);
 	}
 
 	DistanceToScore();
