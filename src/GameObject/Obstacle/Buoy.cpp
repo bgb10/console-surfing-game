@@ -37,14 +37,14 @@ void Buoy::HitBy(MovableObject* object)
 			if (object->GetVelocityX() > 0)
 			{
 				// object was going right
-				object->RotateLeft();
-				object->RotateLeft();
+				object->RotateRight();
+				object->RotateRight();
 			}
 			else
 			{
 				// object was going left
-				object->RotateRight();
-				object->RotateRight();
+				object->RotateLeft();
+				object->RotateLeft();
 			}
 		}
 	}
