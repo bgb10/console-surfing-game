@@ -201,7 +201,7 @@ void SceneManager::Ready() {
 	WriteBuffer(size_x * 5 / 11, size_y / 2, t);
 	t = "체력";
 	WriteBuffer(size_x * 5 / 11 - 1, size_y / 2 + 2, t);
-	t = "ⓑ";
+	t = " ⓑ";
 	WriteBuffer(size_x * 6 / 11, size_y / 2, t);
 	t = "부스트";
 	WriteBuffer(size_x * 6 / 11 - 1, size_y / 2 + 2, t);
@@ -211,9 +211,9 @@ void SceneManager::Ready() {
 	WriteBuffer(size_x * 7 / 11, size_y / 2, t);
 	t = "갑판";
 	WriteBuffer(size_x * 7 / 11, size_y / 2 + 2, t);
-	t = " ▶ ";
+	t = " |> ";
 	WriteBuffer(size_x * 8 / 11, size_y / 2 - 1, t);
-	t = "≡≡";
+	t = "-==-";
 	WriteBuffer(size_x * 8 / 11, size_y / 2, t);
 	t = "부표";
 	WriteBuffer(size_x * 8 / 11, size_y / 2 + 2, t);

@@ -9,7 +9,7 @@ Boost::Boost(float x, float y) : Item(x, y)
 {
 	SetWidth(1);
 	SetHeight(1);
-	SetTexture("ⓔ");
+	SetTexture("ⓑ");
 	is_collidable = true;
 }
 

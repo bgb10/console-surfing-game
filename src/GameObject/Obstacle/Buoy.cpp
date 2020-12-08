@@ -12,7 +12,7 @@ Buoy::Buoy(float x, float y) : Obstacle(x, y)
 {
 	SetWidth(2);
 	SetHeight(2);
-	SetTexture(" |>~-==-");
+	SetTexture(" |> -==-");
 	is_collidable = true;
 }
 
